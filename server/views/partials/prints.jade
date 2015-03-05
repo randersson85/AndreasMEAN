@@ -1,0 +1,13 @@
+.main-content
+    h2 Prints
+    p
+        a(ng-click="filters.category = ''" href="") All Prints
+        span &nbsp;|&nbsp;
+        a(ng-click="filters.category = 'Landscape'" href="") Landscape
+        span  &nbsp;|&nbsp;
+        a(ng-click="filters.category = 'Street'" href="") Street
+
+    a(ng-repeat="print in prints | filter: filters" href="#print/{{ print.id }}/{{ print.title }}")
+        .listing-print(style="background-image: url('img/printImg/{{ print.img }}')")
+.clearfix(style="width:400px;")
+    h1 &nbsp;

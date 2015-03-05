@@ -1,0 +1,16 @@
+<header id="topHeader"><div id="menu-logo"><a href="#main"><img src="public/img/logo_kropp.png" alt="AK"/><h1><small><span class="thin">Photographer</span><span class="mobile-break"></span><br/></small><span class="bold">Andreas Karlsson</span></h1></a></div><nav id="nav-main"><ul><li><a href="#main">Home</a></li><li><a href="#prints">Buy Prints</a></li><li><a href="#">About</a></li><li><a href="http://www.andreas-karlsson.net">Portfolio</a></li><li><a href="#">Contact</a></li><li><a href="#">View Cart</a></li><li><a href="#">Checkout</a></li></ul></nav><div id="nav-trigger"><a id="nav-toggle" href="#" class="nav-toggle-a"><div><span></span></div></a></div><nav id="nav-mobile"></nav><div id="logo-wrapper" class="mobile-only"><div id="logo"><img src="public/img/logo-kropp.png" alt="AK"/><h1><small><span class="thin">Photographer</span><span class="mobile-break"><br/></span><span class="bold">Andreas Karlsson</span></small></h1></div></div><aside class="right-tray"><nav><span id="cartQty">1</span><a href="#"><img src="public/img/cart_small.png" alt="Shopping cart"/></a></nav></aside></header><script>$(document).ready(function () {
+    $("#nav-mobile").html($("#nav-main").html());
+    $("#nav-toggle").click(function () {
+        if ($("nav#nav-mobile ul").hasClass("expanded")) {
+            $("nav#nav-mobile ul.expanded").removeClass("expanded").slideUp(250);
+            //$(this).removeClass("open");
+        } else {
+            $("nav#nav-mobile ul").addClass("expanded").slideDown(250);
+            //$(this).addClass("open");
+        }
+    });
+});</script><script>$(function () {
+    $("#nav-toggle").click(function () {
+        $("#nav-toggle").toggleClass("active")
+    });
+});</script>

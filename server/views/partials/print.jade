@@ -1,0 +1,39 @@
+.main-content(style="min-height:0")
+    h2 {{ print.title }}
+    p.crumbs
+        a(href="/") Home
+        span >
+        a(href="#prints") Prints
+        span >
+        span {{ print.title }}
+#infoWrapper
+    .printInfo
+        .printImage
+            img(src="img/printImg/{{ print.img }}")
+        h3 {{ price | currency :"sek" : 2 }}
+        form
+            select.select-style(
+            ng-model="material"
+            ng-change="setPrice(material, size)"
+            ng-required=""
+            ng-options="material as material for material in materials"
+            )
+            br
+            select(
+            ng-if="print.ratio == '16x9'"
+            ng-model="size"
+            ng-change="setPrice(material, size)"
+            ng-required=""
+            ng-options="size as size for size in standardSizes"
+            )
+            select(
+            ng-if="print.ratio == '3x1'"
+            ng-model="size"
+            ng-change="setPrice(material, size)"
+            ng-required=""
+            ng-options="size as size for size in wideSizes"
+            )
+            br
+            button.btn Add to cart
+
+
