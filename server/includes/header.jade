@@ -1,0 +1,66 @@
+header#topHeader
+    #menu-logo
+        a(href="#main")
+            img(src="img/logo_kropp.png" alt="AK")
+            h1
+                small
+                    span.thin Photographer
+                    span.mobile-break
+                        br
+                span.bold Andreas Karlsson
+    nav#nav-main
+        ul
+            li
+                a(href="#main") Home
+            li
+                a(href="#prints") Buy Prints
+            li
+                a(href="#") About
+            li
+                a(href="http://www.andreas-karlsson.net") Portfolio
+            li
+                a(href="#") Contact
+            li
+                a(href="#") View Cart
+            li
+                a(href="#") Checkout
+    #nav-trigger
+        a#nav-toggle.nav-toggle-a(href="#")
+            div
+                span
+    nav#nav-mobile
+    #logo-wrapper.mobile-only
+        #logo
+            img(src="img/logo_kropp.png" alt="AK")
+            h1
+                small
+                    span.thin Photographer
+                    span.mobile-break
+                        br
+                    span.bold Andreas Karlsson
+    aside.right-tray
+        nav
+            span#cartQty 1
+            a(href="#")
+                img(src="img/cart_small.png" alt="Shopping cart")
+
+
+script.
+    $(document).ready(function () {
+        $("#nav-mobile").html($("#nav-main").html());
+        $("#nav-toggle").click(function () {
+            if ($("nav#nav-mobile ul").hasClass("expanded")) {
+                $("nav#nav-mobile ul.expanded").removeClass("expanded").slideUp(250);
+                //$(this).removeClass("open");
+            } else {
+                $("nav#nav-mobile ul").addClass("expanded").slideDown(250);
+                //$(this).addClass("open");
+            }
+        });
+    });
+script.
+    $(function () {
+        $("#nav-toggle").click(function () {
+            $("#nav-toggle").toggleClass("active")
+        });
+    });
