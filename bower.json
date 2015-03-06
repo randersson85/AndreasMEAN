@@ -2,7 +2,9 @@
   "name": "AndreasMEAN",
   "version": "0.0.0",
   "authors": [
-    "Robert <randersson85@gmail.com>"
+    "Robert Andersson <randersson85@gmail.com>",
+    "Johan Nyström <johannystrom85@gmail.com>",
+    "Tom Niskanen <tom.niskanen@gmail.com>"
   ],
   "license": "MIT",
   "private": true,
@@ -16,6 +18,10 @@
     "angular-animate": "~1.3.14",
     "bootstrap": "~3.3.2",
     "superslides": "~0.6.2",
-    "font-awesome": "~4.3.0"
+    "font-awesome": "~4.3.0",
+    "jasmine": "~2.2.1"
+  },
+  "devDependencies": {
+    "jasmine": "~2.2.1"
   }
 }
