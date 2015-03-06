@@ -14,6 +14,10 @@ angular.module('app').config(function($routeProvider){
             templateUrl:'/partials/print',
             controller: 'mainController'
         })
+        .when('/admin',{
+            templateUrl:'/partials/admin',
+            controller: 'loginController'
+        })
 });
 
 angular.module('app').controller('mainController',function($scope, $routeParams){
