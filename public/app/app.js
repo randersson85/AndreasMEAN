@@ -18,9 +18,13 @@ angular.module('app').config(function($routeProvider){
             templateUrl:'/partials/admin',
             controller: 'loginController'
         })
+        .when('/shoppingcart',{
+            templateUrl:'/partials/shoppingcart',
+            controller: 'mainController'
+        })
 });
 
-angular.module('app').controller('mainController',function($scope, $routeParams){
+angular.module('app').controller('mainController',function($scope, $routeParams, $location){
 
     $scope.prints = [
         {"id" : 1,"category" : "Street","title" : "New York","ratio" : "16x9","img" : "newyork.jpg"},
@@ -71,6 +75,14 @@ angular.module('app').controller('mainController',function($scope, $routeParams)
     $scope.price = $scope.pricelist[0].price;
     $scope.filters = { };
     $scope.print = $scope.prints[$routeParams.printID-1];
+
+    $scope.cart = [];
+
+    $scope.addToCart = function(type, size, price) {
+        $scope.cart.push({"type": type, "size" : size, "price" : price, "quantity" : 1});
+        console.log($scope.cart);
+        $location.path("/shoppingcart");
+    };
 });
 
 //bildspel

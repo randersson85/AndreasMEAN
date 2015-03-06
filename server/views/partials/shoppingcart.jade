@@ -1,0 +1,10 @@
+.main-content
+    h2 Shopping cart
+    h3 {{ cart }}
+    #shoppingCart
+        div(ng-repeat="print in cart")
+            .cartRow
+                .column
+                    span image
+                .column
+                    h3 {{ print.title }}
