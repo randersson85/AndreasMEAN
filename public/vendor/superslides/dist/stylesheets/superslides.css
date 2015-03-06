@@ -1,19 +1,8 @@
 #slides {
   position: relative;
-  background: #000;
-  max-height: 100vh;
-
-
 }
-
-#slides img {
-   opacity:0.6;
-}
-
-
 #slides .slides-container {
   display: none;
-
 }
 #slides .scrollable {
   *zoom: 1;
@@ -39,12 +28,10 @@
 }
 .slides-navigation a {
   position: absolute;
-  outline: 0!important;
+  display: block;
 }
-
 .slides-navigation a.prev {
   left: 0;
-
 }
 .slides-navigation a.next {
   right: 0;
@@ -53,16 +40,15 @@
 .slides-pagination {
   position: absolute;
   z-index: 3;
-  bottom: 20px;
+  bottom: 0;
   text-align: center;
   width: 100%;
 }
 .slides-pagination a {
-  font-size: 0.0em;
-  border: 1px solid #aaaaaa;
+  border: 2px solid #222;
   border-radius: 15px;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
@@ -70,26 +56,10 @@
   zoom: 1;
   *display: inline;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=");
-  margin: 10px;
+  margin: 2px;
   overflow: hidden;
   text-indent: -100%;
-  transition: 0.5s;
-}
-
-.slides-pagination a:hover {
-    background:#fff;
-    -moz-opacity: 0.8;
-  opacity: 0.8;
-    transition: 0.5s;
-
 }
 .slides-pagination a.current {
-  background: #000;
-  -moz-opacity: 0.6;
-  opacity: 0.6;
+  background: #222;
 }
-
-.slides-pagination a:visited{
-  border: 1px solid #aaaaaa;
-}
-
