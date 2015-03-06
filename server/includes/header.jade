@@ -11,21 +11,40 @@ header#topHeader
     nav#nav-main
         ul
             li
-                a(href="#main") Home
+                a(href='')
+                    i.fa.fa-home.fa-fw
+                    | Home
             li
-                a(href="#prints") Buy Prints
+                a(href='#/prints')
+                    i.fa.fa-picture-o.fa-fw
+                    | Buy prints
             li
-                a(href="#") About
+                a(href='')
+                    i.fa.fa-user.fa-fw
+                    | About
             li
-                a(href="http://www.andreas-karlsson.net") Portfolio
+                a(href='http://www.andreas-karlsson.net')
+                    i.fa.fa-external-link.fa-fw
+                    | Portfolio
             li
-                a(href="#") Contact
+                a(href='')
+                    i.fa.fa-comments.fa-fw
+                    | Contact
             li
-                a(href="#") View Cart
-            li
-                a(href="#") Checkout
+                a(href='index.php?AdminProductList/getAllPrints')
+                    i.fa.fa-external-link.fa-fw
+                    | Admin
+            li.mobile-only
+                a(href='')
+                    i.fa.fa-shopping-cart.fa-fw
+                    | View Cart
+            li.mobile-only
+                a(href='')
+                    i.fa.fa-angle-double-right.fa-fw
+                    | Checkout
+
     #nav-trigger
-        a#nav-toggle.nav-toggle-a(href="#")
+        a#nav-toggle.nav-toggle-a(href="")
             div
                 span
     nav#nav-mobile

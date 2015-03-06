@@ -1,12 +1,31 @@
-.main-content
-    h1 {{ myVar }}
-    .intro-text
-        h2
-            span.thin.row-1 Fantastic
-            span.bold.row-2 Landscape
-            span.italic.thin.row-2 &
-            span.light.row-2 Street
-            br
-            span.light.row-3 Photography
+.intro-text
+    h2
+        span.thin.row-1 Fantastic
+        br
+        span.bold.row-2 Landscape
+        span.italic.thin.row-2 &
+        span.light.row-2 Street
+        br
+        span.light.row-3 Photography
 
-        .btn Buy Prints
+    .btn Buy Prints
+.slides-wrapper
+    #slides
+        .slides-container
+            img(src='img/printImg/newyork.jpg', alt='Taxi cars in New York')
+            img(src='img/printImg/graffiti.jpg', alt='Grafitti art')
+            img(src='img/printImg/roads.jpg', alt='Close up of road')
+        nav.slides-navigation
+            a.next(href='#')
+                img(src='img/arrow_right.png', alt='Arrow right')
+            a.prev(href='#')
+                img(src='img/arrow_left.png', alt='Arrow left')
+    script.
+        $(function () {
+            $('#slides').superslides({
+                hashchange: false,
+                animation: 'fade',
+                animation_speed: 'slow',
+                inherit_height_from: '.slides-wrapper'
+            });
+        });
