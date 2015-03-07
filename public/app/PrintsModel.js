@@ -17,4 +17,14 @@ angular.module("app")
         service.all = function() {
             return service.prints;
         }
+
+        service.get = function(id) {
+            var print = {};
+            for (var index in service.prints) {
+                if (service.prints[index].id === id) {
+                    print = service.prints[index];
+                }
+            }
+            return print;
+        }
     });

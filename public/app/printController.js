@@ -1,5 +1,5 @@
 angular.module('app').controller('printController',function(
-    $scope, $routeParams, MATERIALS, SIZES, PriceListModel, PrintsModel) {
+    $scope, $routeParams, $cookieStore, $location, MATERIALS, SIZES, PriceListModel, PrintsModel, ShoppingCartModel) {
     $scope.prints = PrintsModel.all();
     $scope.print = $scope.prints[$routeParams.printID-1];
 
@@ -19,6 +19,12 @@ angular.module('app').controller('printController',function(
 
     //Används för att kunan filtrera produtlistningen
     $scope.filters = { };
+
+    $scope.add = function(id) {
+        var print = PrintsModel.get(id);
+        ShoppingCartModel.add(print.id, print.category, print.title, print.ratio, print.img);
+        $location.path("/shoppingcart");
+    }
 
 
 });

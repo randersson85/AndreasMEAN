@@ -19,7 +19,8 @@
     "bootstrap": "~3.3.2",
     "superslides": "~0.6.2",
     "font-awesome": "~4.3.0",
-    "jasmine": "~2.2.1"
+    "jasmine": "~2.2.1",
+    "angular-cookies": "~1.3.14"
   },
   "devDependencies": {
     "jasmine": "~2.2.1"

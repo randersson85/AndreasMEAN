@@ -1,4 +1,4 @@
-angular.module('app', ['ngResource', 'ngRoute']);
+angular.module('app', ['ngResource', 'ngRoute', 'ngCookies']);
 
 angular.module('app').config(function($routeProvider){
     $routeProvider
@@ -24,7 +24,7 @@ angular.module('app').config(function($routeProvider){
 });
 
 angular.module('app').controller('mainController',function(
-    $scope, $routeParams, MATERIALS, SIZES, PriceListModel){
+    $scope, $cookieStore, $routeParams, MATERIALS, SIZES, PriceListModel, ShoppingCartModel)  {
 
-
+    $scope.cart = ShoppingCartModel.all();
 });
