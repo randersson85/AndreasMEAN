@@ -28,8 +28,8 @@ angular.module('app').controller('mainController',function(
 
     $scope.cart = ShoppingCartModel.all();
 
-    $scope.remove = function(id) {
-        ShoppingCartModel.remove(id);
+    $scope.remove = function(id, type, size) {
+        ShoppingCartModel.remove(id, type, size);
         $scope.updateSum();
         $scope.cart = ShoppingCartModel.all();
     };

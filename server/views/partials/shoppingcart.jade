@@ -9,7 +9,7 @@
                     h3 {{ print.title }}
                     p {{ print.type }}
                     p {{ print.size }}
-                    a(href="" ng-click="remove(print.id)")
+                    a(href="" ng-click="remove(print.id, print.type, print.size)")
                         p Remove
                  .column
                      h3 {{ print.price | currency :"sek" : 2 }}

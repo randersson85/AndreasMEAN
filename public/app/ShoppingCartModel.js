@@ -38,9 +38,12 @@ angular.module("app")
             console.log(service.cart);
         };
 
-        service.remove = function(id) {
+        service.remove = function(id, type, size) {
             for(var i = service.cart.length - 1; i >= 0; i--){
-                if(service.cart[i].id == id){
+                if(service.cart[i].id === id &&
+                    service.cart[i].type === type &&
+                    service.cart[i].size === size)
+                {
                     service.cart.splice(i,1);
                 }
             }
@@ -71,8 +74,8 @@ angular.module("app")
                     service.cart[j].type === type &&
                     service.cart[j].size === size
                 ) {
-                    if (service.cart[j].quantity === 1) {
-                        service.remove(id);
+                    if (service.cart[j].quantity <= 1) {
+                        service.remove(id, type, size);
                     } else {
                         service.cart[j].quantity--;
                     }
