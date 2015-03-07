@@ -16,22 +16,14 @@
             ng-model="material"
             ng-change="setPrice(material, size)"
             ng-required=""
-            ng-options="material as material for material in materials"
+            ng-options="material.name as material.name for material in materials"
             )
             br
             select(
-            ng-if="print.ratio == '16x9'"
             ng-model="size"
             ng-change="setPrice(material, size)"
             ng-required=""
-            ng-options="size as size for size in standardSizes"
-            )
-            select(
-            ng-if="print.ratio == '3x1'"
-            ng-model="size"
-            ng-change="setPrice(material, size)"
-            ng-required=""
-            ng-options="size as size for size in wideSizes"
+            ng-options="size.size as size.size for size in sizes | filter : {format: print.ratio} : true"
             )
             br
             button.btn Add to cart
