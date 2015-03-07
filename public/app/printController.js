@@ -20,9 +20,9 @@ angular.module('app').controller('printController',function(
     //Används för att kunan filtrera produtlistningen
     $scope.filters = { };
 
-    $scope.add = function(id) {
+    $scope.add = function(id, price, type, size) {
         var print = PrintsModel.get(id);
-        ShoppingCartModel.add(print.id, print.category, print.title, print.ratio, print.img);
+        ShoppingCartModel.add(print.id, print.category, print.title, print.ratio, print.img, price, type, size);
         $location.path("/shoppingcart");
     }
 

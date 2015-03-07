@@ -4,6 +4,19 @@
         div(ng-repeat="print in cart")
             .cartRow
                 .column
-                    span image
+                    img(src="img/printImg/{{print.img}}")
                 .column
                     h3 {{ print.title }}
+                    p {{ print.type }}
+                    p {{ print.size }}
+                    a(href="" ng-click="remove(print.id)")
+                        p Remove
+                 .column
+                     h3 {{ print.price | currency :"sek" : 2 }}
+                 .column
+                     a(href="" ng-click="increment(print.id, print.type, print.size)")
+                        i.fa.fa-plus
+                     span(style="margin:0 10px;") {{ print.quantity }}
+                     a(href="" ng-click="decrement(print.id, print.type, print.size)")
+                        i.fa.fa-minus
+    h3 Sum: {{ sum | currency :"sek" : 2 }}

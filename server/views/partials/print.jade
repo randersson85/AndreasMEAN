@@ -11,7 +11,7 @@
         .printImage
             img(src="img/printImg/{{ print.img }}")
         h3 {{ price | currency :"sek" : 2 }}
-        form(ng-submit="add(print.id)")
+        form(ng-submit="add(print.id, price, material, size)")
             select.select-style(
             ng-model="material"
             ng-change="setPrice(material, size)"
