@@ -1,4 +1,4 @@
-angular.module('app', ['ngResource', 'ngRoute', 'ngCookies']);
+angular.module('app', ['ngResource', 'ngRoute', 'ngCookies', 'ngSwitch']);
 
 angular.module('app').config(function($routeProvider){
     $routeProvider
@@ -19,35 +19,10 @@ angular.module('app').config(function($routeProvider){
         })
         .when('/shoppingcart',{
             templateUrl:'/partials/shoppingcart',
-            controller: 'mainController'
+            controller: 'shoppingcartController'
         })
 });
 
-angular.module('app').controller('mainController',function(
-    $scope, $location, $cookieStore, $routeParams, MATERIALS, SIZES, PriceListModel, ShoppingCartModel)  {
+angular.module('app').controller('mainController',function() {
 
-    $scope.cart = ShoppingCartModel.all();
-
-    $scope.remove = function(id, type, size) {
-        ShoppingCartModel.remove(id, type, size);
-        $scope.updateSum();
-        $scope.cart = ShoppingCartModel.all();
-    };
-
-    $scope.increment = function(id, type, size) {
-        ShoppingCartModel.increment(id, type, size);
-        $scope.updateSum();
-        $scope.cart = ShoppingCartModel.all();
-    };
-
-    $scope.decrement = function(id, type, size) {
-        ShoppingCartModel.decrement(id, type, size);
-        $scope.updateSum();
-        $scope.cart = ShoppingCartModel.all();
-    };
-
-    $scope.sum = ShoppingCartModel.sum();
-    $scope.updateSum = function() {
-        $scope.sum = ShoppingCartModel.sum();
-    }
 });
