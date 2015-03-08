@@ -1,7 +1,7 @@
 angular.module('app').controller('printController',function(
     $scope, $rootScope, $routeParams, $location, MATERIALS, SIZES, PriceListModel, PrintsModel, ShoppingCartModel) {
     $scope.prints = PrintsModel.all();
-    $scope.print = $scope.prints[$routeParams.printID-1];
+    $scope.print = PrintsModel.get([$routeParams.printTitle]);
 
     $scope.materials = MATERIALS;
     $scope.sizes = SIZES;
