@@ -3,7 +3,9 @@ angular.module("app")
     function($cookieStore) {
         var service = this;
 
-        service.cart = $cookieStore.get('cart');
+
+
+        service.cart = !$cookieStore.get('cart') ? [] : $cookieStore.get('cart');
 
         service.add = function(id, category, title, ratio, img, price, type, size) {
             if (service.cart === []) {

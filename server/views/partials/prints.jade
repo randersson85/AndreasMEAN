@@ -7,7 +7,7 @@
         span  &nbsp;|&nbsp;
         a(ng-click="filters.category = 'Street'" href="") Street
 
-    a(ng-repeat="print in prints | filter: filters" href="#print/{{ print.id }}/{{ print.title }}")
+    a(ng-repeat="print in prints | filter: filters | orderBy: 'dateAdded':true" href="#print/{{ print.id }}/{{ print.title }}")
         .listing-print(style="background-image: url('img/printImg/{{ print.img }}')")
 .clearfix(style="width:400px;")
     h1 &nbsp;
