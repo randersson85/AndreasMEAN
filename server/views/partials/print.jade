@@ -6,7 +6,7 @@
         a(href="#prints") Prints
         span >
         span {{ print.title }}
-#infoWrapper
+#infoWrapper(ng-controller="shoppingcartController")
     .printInfo
         .printImage
             img(src="img/printImg/{{ print.img }}")

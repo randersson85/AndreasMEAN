@@ -99,6 +99,16 @@ angular.module("app")
 
         };
 
+        service.itemsInCart = function() {
+            service.cart = !$cookieStore.get('cart') ? [] : $cookieStore.get('cart');
+            var qty = 0;
+            for (var j = 0; j < service.cart.length; j++) {
+                qty += service.cart[j].quantity;
+            };
+            $cookieStore.put('cart', service.cart);
+            return qty;
+        }
+
         service.all = function() {
             return $cookieStore.get('cart');
         }

@@ -1,4 +1,4 @@
-header#topHeader
+header#topHeader(ng-controller="headerController")
     #menu-logo
         a(href="#/")
             img(src="img/logo_kropp.png" alt="AK")
@@ -58,11 +58,9 @@ header#topHeader
                     span.bold Andreas Karlsson
     aside.right-tray
         nav
-            span#cartQty 1
+            span(ng-model="itemsInCart" ng-if="itemsInCart > 0")#cartQty {{ itemsInCart }}
             a(href="#/shoppingcart")
                 img(src="img/cart_small.png" alt="Shopping cart")
-
-
 script.
     $(document).ready(function () {
         $("#nav-mobile").html($("#nav-main").html());
