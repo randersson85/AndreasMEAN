@@ -1,13 +1,13 @@
 .main-content
-    h2 Prints
+    h2 {{ category }}
     p
-        a(ng-click="filters.category = ''" href="") All Prints
+        a(href="#/prints/All") All Prints
         span &nbsp;|&nbsp;
-        a(ng-click="filters.category = 'Landscape'" href="") Landscape
+        a(href="#/prints/Landscape") Landscape
         span  &nbsp;|&nbsp;
-        a(ng-click="filters.category = 'Street'" href="") Street
+        a(href="#/prints/Street") Street
 
     a(ng-repeat="print in prints | filter: filters | orderBy: 'dateAdded':true" href="#print/{{ print.id }}/{{ print.title }}")
         .listing-print(style="background-image: url('img/printImg/{{ print.img }}')")
 .clearfix(style="width:400px;")
-    h1 &nbsp;
+    h1.mobileHidden &nbsp;

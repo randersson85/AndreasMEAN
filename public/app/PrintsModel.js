@@ -18,6 +18,16 @@ angular.module("app")
             return service.prints;
         }
 
+        service.byCategory = function(category) {
+            var selectedPrints = [];
+            for (var i = 0; i < service.prints.length; ++i) {
+                if (service.prints[i].category === category) {
+                    selectedPrints.push(service.prints[i]);
+                }
+            }
+            return selectedPrints;
+        }
+
         service.get = function(id) {
             var print = {};
             for (var index in service.prints) {

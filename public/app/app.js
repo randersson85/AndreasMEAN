@@ -9,6 +9,10 @@ angular.module('app').config(function($routeProvider){
             templateUrl:'/partials/prints',
             controller: 'printsController'
         })
+        .when('/prints/:category',{
+            templateUrl:'/partials/prints',
+            controller: 'printsController'
+        })
         .when('/print/:printID/:printTitle', {
             templateUrl:'/partials/print',
             controller: 'printController'

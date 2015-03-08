@@ -17,9 +17,6 @@ angular.module('app').controller('printController',function(
         $scope.price = price;
     };
 
-    //Används för att kunan filtrera produtlistningen
-    $scope.filters = { };
-
     $scope.add = function(id, price, type, size) {
         var print = PrintsModel.get(id);
         ShoppingCartModel.add(print.id, print.category, print.title, print.ratio, print.img, price, type, size);

@@ -1,31 +1,35 @@
 .main-content(style="min-height:0")
     h2 {{ print.title }}
     p.crumbs
-        a(href="/") Home
+        a(href="#/") Home
         span >
-        a(href="#prints") Prints
+        a(href="#prints/All") Prints
+        span >
+        a(href="#prints/{{ print.category }}") {{ print.category }}
         span >
         span {{ print.title }}
 #infoWrapper(ng-controller="shoppingcartController")
     .printInfo
         .printImage
             img(src="img/printImg/{{ print.img }}")
-        h3 {{ price | currency :"sek" : 2 }}
-        form(ng-submit="add(print.id, price, material, size)")
-            select.select-style(
-            ng-model="material"
-            ng-change="setPrice(material, size)"
-            ng-required=""
-            ng-options="material.name as material.name for material in materials"
-            )
-            br
-            select(
-            ng-model="size"
-            ng-change="setPrice(material, size)"
-            ng-required=""
-            ng-options="size.size as size.size for size in sizes | filter : {format: print.ratio} : true"
-            )
-            br
-            button.btn Add to cart
+            .printDetails
+                h2.italic {{ print.title }}
+                h3.thin {{ price | currency :"" : 2 }} sek
+                form(ng-submit="add(print.id, price, material, size)")
+                    select.select-style(
+                    ng-model="material"
+                    ng-change="setPrice(material, size)"
+                    ng-required=""
+                    ng-options="material.name as material.name for material in materials"
+                    )
+                    br
+                    select(
+                    ng-model="size"
+                    ng-change="setPrice(material, size)"
+                    ng-required=""
+                    ng-options="size.size as size.size for size in sizes | filter : {format: print.ratio} : true"
+                    )
+                    br
+                    button.btn Add to cart
 
 
