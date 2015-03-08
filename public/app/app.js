@@ -1,4 +1,4 @@
-angular.module('app', ['ngResource', 'ngRoute', 'ngCookies', 'ngSwitch']);
+angular.module('app', ['ngResource', 'ngRoute', 'ngCookies']);
 
 angular.module('app').config(function($routeProvider){
     $routeProvider
