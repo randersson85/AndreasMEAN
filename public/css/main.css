@@ -583,9 +583,9 @@ select {
     =========================================================================*/
 
 #infoWrapper {
-    -webkit-box-shadow: 0 0 10px 0 rgba(222,222,222,1);
-    -moz-box-shadow: 0 0 10px 0 rgba(222,222,222,1);
-    box-shadow: 0 0 10px 0 rgba(222,222,222,1);
+    -webkit-box-shadow: 0 0 5px 0 rgba(222,222,222,1);
+    -moz-box-shadow: 0 0 5px 0 rgba(222,222,222,1);
+    box-shadow: 0 0 5px 0 rgba(222,222,222,1);
     background-color: #f0f0f0;
     height:500px;
     width:100%;
@@ -626,7 +626,7 @@ select {
 
 .printInfo {
     margin: 0 auto;
-    padding: 3% 0;
+    padding: 1% 0;
     width:100%;
     max-width:1024px;
 }
