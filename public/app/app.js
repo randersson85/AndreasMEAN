@@ -13,7 +13,7 @@ angular.module('app').config(function($routeProvider){
             templateUrl:'/partials/prints',
             controller: 'printsController'
         })
-        .when('/print/:printID/:printTitle', {
+        .when('/print/:printTitle', {
             templateUrl:'/partials/print',
             controller: 'printController'
         })

@@ -28,10 +28,10 @@ angular.module("app")
             return selectedPrints;
         }
 
-        service.get = function(id) {
+        service.get = function(title) {
             var print = {};
             for (var index in service.prints) {
-                if (service.prints[index].id === id) {
+                if (service.prints[index].title == title) {
                     print = service.prints[index];
                 }
             }

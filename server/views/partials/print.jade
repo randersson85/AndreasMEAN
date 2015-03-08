@@ -15,7 +15,7 @@
             .printDetails
                 h2.italic {{ print.title }}
                 h3.thin {{ price | currency :"" : 2 }} sek
-                form(ng-submit="add(print.id, price, material, size)")
+                form(ng-submit="add(print.title, price, material, size)")
                     select.select-style(
                     ng-model="material"
                     ng-change="setPrice(material, size)"
