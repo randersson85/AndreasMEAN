@@ -22,9 +22,9 @@ Tween.prototype = {
 	cur: function() {
 		var hooks = Tween.propHooks[ this.prop ];
 
-		return hooks && hooks.get ?
-			hooks.get( this ) :
-			Tween.propHooks._default.get( this );
+		return hooks && hooks.getPrintByTitle ?
+			hooks.getPrintByTitle( this ) :
+			Tween.propHooks._default.getPrintByTitle( this );
 	},
 	run: function( percent ) {
 		var eased,
@@ -56,7 +56,7 @@ Tween.prototype.init.prototype = Tween.prototype;
 
 Tween.propHooks = {
 	_default: {
-		get: function( tween ) {
+		getPrintByTitle: function( tween ) {
 			var result;
 
 			if ( tween.elem[ tween.prop ] != null &&

@@ -15,7 +15,7 @@
             .printDetails
                 h2.italic {{ print.title }}
                 h3.thin {{ price | currency :"" : 2 }} sek
-                form(ng-submit="add(print.title, price, material, size)")
+                form(ng-submit="add( {'title':print.title, 'price': price, 'type': material, 'size': size})")
                     select.select-style(
                     ng-model="material"
                     ng-change="setPrice(material, size)"
@@ -31,5 +31,3 @@
                     )
                     br
                     button.btn Add to cart
-
-

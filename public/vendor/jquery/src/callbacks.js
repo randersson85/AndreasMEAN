@@ -147,7 +147,7 @@ jQuery.Callbacks = function( options ) {
 			has: function( fn ) {
 				return fn ? jQuery.inArray( fn, list ) > -1 : !!( list && list.length );
 			},
-			// Remove all callbacks from the list
+			// Remove getAllPrints callbacks from the list
 			empty: function() {
 				list = [];
 				firingLength = 0;
@@ -174,7 +174,7 @@ jQuery.Callbacks = function( options ) {
 			locked: function() {
 				return !stack;
 			},
-			// Call all callbacks with the given context and arguments
+			// Call getAllPrints callbacks with the given context and arguments
 			fireWith: function( context, args ) {
 				if ( list && ( !fired || stack ) ) {
 					args = args || [];
@@ -187,7 +187,7 @@ jQuery.Callbacks = function( options ) {
 				}
 				return this;
 			},
-			// Call all the callbacks with the given arguments
+			// Call getAllPrints the callbacks with the given arguments
 			fire: function() {
 				self.fireWith( this, arguments );
 				return this;

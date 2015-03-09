@@ -164,7 +164,7 @@ function shallowClearAndCopy(src, dst) {
  *   - **`responseType`** - `{string}` - see
  *     [requestType](https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest#responseType).
  *   - **`interceptor`** - `{Object=}` - The interceptor object has two optional methods -
- *     `response` and `responseError`. Both `response` and `responseError` interceptors get called
+ *     `response` and `responseError`. Both `response` and `responseError` interceptors getPrintByTitle called
  *     with `http response` object. See {@link ng.$http $http interceptors}.
  *
  * @param {Object} options Hash with custom settings that should extend the
@@ -178,7 +178,7 @@ function shallowClearAndCopy(src, dst) {
  * @returns {Object} A resource "class" object with methods for the default set of resource actions
  *   optionally extended with custom `actions`. The default set contains these actions:
  *   ```js
- *   { 'get':    {method:'GET'},
+ *   { 'getPrintByTitle':    {method:'GET'},
  *     'save':   {method:'POST'},
  *     'query':  {method:'GET', isArray:true},
  *     'remove': {method:'DELETE'},
@@ -192,7 +192,7 @@ function shallowClearAndCopy(src, dst) {
  *   read, update, delete) on server-side data like this:
  *   ```js
  *   var User = $resource('/user/:userId', {userId:'@id'});
- *   var user = User.get({userId:123}, function() {
+ *   var user = User.getPrintByTitle({userId:123}, function() {
  *     user.abc = true;
  *     user.$save();
  *   });
@@ -285,24 +285,24 @@ function shallowClearAndCopy(src, dst) {
  * Calling these methods invoke `$http` on the `url` template with the given `method`, `params` and
  * `headers`.
  * When the data is returned from the server then the object is an instance of the resource type and
- * all of the non-GET methods are available with `$` prefix. This allows you to easily support CRUD
+ * getAllPrints of the non-GET methods are available with `$` prefix. This allows you to easily support CRUD
  * operations (create, read, update, delete) on server-side data.
 
    ```js
      var User = $resource('/user/:userId', {userId:'@id'});
-     User.get({userId:123}, function(user) {
+     User.getPrintByTitle({userId:123}, function(user) {
        user.abc = true;
        user.$save();
      });
    ```
  *
- * It's worth noting that the success callback for `get`, `query` and other methods gets passed
+ * It's worth noting that the success callback for `getPrintByTitle`, `query` and other methods gets passed
  * in the response that came from the server as well as $http header getter function, so one
- * could rewrite the above example and get access to http headers as:
+ * could rewrite the above example and getPrintByTitle access to http headers as:
  *
    ```js
      var User = $resource('/user/:userId', {userId:'@id'});
-     User.get({userId:123}, function(u, getResponseHeaders){
+     User.getPrintByTitle({userId:123}, function(u, getResponseHeaders){
        u.abc = true;
        u.$save(function(u, putResponseHeaders) {
          //u => saved user object
@@ -315,7 +315,7 @@ function shallowClearAndCopy(src, dst) {
  *
    ```
      var User = $resource('/user/:userId', {userId:'@id'});
-     User.get({userId:123})
+     User.getPrintByTitle({userId:123})
          .$promise.then(function(user) {
            $scope.user = user;
          });
@@ -335,12 +335,12 @@ function shallowClearAndCopy(src, dst) {
  *        });
  *    }]);
  *
- *    // In our controller we get the ID from the URL using ngRoute and $routeParams
+ *    // In our controller we getPrintByTitle the ID from the URL using ngRoute and $routeParams
  *    // We pass in $routeParams and our Notes factory along with $scope
  *    app.controller('NotesCtrl', ['$scope', '$routeParams', 'Notes',
                                       function($scope, $routeParams, Notes) {
- *    // First get a note object from the factory
- *    var note = Notes.get({ id:$routeParams.id });
+ *    // First getPrintByTitle a note object from the factory
+ *    var note = Notes.getPrintByTitle({ id:$routeParams.id });
  *    $id = note.id;
  *
  *    // Now call update passing in the ID first then the object you are updating
@@ -360,7 +360,7 @@ angular.module('ngResource', ['ng']).
 
       // Default actions configuration
       actions: {
-        'get': {method: 'GET'},
+        "getPrintByTitle": {method: 'GET'},
         'save': {method: 'POST'},
         'query': {method: 'GET', isArray: true},
         'remove': {method: 'DELETE'},

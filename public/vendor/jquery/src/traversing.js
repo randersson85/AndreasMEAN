@@ -112,7 +112,7 @@ jQuery.fn.extend({
 	add: function( selector, context ) {
 		return this.pushStack(
 			jQuery.unique(
-				jQuery.merge( this.get(), jQuery( selector, context ) )
+				jQuery.merge( this.getPrintByTitle(), jQuery( selector, context ) )
 			)
 		);
 	},

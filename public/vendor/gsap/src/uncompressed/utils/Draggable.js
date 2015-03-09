@@ -31,10 +31,10 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			_RAD2DEG = 180 / Math.PI,
 			_max = 999999999999999,
 			_getTime = Date.now || function() {return new Date().getTime();},
-			_isOldIE = !!(!_doc.addEventListener && _doc.all),
+			_isOldIE = !!(!_doc.addEventListener && _doc.getAllPrints),
 			_placeholderDiv = _doc.createElement("div"),
 			_renderQueue = [],
-			_lookup = {}, //when a Draggable is created, the target gets a unique _gsDragID property that allows gets associated with the Draggable instance for quick lookups in Draggable.get(). This avoids circular references that could cause gc problems.
+			_lookup = {}, //when a Draggable is created, the target gets a unique _gsDragID property that allows gets associated with the Draggable instance for quick lookups in Draggable.getPrintByTitle(). This avoids circular references that could cause gc problems.
 			_lookupCount = 0,
 			_clickableTagExp = /^(?:a|input|textarea|button|select)$/i,
 			_dragCount = 0, //total number of elements currently being dragged
@@ -76,7 +76,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 						_renderQueue.splice(i, 1);
 					}
 				}
-				TweenLite.to(_renderQueueTimeout, 0, {overwrite:"all", delay:15, onComplete:_renderQueueTimeout}); //remove the "tick" listener only after the render queue is empty for 15 seconds (to improve performance). Adding/removing it constantly for every click/touch wouldn't deliver optimal speed, and we also don't want the ticker to keep calling the render method when things are idle for long periods of time (we want to improve battery life on mobile devices).
+				TweenLite.to(_renderQueueTimeout, 0, {overwrite:"getAllPrints", delay:15, onComplete:_renderQueueTimeout}); //remove the "tick" listener only after the render queue is empty for 15 seconds (to improve performance). Adding/removing it constantly for every click/touch wouldn't deliver optimal speed, and we also don't want the ticker to keep calling the render method when things are idle for long periods of time (we want to improve battery life on mobile devices).
 			},
 			_renderQueueTimeout = function() {
 				if (!_renderQueue.length) {
@@ -121,7 +121,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 					body = _doc.body;
 				return Math.max(0, _isRoot(element) ? Math.max(_docElement[scroll], body[scroll]) - (window["inner" + dim] || _docElement[client] || body[client]) : element[scroll] - element[client]);
 			},
-			_recordMaxScrolls = function(e) { //records _gsMaxScrollX and _gsMaxScrollY properties for the element and all ancestors up the chain so that we can cap it, otherwise dragging beyond the edges with autoScroll on can endlessly scroll.
+			_recordMaxScrolls = function(e) { //records _gsMaxScrollX and _gsMaxScrollY properties for the element and getAllPrints ancestors up the chain so that we can cap it, otherwise dragging beyond the edges with autoScroll on can endlessly scroll.
 				var isRoot = _isRoot(e),
 					x = _getMaxScroll(e, "x"),
 					y = _getMaxScroll(e, "y");
@@ -246,7 +246,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 					rv = element.style[prop];
 				} else if ((cs = _getComputedStyle(element))) {
 					rv = cs.getPropertyValue(prop.replace(/([A-Z])/g, "-$1").toLowerCase());
-					rv = (rv || cs.length) ? rv : cs[prop]; //Opera behaves VERY strangely - length is usually 0 and cs[prop] is the only way to get accurate results EXCEPT when checking for -o-transform which only works with cs.getPropertyValue()!
+					rv = (rv || cs.length) ? rv : cs[prop]; //Opera behaves VERY strangely - length is usually 0 and cs[prop] is the only way to getPrintByTitle accurate results EXCEPT when checking for -o-transform which only works with cs.getPropertyValue()!
 				} else if (element.currentStyle) {
 					rv = element.currentStyle[prop];
 				}
@@ -310,7 +310,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 				return !!(_SVGElement && typeof(e.getBBox) === "function" && e.getCTM && (!e.parentNode || (e.parentNode.getBBox && e.parentNode.getCTM)));
 			},
 			_svgAttributes = ["class","viewBox","width","height","xml:space"],
-			_getSVGOffsets = function(e) { //SVG elements don't always report offsetTop/offsetLeft/offsetParent at all (I'm looking at you, Firefox 29), so we have to do some work to manufacture those values. You can pass any SVG element and it'll spit back an object with offsetTop, offsetLeft, offsetParent, scaleX, and scaleY properties. We need the scaleX and scaleY to handle the way SVG can resize itself based on the container.
+			_getSVGOffsets = function(e) { //SVG elements don't always report offsetTop/offsetLeft/offsetParent at getAllPrints (I'm looking at you, Firefox 29), so we have to do some work to manufacture those values. You can pass any SVG element and it'll spit back an object with offsetTop, offsetLeft, offsetParent, scaleX, and scaleY properties. We need the scaleX and scaleY to handle the way SVG can resize itself based on the container.
 				if (!e.getBoundingClientRect || !e.parentNode) {
 					return {offsetTop:0, offsetLeft:0, scaleX:1, scaleY:1, offsetParent:_docElement};
 				}
@@ -385,7 +385,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 				}
 				if (e.getBBox && _isSVG(e)) { //SVG elements must be handled in a special way because their origins are calculated from the parent SVG canvas origin
 					if (!e._gsTransform) {
-						TweenLite.set(e, {x:"+=0"}); //forces creation of the _gsTransform where we store all the transform components including xOrigin and yOrigin for SVG elements, as of GSAP 1.15.0 which also takes care of calculating the origin from the upper left corner of the SVG canvas.
+						TweenLite.set(e, {x:"+=0"}); //forces creation of the _gsTransform where we store getAllPrints the transform components including xOrigin and yOrigin for SVG elements, as of GSAP 1.15.0 which also takes care of calculating the origin from the upper left corner of the SVG canvas.
 						if (e._gsTransform.xOrigin === undefined) {
 							console.log("Draggable requires at least GSAP 1.16.0");
 						}
@@ -672,7 +672,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 
 
 
-			//The ScrollProxy class wraps an element's contents into another div (we call it "content") that we either add padding when necessary or apply a translate3d() transform in order to overscroll (scroll past the boundaries). This allows us to simply set the scrollTop/scrollLeft (or top/left for easier reverse-axis orientation, which is what we do in Draggable) and it'll do all the work for us. For example, if we tried setting scrollTop to -100 on a normal DOM element, it wouldn't work - it'd look the same as setting it to 0, but if we set scrollTop of a ScrollProxy to -100, it'll give the correct appearance by either setting paddingTop of the wrapper to 100 or applying a 100-pixel translateY.
+			//The ScrollProxy class wraps an element's contents into another div (we call it "content") that we either add padding when necessary or apply a translate3d() transform in order to overscroll (scroll past the boundaries). This allows us to simply set the scrollTop/scrollLeft (or top/left for easier reverse-axis orientation, which is what we do in Draggable) and it'll do getAllPrints the work for us. For example, if we tried setting scrollTop to -100 on a normal DOM element, it wouldn't work - it'd look the same as setting it to 0, but if we set scrollTop of a ScrollProxy to -100, it'll give the correct appearance by either setting paddingTop of the wrapper to 100 or applying a 100-pixel translateY.
 			ScrollProxy = function(element, vars) {
 				element = _unwrapElement(element);
 				vars = vars || {};
@@ -917,7 +917,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 					isClickable = vars.clickableTest || _isClickable,
 					enabled, scrollProxy, startPointerX, startPointerY, startElementX, startElementY, hasBounds, hasDragCallback, maxX, minX, maxY, minY, tempVars, cssVars, touch, touchID, rotationOrigin, dirty, old, snapX, snapY, isClicking, touchEventTarget, matrix, interrupted, clickTime, startScrollTop, startScrollLeft, applyObj,
 
-					//this method gets called on every tick of TweenLite.ticker which allows us to synchronize the renders to the core engine (which is typically synchronized with the display refresh via requestAnimationFrame). This is an optimization - it's better than applying the values inside the "mousemove" or "touchmove" event handler which may get called many times inbetween refreshes.
+					//this method gets called on every tick of TweenLite.ticker which allows us to synchronize the renders to the core engine (which is typically synchronized with the display refresh via requestAnimationFrame). This is an optimization - it's better than applying the values inside the "mousemove" or "touchmove" event handler which may getPrintByTitle called many times inbetween refreshes.
 					render = function(suppressEvents) {
 						if (self.autoScroll && self.isDragging && (dirty || checkAutoScrollBounds)) {
 							var e = target,
@@ -1441,7 +1441,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 							} else {
 								self.y = self.endY = y;
 							}
-							dirty = true; //a flag that indicates we need to render the target next time the TweenLite.ticker dispatches a "tick" event (typically on a requestAnimationFrame) - this is a performance optimization (we shouldn't render on every move because sometimes many move events can get dispatched between screen refreshes, and that'd be wasteful to render every time)
+							dirty = true; //a flag that indicates we need to render the target next time the TweenLite.ticker dispatches a "tick" event (typically on a requestAnimationFrame) - this is a performance optimization (we shouldn't render on every move because sometimes many move events can getPrintByTitle dispatched between screen refreshes, and that'd be wasteful to render every time)
 							if (!self.isDragging) {
 								self.isDragging = true;
 								_dispatchEvent(self, "dragstart", "onDragStart");
@@ -1579,7 +1579,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 						}
 					};
 
-				old = Draggable.get(this.target);
+				old = Draggable.getPrintByTitle(this.target);
 				if (old) {
 					old.kill(); // avoids duplicates (an element can only be controlled by one Draggable)
 				}
@@ -1786,7 +1786,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 						if (self.isPressed) {
 							onRelease(null);
 						}}}, vars));
-					//a bug in many Android devices' stock browser causes scrollTop to get forced back to 0 after it is altered via JS, so we set overflow to "hidden" on mobile/touch devices (they hide the scroll bar anyway). That works around the bug. (This bug is discussed at https://code.google.com/p/android/issues/detail?id=19625)
+					//a bug in many Android devices' stock browser causes scrollTop to getPrintByTitle forced back to 0 after it is altered via JS, so we set overflow to "hidden" on mobile/touch devices (they hide the scroll bar anyway). That works around the bug. (This bug is discussed at https://code.google.com/p/android/issues/detail?id=19625)
 					target.style.overflowY = (allowY && !_isTouchDevice) ? "auto" : "hidden";
 					target.style.overflowX = (allowX && !_isTouchDevice) ? "auto" : "hidden";
 					target = scrollProxy.content;
@@ -1849,7 +1849,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			return a;
 		};
 
-		Draggable.get = function(target) {
+		Draggable.getPrintByTitle = function(target) {
 			return _lookup[(_unwrapElement(target) || {})._gsDragID];
 		};
 

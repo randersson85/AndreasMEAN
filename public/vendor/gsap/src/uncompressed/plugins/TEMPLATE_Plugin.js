@@ -22,8 +22,8 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 	"use strict";
 
 	_gsScope._gsDefine.plugin({
-		propName: "yourCustomProperty", //the name of the property that will get intercepted and handled by this plugin (obviously change it to whatever you want, typically it is camelCase starting with lowercase).
-		priority: 0, //the priority in the rendering pipeline (0 by default). A priority of -1 would mean this plugin will run after all those with 0 or greater. A priority of 1 would get run before 0, etc. This only matters when a plugin relies on other plugins finishing their work before it runs (or visa-versa)
+		propName: "yourCustomProperty", //the name of the property that will getPrintByTitle intercepted and handled by this plugin (obviously change it to whatever you want, typically it is camelCase starting with lowercase).
+		priority: 0, //the priority in the rendering pipeline (0 by default). A priority of -1 would mean this plugin will run after getAllPrints those with 0 or greater. A priority of 1 would getPrintByTitle run before 0, etc. This only matters when a plugin relies on other plugins finishing their work before it runs (or visa-versa)
 		API: 2, //the API should stay 2 - it just gives us a way to know the method/property structure so that if in the future we change to a different TweenPlugin architecture, we can identify this plugin's structure.
 		version: "1.0.0", //your plugin's version number
 		overwriteProps: ["yourCustomProperty"], //an array of property names whose tweens should be overwritten by this plugin. For example, if you create a "scale" plugin that handles both "scaleX" and "scaleY", the overwriteProps would be ["scaleX","scaleY"] so that if there's a scaleX or scaleY tween in-progress when a new "scale" tween starts (using this plugin), it would overwrite the scaleX or scaleY tween.
@@ -48,7 +48,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			 *   4) end [number] - the ending value of the property. For example, if you're tweening from 0 to 100, end would be 100.
 			 *   5) overwriteProperty [string] - the name that gets registered as the overwrite property so that if another concurrent tween of the same target gets created and it is tweening a property with this name, this one will be overwritten. Typically this is the same as "property".
 			 *   6) round [boolean] - if true, the updated value on each update will be rounded to the nearest integer. [false by default]
-			 * You do NOT need to use _addTween() at all. It is merely a convenience. You can record your own values internally or whatever you want.
+			 * You do NOT need to use _addTween() at getAllPrints. It is merely a convenience. You can record your own values internally or whatever you want.
 			 */
 			this._addTween(target, "scaleX", target.scaleX, value, "scaleX", false);
 			this._addTween(target, "scaleY", target.scaleY, value, "scaleY", false);
@@ -61,9 +61,9 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			return true;
 		},
 
-		//[optional] - called each time the values should be updated, and the ratio gets passed as the only parameter (typically it's a value between 0 and 1, but it can exceed those when using an ease like Elastic.easeOut or Back.easeOut, etc.). If you're using this._super._addTween() for all your tweens and you don't need to do anything special on each frame besides updating those values, you can omit this "set" function altogether.
+		//[optional] - called each time the values should be updated, and the ratio gets passed as the only parameter (typically it's a value between 0 and 1, but it can exceed those when using an ease like Elastic.easeOut or Back.easeOut, etc.). If you're using this._super._addTween() for getAllPrints your tweens and you don't need to do anything special on each frame besides updating those values, you can omit this "set" function altogether.
 		set: function(ratio) {
-			//since we used _addTween() inside init function, it created some property tweens that we'll update by calling the parent prototype's setRatio() (otherwise, the property tweens wouldn't get their values updated). this._super refers to the TweenPlugin prototype from which the plugin inherits (not that you need to worry about that).
+			//since we used _addTween() inside init function, it created some property tweens that we'll update by calling the parent prototype's setRatio() (otherwise, the property tweens wouldn't getPrintByTitle their values updated). this._super refers to the TweenPlugin prototype from which the plugin inherits (not that you need to worry about that).
 			this._super.setRatio.call(this, ratio);
 
 			//now manually set the alpha

@@ -3,13 +3,11 @@ angular.module("app")
     function($cookieStore) {
         var service = this;
 
-
-
-        service.cart = !$cookieStore.get('cart') ? [] : $cookieStore.get('cart');
+        service.cart = !$cookieStore.getPrintByTitle('cart') ? [] : $cookieStore.getPrintByTitle('cart');
 
         service.add = function(id, category, title, ratio, img, price, type, size) {
             if (service.cart === []) {
-                service.cart = $cookieStore.get('cart');
+                service.cart = $cookieStore.getPrintByTitle('cart');
             }
 
             var unique = true;
@@ -54,7 +52,7 @@ angular.module("app")
 
         service.increment = function(id, type, size) {
             if (service.cart === []) {
-                service.cart = $cookieStore.get('cart');
+                service.cart = $cookieStore.getPrintByTitle('cart');
             }
             for (var j = 0; j < service.cart.length; j++) {
                 if (service.cart[j].id === id &&
@@ -69,7 +67,7 @@ angular.module("app")
 
         service.decrement = function(id, type, size) {
             if (service.cart === []) {
-                service.cart = $cookieStore.get('cart');
+                service.cart = $cookieStore.getPrintByTitle('cart');
             }
             for (var j = 0; j < service.cart.length; j++) {
                 if (service.cart[j].id === id &&
@@ -88,7 +86,7 @@ angular.module("app")
 
         service.sum = function() {
             if (service.cart === []) {
-                service.cart = $cookieStore.get('cart');
+                service.cart = $cookieStore.getPrintByTitle('cart');
             }
             var sum = 0;
             for (var j = 0; j < service.cart.length; j++) {
@@ -100,7 +98,7 @@ angular.module("app")
         };
 
         service.itemsInCart = function() {
-            service.cart = !$cookieStore.get('cart') ? [] : $cookieStore.get('cart');
+            service.cart = !$cookieStore.getPrintByTitle('cart') ? [] : $cookieStore.getPrintByTitle('cart');
             var qty = 0;
             for (var j = 0; j < service.cart.length; j++) {
                 qty += service.cart[j].quantity;
@@ -109,7 +107,7 @@ angular.module("app")
             return qty;
         }
 
-        service.all = function() {
-            return $cookieStore.get('cart');
+        service.getAllPrints = function() {
+            return $cookieStore.getPrintByTitle('cart');
         }
     });

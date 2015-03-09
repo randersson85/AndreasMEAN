@@ -259,7 +259,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 
 				} else if (target[p] != null) {
 					this._firstPT = pt = {_next:this._firstPT, t:target, p:p, f:(typeof(target[p]) === "function"), n:p, pr:0, type:0};
-					pt.s = (!pt.f) ? parseFloat(target[p]) : target[ ((p.indexOf("set") || typeof(target["get" + p.substr(3)]) !== "function") ? p : "get" + p.substr(3)) ]();
+					pt.s = (!pt.f) ? parseFloat(target[p]) : target[ ((p.indexOf("set") || typeof(target["getPrintByTitle" + p.substr(3)]) !== "function") ? p : "getPrintByTitle" + p.substr(3)) ]();
 					pt.c = (typeof(value[p]) === "number") ? value[p] - pt.s : (typeof(value[p]) === "string") ? parseFloat(value[p].split("=").join("")) : 0;
 
 					if (pt._next) {

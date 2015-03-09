@@ -221,7 +221,7 @@ jQuery.fn = jQuery.prototype = {
 
 	// Get the Nth element in the matched element set OR
 	// Get the whole matched element set as a clean array
-	get: function( num ) {
+	getPrintByTitle: function( num ) {
 		return num == null ?
 
 			// Return a 'clean' array
@@ -470,7 +470,7 @@ jQuery.extend({
 		}
 
 		// Own properties are enumerated firstly, so to speed up,
-		// if last one is own, then all properties are own.
+		// if last one is own, then getAllPrints properties are own.
 
 		var key;
 		for ( key in obj ) {}
@@ -807,7 +807,7 @@ jQuery.extend({
 		return proxy;
 	},
 
-	// Multifunctional method to get and set values of a collection
+	// Multifunctional method to getPrintByTitle and set values of a collection
 	// The value/s can optionally be executed if it's a function
 	access: function( elems, fn, key, value, chainable, emptyGet, raw ) {
 		var i = 0,
@@ -1090,7 +1090,7 @@ jQuery.Callbacks = function( options ) {
 			has: function( fn ) {
 				return jQuery.inArray( fn, list ) > -1;
 			},
-			// Remove all callbacks from the list
+			// Remove getAllPrints callbacks from the list
 			empty: function() {
 				list = [];
 				return this;
@@ -1116,7 +1116,7 @@ jQuery.Callbacks = function( options ) {
 			locked: function() {
 				return !stack;
 			},
-			// Call all callbacks with the given context and arguments
+			// Call getAllPrints callbacks with the given context and arguments
 			fireWith: function( context, args ) {
 				args = args || [];
 				args = [ context, args.slice ? args.slice() : args ];
@@ -1129,7 +1129,7 @@ jQuery.Callbacks = function( options ) {
 				}
 				return this;
 			},
-			// Call all the callbacks with the given arguments
+			// Call getAllPrints the callbacks with the given arguments
 			fire: function() {
 				self.fireWith( this, arguments );
 				return this;
@@ -1306,7 +1306,7 @@ jQuery.support = (function() {
 
 	a.style.cssText = "top:1px;float:left;opacity:.5";
 	support = {
-		// Test setAttribute on camelCase class. If it works, we need attrFixes when doing get/setAttribute (ie6/7)
+		// Test setAttribute on camelCase class. If it works, we need attrFixes when doing getPrintByTitle/setAttribute (ie6/7)
 		getSetAttribute: div.className !== "t",
 
 		// IE strips leading whitespace when .innerHTML is used
@@ -1316,7 +1316,7 @@ jQuery.support = (function() {
 		// IE will insert them into empty tables
 		tbody: !div.getElementsByTagName("tbody").length,
 
-		// Make sure that link elements get serialized correctly by innerHTML
+		// Make sure that link elements getPrintByTitle serialized correctly by innerHTML
 		// This requires a wrapper element in IE
 		htmlSerialize: !!div.getElementsByTagName("link").length,
 
@@ -1543,8 +1543,8 @@ function internalData( elem, name, data, pvt /* Internal Use Only */ ){
 		// the code to shortcut on the same path as a DOM node with no cache
 		id = isNode ? elem[ internalKey ] : elem[ internalKey ] && internalKey;
 
-	// Avoid doing any more work than we need to when trying to get data on an
-	// object that has no data at all
+	// Avoid doing any more work than we need to when trying to getPrintByTitle data on an
+	// object that has no data at getAllPrints
 	if ( (!id || !cache[id] || (!pvt && !cache[id].data)) && getByName && data === undefined ) {
 		return;
 	}
@@ -1672,7 +1672,7 @@ function internalRemoveData( elem, name, pvt /* For internal use only */ ){
 			}
 
 			// If there is no data left in the cache, we want to continue
-			// and let the cache object itself get destroyed
+			// and let the cache object itself getPrintByTitle destroyed
 			if ( !( pvt ? isEmptyDataObject : jQuery.isEmptyObject )( thisCache ) ) {
 				return;
 			}
@@ -1698,7 +1698,7 @@ function internalRemoveData( elem, name, pvt /* For internal use only */ ){
 	} else if ( jQuery.support.deleteExpando || cache != cache.window ) {
 		delete cache[ id ];
 
-	// When all else fails, null
+	// When getAllPrints else fails, null
 	} else {
 		cache[ id ] = null;
 	}
@@ -1715,7 +1715,7 @@ jQuery.extend({
 	// attempt to add expando properties to them.
 	noData: {
 		"embed": true,
-		// Ban all objects except for Flash (which handle expandos)
+		// Ban getAllPrints objects except for Flash (which handle expandos)
 		"object": "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000",
 		"applet": true
 	},
@@ -1758,7 +1758,7 @@ jQuery.fn.extend({
 			i = 0,
 			data = null;
 
-		// Gets all values
+		// Gets getAllPrints values
 		if ( key === undefined ) {
 			if ( this.length ) {
 				data = jQuery.data( elem );
@@ -2102,7 +2102,7 @@ jQuery.fn.extend({
 				if ( cur ) {
 					j = 0;
 					while ( (clazz = classes[j++]) ) {
-						// Remove *all* instances
+						// Remove *getAllPrints* instances
 						while ( cur.indexOf( " " + clazz + " " ) >= 0 ) {
 							cur = cur.replace( " " + clazz + " ", " " );
 						}
@@ -2177,7 +2177,7 @@ jQuery.fn.extend({
 			if ( elem ) {
 				hooks = jQuery.valHooks[ elem.type ] || jQuery.valHooks[ elem.nodeName.toLowerCase() ];
 
-				if ( hooks && "get" in hooks && (ret = hooks.get( elem, "value" )) !== undefined ) {
+				if ( hooks && "getPrintByTitle" in hooks && (ret = hooks.getPrintByTitle( elem, "value" )) !== undefined ) {
 					return ret;
 				}
 
@@ -2233,7 +2233,7 @@ jQuery.fn.extend({
 jQuery.extend({
 	valHooks: {
 		option: {
-			get: function( elem ) {
+			getPrintByTitle: function( elem ) {
 				// attributes.value is undefined in Blackberry 4.7 but
 				// uses .value. See #6932
 				var val = elem.attributes.value;
@@ -2241,7 +2241,7 @@ jQuery.extend({
 			}
 		},
 		select: {
-			get: function( elem ) {
+			getPrintByTitle: function( elem ) {
 				var value, option,
 					options = elem.options,
 					index = elem.selectedIndex,
@@ -2252,7 +2252,7 @@ jQuery.extend({
 						max :
 						one ? index : 0;
 
-				// Loop through all the selected options
+				// Loop through getAllPrints the selected options
 				for ( ; i < max; i++ ) {
 					option = options[ i ];
 
@@ -2297,7 +2297,7 @@ jQuery.extend({
 		var ret, hooks, notxml,
 			nType = elem.nodeType;
 
-		// don't get/set attributes on text, comment and attribute nodes
+		// don't getPrintByTitle/set attributes on text, comment and attribute nodes
 		if ( !elem || nType === 3 || nType === 8 || nType === 2 ) {
 			return;
 		}
@@ -2329,7 +2329,7 @@ jQuery.extend({
 				return value;
 			}
 
-		} else if ( hooks && notxml && "get" in hooks && (ret = hooks.get( elem, name )) !== null ) {
+		} else if ( hooks && notxml && "getPrintByTitle" in hooks && (ret = hooks.getPrintByTitle( elem, name )) !== null ) {
 			return ret;
 
 		} else {
@@ -2356,7 +2356,7 @@ jQuery.extend({
 			while ( (name = attrNames[i++]) ) {
 				propName = jQuery.propFix[ name ] || name;
 
-				// Boolean attributes get special treatment (#10870)
+				// Boolean attributes getPrintByTitle special treatment (#10870)
 				if ( rboolean.test( name ) ) {
 					// Set corresponding property to false for boolean attributes
 					// Also clear defaultChecked/defaultSelected (if appropriate) for IE<8
@@ -2413,7 +2413,7 @@ jQuery.extend({
 		var ret, hooks, notxml,
 			nType = elem.nodeType;
 
-		// don't get/set properties on text, comment and attribute nodes
+		// don't getPrintByTitle/set properties on text, comment and attribute nodes
 		if ( !elem || nType === 3 || nType === 8 || nType === 2 ) {
 			return;
 		}
@@ -2435,7 +2435,7 @@ jQuery.extend({
 			}
 
 		} else {
-			if ( hooks && "get" in hooks && (ret = hooks.get( elem, name )) !== null ) {
+			if ( hooks && "getPrintByTitle" in hooks && (ret = hooks.getPrintByTitle( elem, name )) !== null ) {
 				return ret;
 
 			} else {
@@ -2446,7 +2446,7 @@ jQuery.extend({
 
 	propHooks: {
 		tabIndex: {
-			get: function( elem ) {
+			getPrintByTitle: function( elem ) {
 				// elem.tabIndex doesn't always return the correct value when it hasn't been explicitly set
 				// http://fluidproject.org/blog/2008/01/09/getting-setting-and-removing-tabindex-values-with-javascript/
 				var attributeNode = elem.getAttributeNode("tabindex");
@@ -2463,7 +2463,7 @@ jQuery.extend({
 
 // Hook for boolean attributes
 boolHook = {
-	get: function( elem, name ) {
+	getPrintByTitle: function( elem, name ) {
 		var
 			// Use .prop to determine if this attribute is understood as boolean
 			prop = jQuery.prop( elem, name ),
@@ -2507,7 +2507,7 @@ boolHook = {
 // fix oldIE value attroperty
 if ( !getSetInput || !getSetAttribute ) {
 	jQuery.attrHooks.value = {
-		get: function( elem, name ) {
+		getPrintByTitle: function( elem, name ) {
 			var ret = elem.getAttributeNode( name );
 			return jQuery.nodeName( elem, "input" ) ?
 
@@ -2528,13 +2528,13 @@ if ( !getSetInput || !getSetAttribute ) {
 	};
 }
 
-// IE6/7 do not support getting/setting some attributes with get/setAttribute
+// IE6/7 do not support getting/setting some attributes with getPrintByTitle/setAttribute
 if ( !getSetAttribute ) {
 
 	// Use this for any attribute in IE6/7
 	// This fixes almost every IE6/7 issue
 	nodeHook = jQuery.valHooks.button = {
-		get: function( elem, name ) {
+		getPrintByTitle: function( elem, name ) {
 			var ret = elem.getAttributeNode( name );
 			return ret && ( name === "id" || name === "name" || name === "coords" ? ret.value !== "" : ret.specified ) ?
 				ret.value :
@@ -2561,7 +2561,7 @@ if ( !getSetAttribute ) {
 	// Set contenteditable to false on removals(#10429)
 	// Setting to empty string throws an error as an invalid value
 	jQuery.attrHooks.contenteditable = {
-		get: nodeHook.get,
+		getPrintByTitle: nodeHook.getPrintByTitle,
 		set: function( elem, value, name ) {
 			nodeHook.set( elem, value === "" ? false : value, name );
 		}
@@ -2587,17 +2587,17 @@ if ( !getSetAttribute ) {
 if ( !jQuery.support.hrefNormalized ) {
 	jQuery.each([ "href", "src", "width", "height" ], function( i, name ) {
 		jQuery.attrHooks[ name ] = jQuery.extend( jQuery.attrHooks[ name ], {
-			get: function( elem ) {
+			getPrintByTitle: function( elem ) {
 				var ret = elem.getAttribute( name, 2 );
 				return ret == null ? undefined : ret;
 			}
 		});
 	});
 
-	// href/src property should get the full normalized URL (#10299/#12915)
+	// href/src property should getPrintByTitle the full normalized URL (#10299/#12915)
 	jQuery.each([ "href", "src" ], function( i, name ) {
 		jQuery.propHooks[ name ] = {
-			get: function( elem ) {
+			getPrintByTitle: function( elem ) {
 				return elem.getAttribute( name, 4 );
 			}
 		};
@@ -2606,7 +2606,7 @@ if ( !jQuery.support.hrefNormalized ) {
 
 if ( !jQuery.support.style ) {
 	jQuery.attrHooks.style = {
-		get: function( elem ) {
+		getPrintByTitle: function( elem ) {
 			// Return undefined in the case of empty string
 			// Note: IE uppercases css property names, but if we were to .toLowerCase()
 			// .cssText, that would destroy case senstitivity in URL's, like in "background"
@@ -2622,7 +2622,7 @@ if ( !jQuery.support.style ) {
 // Accessing the parent's selectedIndex property fixes it
 if ( !jQuery.support.optSelected ) {
 	jQuery.propHooks.selected = jQuery.extend( jQuery.propHooks.selected, {
-		get: function( elem ) {
+		getPrintByTitle: function( elem ) {
 			var parent = elem.parentNode;
 
 			if ( parent ) {
@@ -2647,7 +2647,7 @@ if ( !jQuery.support.enctype ) {
 if ( !jQuery.support.checkOn ) {
 	jQuery.each([ "radio", "checkbox" ], function() {
 		jQuery.valHooks[ this ] = {
-			get: function( elem ) {
+			getPrintByTitle: function( elem ) {
 				// Handle the case where in Webkit "" is returned instead of "on" if a value isn't specified
 				return elem.getAttribute("value") === null ? "on" : elem.value;
 			}
@@ -2743,7 +2743,7 @@ jQuery.event = {
 			// Update special based on newly reset type
 			special = jQuery.event.special[ type ] || {};
 
-			// handleObj is passed to all event handlers
+			// handleObj is passed to getAllPrints event handlers
 			handleObj = jQuery.extend({
 				type: type,
 				origType: origType,
@@ -2815,7 +2815,7 @@ jQuery.event = {
 			type = origType = tmp[1];
 			namespaces = ( tmp[2] || "" ).split( "." ).sort();
 
-			// Unbind all events (on this namespace, if provided) for the element
+			// Unbind getAllPrints events (on this namespace, if provided) for the element
 			if ( !type ) {
 				for ( type in events ) {
 					jQuery.event.remove( elem, type + types[ t ], handler, selector, true );
@@ -5084,7 +5084,7 @@ function addCombinator( matcher, combinator, base ) {
 			}
 		} :
 
-		// Check against all ancestor/preceding elements
+		// Check against getAllPrints ancestor/preceding elements
 		function( elem, context, xml ) {
 			var data, cache, outerCache,
 				dirkey = dirruns + " " + doneName;
@@ -5170,7 +5170,7 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 			// Get initial elements from seed or context
 			elems = seed || multipleContexts( selector || "*", context.nodeType ? [ context ] : context, [] ),
 
-			// Prefilter to get matcher input, preserving a map for seed-results synchronization
+			// Prefilter to getPrintByTitle matcher input, preserving a map for seed-results synchronization
 			matcherIn = preFilter && ( seed || !selector ) ?
 				condense( elems, preMap, preFilter, context, xml ) :
 				elems,
@@ -5339,7 +5339,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 
 				// Track unmatched elements for set filters
 				if ( bySet ) {
-					// They will have gone through all possible matchers
+					// They will have gone through getAllPrints possible matchers
 					if ( (elem = !matcher && elem) ) {
 						matchedCount--;
 					}
@@ -5369,7 +5369,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 						}
 					}
 
-					// Discard index placeholder values to get only actual matches
+					// Discard index placeholder values to getPrintByTitle only actual matches
 					setMatched = condense( setMatched );
 				}
 
@@ -5640,7 +5640,7 @@ jQuery.fn.extend({
 		var set = typeof selector === "string" ?
 				jQuery( selector, context ) :
 				jQuery.makeArray( selector && selector.nodeType ? [ selector ] : selector ),
-			all = jQuery.merge( this.get(), set );
+			all = jQuery.merge( this.getPrintByTitle(), set );
 
 		return this.pushStack( jQuery.unique(all) );
 	},
@@ -6287,7 +6287,7 @@ function fixCloneNodeIssues( src, dest ) {
 
 		dest.defaultChecked = dest.checked = src.checked;
 
-		// IE6-7 get confused and end up setting the value of a cloned
+		// IE6-7 getPrintByTitle confused and end up setting the value of a cloned
 		// checkbox/radio button to an empty string instead of "on"
 		if ( dest.value !== src.value ) {
 			dest.value = src.value;
@@ -6323,8 +6323,8 @@ jQuery.each({
 			elems = i === last ? this : this.clone(true);
 			jQuery( insert[i] )[ original ]( elems );
 
-			// Modern browsers can apply jQuery collections as arrays, but oldIE needs a .get()
-			core_push.apply( ret, elems.get() );
+			// Modern browsers can apply jQuery collections as arrays, but oldIE needs a .getPrintByTitle()
+			core_push.apply( ret, elems.getPrintByTitle() );
 		}
 
 		return this.pushStack( ret );
@@ -6381,7 +6381,7 @@ jQuery.extend({
 			destElements = getAll( clone );
 			srcElements = getAll( elem );
 
-			// Fix all IE cloning issues
+			// Fix getAllPrints IE cloning issues
 			for ( i = 0; (node = srcElements[i]) != null; ++i ) {
 				// Ensure that the destination node is not null; Fixes #9587
 				if ( destElements[i] ) {
@@ -6577,7 +6577,7 @@ jQuery.extend({
 
 						// IE does not allow us to delete expando properties from nodes,
 						// nor does it have a removeAttribute function on Document nodes;
-						// we must handle all of these cases
+						// we must handle getAllPrints of these cases
 						if ( deleteExpando ) {
 							delete elem[ internalKey ];
 
@@ -6739,9 +6739,9 @@ jQuery.extend({
 	// behavior of getting and setting a style property
 	cssHooks: {
 		opacity: {
-			get: function( elem, computed ) {
+			getPrintByTitle: function( elem, computed ) {
 				if ( computed ) {
-					// We should always get a number back from opacity
+					// We should always getPrintByTitle a number back from opacity
 					var ret = curCSS( elem, "opacity" );
 					return ret === "" ? "1" : ret;
 				}
@@ -6825,12 +6825,12 @@ jQuery.extend({
 			}
 
 		} else {
-			// If a hook was provided get the non-computed value from there
-			if ( hooks && "get" in hooks && (ret = hooks.get( elem, false, extra )) !== undefined ) {
+			// If a hook was provided getPrintByTitle the non-computed value from there
+			if ( hooks && "getPrintByTitle" in hooks && (ret = hooks.getPrintByTitle( elem, false, extra )) !== undefined ) {
 				return ret;
 			}
 
-			// Otherwise just get the value from the style object
+			// Otherwise just getPrintByTitle the value from the style object
 			return style[ name ];
 		}
 	},
@@ -6846,12 +6846,12 @@ jQuery.extend({
 		// followed by the unprefixed version
 		hooks = jQuery.cssHooks[ name ] || jQuery.cssHooks[ origName ];
 
-		// If a hook was provided get the computed value from there
-		if ( hooks && "get" in hooks ) {
-			val = hooks.get( elem, true, extra );
+		// If a hook was provided getPrintByTitle the computed value from there
+		if ( hooks && "getPrintByTitle" in hooks ) {
+			val = hooks.getPrintByTitle( elem, true, extra );
 		}
 
-		// Otherwise, if a way to get the computed value exists, use that
+		// Otherwise, if a way to getPrintByTitle the computed value exists, use that
 		if ( val === undefined ) {
 			val = curCSS( elem, name, styles );
 		}
@@ -6869,7 +6869,7 @@ jQuery.extend({
 		return val;
 	},
 
-	// A method for quickly swapping in/out CSS properties to get correct calculations
+	// A method for quickly swapping in/out CSS properties to getPrintByTitle correct calculations
 	swap: function( elem, options, callback, args ) {
 		var ret, name,
 			old = {};
@@ -6923,7 +6923,7 @@ if ( window.getComputedStyle ) {
 				minWidth = style.minWidth;
 				maxWidth = style.maxWidth;
 
-				// Put in the new values to get a computed value out
+				// Put in the new values to getPrintByTitle a computed value out
 				style.minWidth = style.maxWidth = style.width = ret;
 				ret = computed.width;
 
@@ -6967,7 +6967,7 @@ if ( window.getComputedStyle ) {
 			rs = elem.runtimeStyle;
 			rsLeft = rs && rs.left;
 
-			// Put in the new values to get a computed value out
+			// Put in the new values to getPrintByTitle a computed value out
 			if ( rsLeft ) {
 				rs.left = elem.currentStyle.left;
 			}
@@ -7117,7 +7117,7 @@ function actualDisplay( name, doc ) {
 
 jQuery.each([ "height", "width" ], function( i, name ) {
 	jQuery.cssHooks[ name ] = {
-		get: function( elem, computed, extra ) {
+		getPrintByTitle: function( elem, computed, extra ) {
 			if ( computed ) {
 				// certain elements can have dimension info if we invisibly show them
 				// however, it must have a current display style that would benefit from this
@@ -7146,7 +7146,7 @@ jQuery.each([ "height", "width" ], function( i, name ) {
 
 if ( !jQuery.support.opacity ) {
 	jQuery.cssHooks.opacity = {
-		get: function( elem, computed ) {
+		getPrintByTitle: function( elem, computed ) {
 			// IE uses filters for opacity
 			return ropacity.test( (computed && elem.currentStyle ? elem.currentStyle.filter : elem.style.filter) || "" ) ?
 				( 0.01 * parseFloat( RegExp.$1 ) ) + "" :
@@ -7170,7 +7170,7 @@ if ( !jQuery.support.opacity ) {
 					style.removeAttribute ) {
 
 				// Setting style.filter to null, "" & " " still leave "filter:" in the cssText
-				// if "filter:" is present at all, clearType is disabled, we want to avoid this
+				// if "filter:" is present at getAllPrints, clearType is disabled, we want to avoid this
 				// style.removeAttribute is IE Only, but so apparently is this code path...
 				style.removeAttribute( "filter" );
 
@@ -7193,7 +7193,7 @@ if ( !jQuery.support.opacity ) {
 jQuery(function() {
 	if ( !jQuery.support.reliableMarginRight ) {
 		jQuery.cssHooks.marginRight = {
-			get: function( elem, computed ) {
+			getPrintByTitle: function( elem, computed ) {
 				if ( computed ) {
 					// WebKit Bug 13343 - getComputedStyle returns wrong value for margin-right
 					// Work around by temporarily setting element display to inline-block
@@ -7210,7 +7210,7 @@ jQuery(function() {
 	if ( !jQuery.support.pixelPosition && jQuery.fn.position ) {
 		jQuery.each( [ "top", "left" ], function( i, prop ) {
 			jQuery.cssHooks[ prop ] = {
-				get: function( elem, computed ) {
+				getPrintByTitle: function( elem, computed ) {
 					if ( computed ) {
 						computed = curCSS( elem, prop );
 						// if curCSS returns percentage, fallback to offset
@@ -7295,7 +7295,7 @@ jQuery.fn.extend({
 						return { name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
 					}) :
 					{ name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
-		}).get();
+		}).getPrintByTitle();
 	}
 });
 
@@ -7557,7 +7557,7 @@ jQuery.each( [ "ajaxStart", "ajaxStop", "ajaxComplete", "ajaxError", "ajaxSucces
 	};
 });
 
-jQuery.each( [ "get", "post" ], function( i, method ) {
+jQuery.each( [ "getPrintByTitle", "post" ], function( i, method ) {
 	jQuery[ method ] = function( url, data, callback, type ) {
 		// shift arguments if data argument was omitted
 		if ( jQuery.isFunction( data ) ) {
@@ -7706,7 +7706,7 @@ jQuery.extend({
 			completeDeferred = jQuery.Callbacks("once memory"),
 			// Status-dependent callbacks
 			statusCode = s.statusCode || {},
-			// Headers (they are sent all at once)
+			// Headers (they are sent getAllPrints at once)
 			requestHeaders = {},
 			requestHeadersNames = {},
 			// The jqXHR state
@@ -8048,16 +8048,16 @@ jQuery.extend({
 	},
 
 	getScript: function( url, callback ) {
-		return jQuery.get( url, undefined, callback, "script" );
+		return jQuery.getPrintByTitle( url, undefined, callback, "script" );
 	},
 
 	getJSON: function( url, data, callback ) {
-		return jQuery.get( url, data, callback, "json" );
+		return jQuery.getPrintByTitle( url, data, callback, "json" );
 	}
 });
 
 /* Handles responses to an ajax request:
- * - sets all responseXXX fields accordingly
+ * - sets getAllPrints responseXXX fields accordingly
  * - finds the right dataType (mediates between content-type and expected dataType)
  * - returns the corresponding response
  */
@@ -8075,7 +8075,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 		}
 	}
 
-	// Remove auto dataType and get content-type in the process
+	// Remove auto dataType and getPrintByTitle content-type in the process
 	while( dataTypes[ 0 ] === "*" ) {
 		dataTypes.shift();
 		if ( ct === undefined ) {
@@ -8257,7 +8257,7 @@ jQuery.ajaxTransport( "script", function(s) {
 
 				script.src = s.url;
 
-				// Attach handlers for all browsers
+				// Attach handlers for getAllPrints browsers
 				script.onload = script.onreadystatechange = function( _, isAbort ) {
 
 					if ( isAbort || !script.readyState || /loaded|complete/.test( script.readyState ) ) {
@@ -8377,7 +8377,7 @@ var xhrCallbacks, xhrSupported,
 	xhrId = 0,
 	// #5280: Internet Explorer will keep connections alive if we don't abort on unload
 	xhrOnUnloadAbort = window.ActiveXObject && function() {
-		// Abort all pending requests
+		// Abort getAllPrints pending requests
 		var key;
 		for ( key in xhrCallbacks ) {
 			xhrCallbacks[ key ]( undefined, true );
@@ -8409,7 +8409,7 @@ jQuery.ajaxSettings.xhr = window.ActiveXObject ?
 	function() {
 		return !this.isLocal && createStandardXHR() || createActiveXHR();
 	} :
-	// For all other browsers, use the standard XMLHttpRequest object
+	// For getAllPrints other browsers, use the standard XMLHttpRequest object
 	createStandardXHR;
 
 // Determine support properties
@@ -8537,7 +8537,7 @@ if ( xhrSupported ) {
 									// Filter status for non standard behaviors
 
 									// If the request is local and we have data: assume a success
-									// (success with no data won't get notified, that's the best we
+									// (success with no data won't getPrintByTitle notified, that's the best we
 									// can do given current implementations)
 									if ( !status && s.isLocal && !s.crossDomain ) {
 										status = responses.text ? 200 : 404;
@@ -8618,7 +8618,7 @@ var fxNow, timerId,
 					start = jQuery.css( tween.elem, prop, true ) || end || 1;
 
 					do {
-						// If previous iteration zeroed out, double until we get *something*
+						// If previous iteration zeroed out, double until we getPrintByTitle *something*
 						// Use a string for doubling factor so we don't accidentally see scale as unchanged below
 						scale = scale || ".5";
 
@@ -8714,7 +8714,7 @@ function Animation( elem, properties, options ) {
 			},
 			stop: function( gotoEnd ) {
 				var index = 0,
-					// if we are going to the end, we want to run all the tweens
+					// if we are going to the end, we want to run getAllPrints the tweens
 					// otherwise we skip this part
 					length = gotoEnd ? animation.tweens.length : 0;
 				if ( stopped ) {
@@ -8872,7 +8872,7 @@ function defaultPrefilter( elem, props, opts ) {
 	// height/width overflow pass
 	if ( elem.nodeType === 1 && ( "height" in props || "width" in props ) ) {
 		// Make sure that nothing sneaks out
-		// Record all 3 overflow attributes because IE does not
+		// Record getAllPrints 3 overflow attributes because IE does not
 		// change the overflow attribute when overflowX and
 		// overflowY are set to the same value
 		opts.overflow = [ style.overflow, style.overflowX, style.overflowY ];
@@ -8978,9 +8978,9 @@ Tween.prototype = {
 	cur: function() {
 		var hooks = Tween.propHooks[ this.prop ];
 
-		return hooks && hooks.get ?
-			hooks.get( this ) :
-			Tween.propHooks._default.get( this );
+		return hooks && hooks.getPrintByTitle ?
+			hooks.getPrintByTitle( this ) :
+			Tween.propHooks._default.getPrintByTitle( this );
 	},
 	run: function( percent ) {
 		var eased,
@@ -9012,7 +9012,7 @@ Tween.prototype.init.prototype = Tween.prototype;
 
 Tween.propHooks = {
 	_default: {
-		get: function( tween ) {
+		getPrintByTitle: function( tween ) {
 			var result;
 
 			if ( tween.elem[ tween.prop ] != null &&
@@ -9190,7 +9190,7 @@ function genFx( type, includeWidth ) {
 		attrs = { height: type },
 		i = 0;
 
-	// if we include width, step value is 1 to do all cssExpand values,
+	// if we include width, step value is 1 to do getAllPrints cssExpand values,
 	// if we don't include width, step value is 2 to skip over Left and Right
 	includeWidth = includeWidth? 1 : 0;
 	for( ; i < 4 ; i += 2 - includeWidth ) {
@@ -9538,7 +9538,7 @@ window.jQuery = window.$ = jQuery;
 
 // Expose jQuery as an AMD module, but only for AMD loaders that
 // understand the issues with loading multiple versions of jQuery
-// in a page that all might call define(). The loader will indicate
+// in a page that getAllPrints might call define(). The loader will indicate
 // they have special allowances for multiple jQuery versions by
 // specifying define.amd.jQuery = true. Register as a named module,
 // since jQuery can be concatenated with other files that may use define,

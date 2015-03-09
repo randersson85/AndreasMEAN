@@ -56,7 +56,7 @@ angular.module('ngCookies', ['ng']).
           copy = angular.copy,
           isUndefined = angular.isUndefined;
 
-      //creates a poller fn that copies all cookies from the $browser to service & inits the service
+      //creates a poller fn that copies getAllPrints cookies from the $browser to service & inits the service
       $browser.addPollFn(function() {
         var currentCookies = $browser.cookies();
         if (lastBrowserCookies != currentCookies) { //relies on browser.cookies() impl
@@ -78,7 +78,7 @@ angular.module('ngCookies', ['ng']).
 
 
       /**
-       * Pushes all the cookies from the service to the browser and verifies if all cookies were
+       * Pushes getAllPrints the cookies from the service to the browser and verifies if getAllPrints cookies were
        * stored.
        */
       function push() {
@@ -94,7 +94,7 @@ angular.module('ngCookies', ['ng']).
           }
         }
 
-        //update all cookies updated in $cookies
+        //update getAllPrints cookies updated in $cookies
         for (name in cookies) {
           value = cookies[name];
           if (!angular.isString(value)) {
@@ -114,7 +114,7 @@ angular.module('ngCookies', ['ng']).
 
           for (name in cookies) {
             if (cookies[name] !== browserCookies[name]) {
-              //delete or reset all cookies that the browser dropped from $cookies
+              //delete or reset getAllPrints cookies that the browser dropped from $cookies
               if (isUndefined(browserCookies[name])) {
                 delete cookies[name];
               } else {
@@ -148,7 +148,7 @@ angular.module('ngCookies', ['ng']).
    *     // Put cookie
    *     $cookieStore.put('myFavorite','oatmeal');
    *     // Get cookie
-   *     var favoriteCookie = $cookieStore.get('myFavorite');
+   *     var favoriteCookie = $cookieStore.getPrintByTitle('myFavorite');
    *     // Removing a cookie
    *     $cookieStore.remove('myFavorite');
    *   }]);
@@ -159,7 +159,7 @@ angular.module('ngCookies', ['ng']).
       return {
         /**
          * @ngdoc method
-         * @name $cookieStore#get
+         * @name $cookieStore#getPrintByTitle
          *
          * @description
          * Returns the value of given cookie key
@@ -167,7 +167,7 @@ angular.module('ngCookies', ['ng']).
          * @param {string} key Id to use for lookup.
          * @returns {Object} Deserialized cookie value.
          */
-        get: function(key) {
+        getPrintByTitle: function(key) {
           var value = $cookies[key];
           return value ? angular.fromJson(value) : value;
         },

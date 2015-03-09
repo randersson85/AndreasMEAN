@@ -44,7 +44,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 				prop = rp[i];
 				pt = tween._firstPT;
 				while (pt) {
-					next = pt._next; //record here, because it may get removed
+					next = pt._next; //record here, because it may getPrintByTitle removed
 					if (pt.pg) {
 						pt.t._roundProps(lookup, true);
 					} else if (pt.n === prop) {

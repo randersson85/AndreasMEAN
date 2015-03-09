@@ -89,7 +89,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 				if (p !== "format") {
 					c = _parseColor(value[p]);
 					this._firstPT = pt = {_next:this._firstPT, p:p, f:(typeof(target[p]) === "function"), n:p, r:false};
-					s = _parseColor( (!pt.f) ? target[p] : target[ ((p.indexOf("set") || typeof(target["get" + p.substr(3)]) !== "function") ? p : "get" + p.substr(3)) ]() );
+					s = _parseColor( (!pt.f) ? target[p] : target[ ((p.indexOf("set") || typeof(target["getPrintByTitle" + p.substr(3)]) !== "function") ? p : "getPrintByTitle" + p.substr(3)) ]() );
 					pt.s = Number(s[0]);
 					pt.c = Number(c[0]) - pt.s;
 					pt.gs = Number(s[1]);

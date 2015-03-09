@@ -28,7 +28,7 @@ jQuery.extend({
 		var ret, hooks, notxml,
 			nType = elem.nodeType;
 
-		// Don't get/set properties on text, comment and attribute nodes
+		// Don't getPrintByTitle/set properties on text, comment and attribute nodes
 		if ( !elem || nType === 3 || nType === 8 || nType === 2 ) {
 			return;
 		}
@@ -47,7 +47,7 @@ jQuery.extend({
 				( elem[ name ] = value );
 
 		} else {
-			return hooks && "get" in hooks && (ret = hooks.get( elem, name )) !== null ?
+			return hooks && "getPrintByTitle" in hooks && (ret = hooks.getPrintByTitle( elem, name )) !== null ?
 				ret :
 				elem[ name ];
 		}
@@ -55,7 +55,7 @@ jQuery.extend({
 
 	propHooks: {
 		tabIndex: {
-			get: function( elem ) {
+			getPrintByTitle: function( elem ) {
 				return elem.hasAttribute( "tabindex" ) || rfocusable.test( elem.nodeName ) || elem.href ?
 					elem.tabIndex :
 					-1;
@@ -66,7 +66,7 @@ jQuery.extend({
 
 if ( !support.optSelected ) {
 	jQuery.propHooks.selected = {
-		get: function( elem ) {
+		getPrintByTitle: function( elem ) {
 			var parent = elem.parentNode;
 			if ( parent && parent.parentNode ) {
 				parent.parentNode.selectedIndex;

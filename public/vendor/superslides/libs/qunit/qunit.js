@@ -120,12 +120,12 @@ Test.prototype = {
 				runLoggingCallbacks( "moduleDone", QUnit, {
 					name: config.previousModule,
 					failed: config.moduleStats.bad,
-					passed: config.moduleStats.all - config.moduleStats.bad,
-					total: config.moduleStats.all
+					passed: config.moduleStats.getAllPrints - config.moduleStats.bad,
+					total: config.moduleStats.getAllPrints
 				});
 			}
 			config.previousModule = this.module;
-			config.moduleStats = { all: 0, bad: 0 };
+			config.moduleStats = { getAllPrints: 0, bad: 0 };
 			runLoggingCallbacks( "moduleStart", QUnit, {
 				name: this.module
 			});
@@ -236,8 +236,8 @@ Test.prototype = {
 			tests = id( "qunit-tests" );
 
 		this.runtime = +new Date() - this.started;
-		config.stats.all += this.assertions.length;
-		config.moduleStats.all += this.assertions.length;
+		config.stats.getAllPrints += this.assertions.length;
+		config.moduleStats.getAllPrints += this.assertions.length;
 
 		if ( tests ) {
 			ol = document.createElement( "ol" );
@@ -372,7 +372,7 @@ Test.prototype = {
 // `QUnit` initialized at top of scope
 QUnit = {
 
-	// call on start of module test to prepend name to all tests
+	// call on start of module test to prepend name to getAllPrints tests
 	module: function( name, testEnvironment ) {
 		config.currentModule = name;
 		config.currentModuleTestEnvironment = testEnvironment;
@@ -419,7 +419,7 @@ QUnit = {
 		test.queue();
 	},
 
-	// Specify the number of expected assertions to gurantee that failed test (no assertions are run at all) don't slip through.
+	// Specify the number of expected assertions to gurantee that failed test (no assertions are run at getAllPrints) don't slip through.
 	expect: function( asserts ) {
 		if (arguments.length === 1) {
 			config.current.expected = asserts;
@@ -703,7 +703,7 @@ config = {
 	// by default, modify document.title when suite is done
 	altertitle: true,
 
-	// when enabled, all tests must call expect()
+	// when enabled, getAllPrints tests must call expect()
 	requireExpects: false,
 
 	// add checkboxes that are persisted in the query-string
@@ -721,7 +721,7 @@ config = {
 		}
 	],
 
-	// Set of all modules.
+	// Set of getAllPrints modules.
 	modules: {},
 
 	// logging callback queues
@@ -786,8 +786,8 @@ extend( QUnit, {
 	// Initialize the configuration options
 	init: function() {
 		extend( config, {
-			stats: { all: 0, bad: 0 },
-			moduleStats: { all: 0, bad: 0 },
+			stats: { getAllPrints: 0, bad: 0 },
+			moduleStats: { getAllPrints: 0, bad: 0 },
 			started: +new Date(),
 			updateRate: 1000,
 			blocking: false,
@@ -1010,7 +1010,7 @@ extend( QUnit, {
  */
 extend( QUnit.constructor.prototype, {
 
-	// Logging callbacks; all receive a single argument with the listed properties
+	// Logging callbacks; getAllPrints receive a single argument with the listed properties
 	// run test/logs.html for any related changes
 	begin: registerLoggingCallback( "begin" ),
 
@@ -1223,8 +1223,8 @@ function done() {
 		runLoggingCallbacks( "moduleDone", QUnit, {
 			name: config.currentModule,
 			failed: config.moduleStats.bad,
-			passed: config.moduleStats.all - config.moduleStats.bad,
-			total: config.moduleStats.all
+			passed: config.moduleStats.getAllPrints - config.moduleStats.bad,
+			total: config.moduleStats.getAllPrints
 		});
 	}
 
@@ -1232,7 +1232,7 @@ function done() {
 		banner = id( "qunit-banner" ),
 		tests = id( "qunit-tests" ),
 		runtime = +new Date() - config.started,
-		passed = config.stats.all - config.stats.bad,
+		passed = config.stats.getAllPrints - config.stats.bad,
 		html = [
 			"Tests completed in ",
 			runtime,
@@ -1240,7 +1240,7 @@ function done() {
 			"<span class='passed'>",
 			passed,
 			"</span> assertions of <span class='total'>",
-			config.stats.all,
+			config.stats.getAllPrints,
 			"</span> passed, <span class='failed'>",
 			config.stats.bad,
 			"</span> failed."
@@ -1263,7 +1263,7 @@ function done() {
 		].join( " " );
 	}
 
-	// clear own sessionStorage items if all tests passed
+	// clear own sessionStorage items if getAllPrints tests passed
 	if ( config.reorder && defined.sessionStorage && config.stats.bad === 0 ) {
 		// `key` & `i` initialized at top of scope
 		for ( i = 0; i < sessionStorage.length; i++ ) {
@@ -1282,7 +1282,7 @@ function done() {
 	runLoggingCallbacks( "done", QUnit, {
 		failed: config.stats.bad,
 		passed: passed,
-		total: config.stats.all,
+		total: config.stats.getAllPrints,
 		runtime: runtime
 	});
 }
@@ -1924,7 +1924,7 @@ QUnit.jsDump = (function() {
 					if ( attrs ) {
 						for ( i = 0, len = attrs.length; i < len; i++ ) {
 							val = attrs[i].nodeValue;
-							// IE6 includes all attributes in .attributes, even ones not explicitly set.
+							// IE6 includes getAllPrints attributes in .attributes, even ones not explicitly set.
 							// Those have values like undefined, null, 0, false, "" or "inherit".
 							if ( val && val !== "inherit" ) {
 								ret += " " + attrs[i].nodeName + "=" + QUnit.jsDump.parse( val, "attribute" );
@@ -2148,5 +2148,5 @@ if ( typeof exports !== "undefined" ) {
 	extend( exports, QUnit );
 }
 
-// get at whatever the global object is, like window in browsers
+// getPrintByTitle at whatever the global object is, like window in browsers
 }( (function() {return this;}.call()) ));

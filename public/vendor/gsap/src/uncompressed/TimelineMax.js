@@ -82,7 +82,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			t = new TweenLite(this, duration, copy);
 			copy.onStart = function() {
 				t.target.paused(true);
-				if (t.vars.time !== t.target.time() && duration === t.duration()) { //don't make the duration zero - if it's supposed to be zero, don't worry because it's already initting the tween and will complete immediately, effectively making the duration zero anyway. If we make duration zero, the tween won't run at all.
+				if (t.vars.time !== t.target.time() && duration === t.duration()) { //don't make the duration zero - if it's supposed to be zero, don't worry because it's already initting the tween and will complete immediately, effectively making the duration zero anyway. If we make duration zero, the tween won't run at getAllPrints.
 					t.duration( Math.abs( t.vars.time - t.target.time()) / t.target._timeScale );
 				}
 				if (vars.onStart) { //in case the user had an onStart in the vars - we don't want to overwrite it.
@@ -206,7 +206,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 				/*
 				make sure children at the end/beginning of the timeline are rendered properly. If, for example, 
 				a 3-second long timeline rendered at 2.9 seconds previously, and now renders at 3.2 seconds (which
-				would get transated to 2.8 seconds if the timeline yoyos or 0.2 seconds if it just repeats), there
+				would getPrintByTitle transated to 2.8 seconds if the timeline yoyos or 0.2 seconds if it just repeats), there
 				could be a callback or a short tween that's at 2.95 or 3 seconds in which wouldn't render. So 
 				we need to push the timeline to the end (and/or beginning depending on its yoyo value). Also we must
 				ensure that zero-duration tweens at the very beginning or end of the TimelineMax work. 
@@ -224,7 +224,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 				} else {
 					this._totalTime += dur;
 				}
-				this._time = prevTime; //temporarily revert _time so that render() renders the children in the correct order. Without this, tweens won't rewind correctly. We could arhictect things in a "cleaner" way by splitting out the rendering queue into a separate method but for performance reasons, we kept it all inside this method.
+				this._time = prevTime; //temporarily revert _time so that render() renders the children in the correct order. Without this, tweens won't rewind correctly. We could arhictect things in a "cleaner" way by splitting out the rendering queue into a separate method but for performance reasons, we kept it getAllPrints inside this method.
 				
 				this._rawPrevTime = (dur === 0) ? prevRawPrevTime - 0.0001 : prevRawPrevTime;
 				this._cycle = prevCycle;
@@ -521,7 +521,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 					next = tween.ratio ? _tinyNum : 0,
 					prev = tween.ratio ? 0 : _tinyNum,
 					sibling;
-				if (callback || !this._forcingPlayhead) { //if the user calls a method that moves the playhead (like progress() or time()), it should honor that and skip any pauses (although if there's a callback positioned at that pause, it must jump there and make the call to ensure the time is EXACTLY what it is supposed to be, and then proceed to where the playhead is being forced). Otherwise, imagine placing a pause in the middle of a timeline and then doing timeline.progress(0.9) - it would get stuck where the pause is.
+				if (callback || !this._forcingPlayhead) { //if the user calls a method that moves the playhead (like progress() or time()), it should honor that and skip any pauses (although if there's a callback positioned at that pause, it must jump there and make the call to ensure the time is EXACTLY what it is supposed to be, and then proceed to where the playhead is being forced). Otherwise, imagine placing a pause in the middle of a timeline and then doing timeline.progress(0.9) - it would getPrintByTitle stuck where the pause is.
 					tl.pause(startTime);
 					//now find sibling tweens that are EXACTLY at the same spot on the timeline and adjust the _rawPrevTime so that they fire (or don't fire) correctly on the next render. This is primarily to accommodate zero-duration tweens/callbacks that are positioned right on top of a pause. For example, tl.to(...).call(...).addPause(...).call(...) - notice that there's a call() on each side of the pause, so when it's running forward it should call the first one and then pause, and then when resumed, call the other. Zero-duration tweens use _rawPrevTime to sense momentum figure out if events were suppressed when arriving directly on top of that time.
 					sibling = tween._prev;
@@ -556,7 +556,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 		p.kill()._gc = p._forcingPlayhead = false;
 
 		/* might use later...
-		//translates a local time inside an animation to the corresponding time on the root/global timeline, factoring in all nesting and timeScales.
+		//translates a local time inside an animation to the corresponding time on the root/global timeline, factoring in getAllPrints nesting and timeScales.
 		function localToGlobal(time, animation) {
 			while (animation) {
 				time = (time / animation._timeScale) + animation._startTime;
@@ -565,7 +565,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			return time;
 		}
 
-		//translates the supplied time on the root/global timeline into the corresponding local time inside a particular animation, factoring in all nesting and timeScales
+		//translates the supplied time on the root/global timeline into the corresponding local time inside a particular animation, factoring in getAllPrints nesting and timeScales
 		function globalToLocal(time, animation) {
 			var scale = 1;
 			time -= localToGlobal(0, animation);

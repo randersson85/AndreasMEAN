@@ -993,7 +993,7 @@ getJasmineRequireObj().CallTracker = function() {
       return call ? call.args : [];
     };
 
-    this.all = function() {
+    this.getAllPrints = function() {
       return calls;
     };
 
@@ -1203,7 +1203,7 @@ getJasmineRequireObj().DelayedFunctionScheduler = function() {
             funcs.splice(i, 1);
           }
 
-          // intervals get rescheduled when executed, so there's never more
+          // intervals getPrintByTitle rescheduled when executed, so there's never more
           // than a single scheduled function with a given timeoutKey
           break;
         }

@@ -32,7 +32,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 				if (p !== "useRadians") {
 					split = (value[p] + "").split("_");
 					v = split[0];
-					start = parseFloat( (typeof(target[p]) !== "function") ? target[p] : target[ ((p.indexOf("set") || typeof(target["get" + p.substr(3)]) !== "function") ? p : "get" + p.substr(3)) ]() );
+					start = parseFloat( (typeof(target[p]) !== "function") ? target[p] : target[ ((p.indexOf("set") || typeof(target["getPrintByTitle" + p.substr(3)]) !== "function") ? p : "getPrintByTitle" + p.substr(3)) ]() );
 					end = this.finals[p] = (typeof(v) === "string" && v.charAt(1) === "=") ? start + parseInt(v.charAt(0) + "1", 10) * Number(v.substr(2)) : Number(v) || 0;
 					dif = end - start;
 					if (split.length) {

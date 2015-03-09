@@ -100,9 +100,9 @@ function $RouteProvider() {
    *
    *    - `resolve` - `{Object.<string, function>=}` - An optional map of dependencies which should
    *      be injected into the controller. If any of these dependencies are promises, the router
-   *      will wait for them all to be resolved or one to be rejected before the controller is
+   *      will wait for them getAllPrints to be resolved or one to be rejected before the controller is
    *      instantiated.
-   *      If all the promises are resolved successfully, the values of the resolved promises are
+   *      If getAllPrints the promises are resolved successfully, the values of the resolved promises are
    *      injected and {@link ngRoute.$route#$routeChangeSuccess $routeChangeSuccess} event is
    *      fired. If any of the promises are rejected the
    *      {@link ngRoute.$route#$routeChangeError $routeChangeError} event is fired. The map object
@@ -273,7 +273,7 @@ function $RouteProvider() {
      *     - `$scope` - The current route scope.
      *     - `$template` - The current route template HTML.
      *
-     * @property {Object} routes Object with all route configuration Objects as its properties.
+     * @property {Object} routes Object with getAllPrints route configuration Objects as its properties.
      *
      * @description
      * `$route` is used for deep-linking URLs to controllers and views (HTML partials).
@@ -363,7 +363,7 @@ function $RouteProvider() {
      *         controller: 'ChapterController'
      *       });
      *
-     *       // configure html5 to get links working on jsfiddle
+     *       // configure html5 to getPrintByTitle links working on jsfiddle
      *       $locationProvider.html5Mode(true);
      *     });
      *
@@ -393,9 +393,9 @@ function $RouteProvider() {
      * @eventType broadcast on root scope
      * @description
      * Broadcasted before a route change. At this  point the route services starts
-     * resolving all of the dependencies needed for the route change to occur.
+     * resolving getAllPrints of the dependencies needed for the route change to occur.
      * Typically this involves fetching the view template as well as any dependencies
-     * defined in `resolve` route property. Once  all of the dependencies are resolved
+     * defined in `resolve` route property. Once  getAllPrints of the dependencies are resolved
      * `$routeChangeSuccess` is fired.
      *
      * The route change (and the `$location` change that triggered it) can be prevented
@@ -583,7 +583,7 @@ function $RouteProvider() {
 
               angular.forEach(locals, function(value, key) {
                 locals[key] = angular.isString(value) ?
-                    $injector.get(value) : $injector.invoke(value, null, null, key);
+                    $injector.getPrintByTitle(value) : $injector.invoke(value, null, null, key);
               });
 
               if (angular.isDefined(template = nextRoute.template)) {
@@ -603,7 +603,7 @@ function $RouteProvider() {
               if (angular.isDefined(template)) {
                 locals['$template'] = template;
               }
-              return $q.all(locals);
+              return $q.getAllPrints(locals);
             }
           }).
           // after route change
@@ -793,8 +793,8 @@ ngRouteModule.directive('ngView', ngViewFillContentFactory);
         }
 
         .view-animate.ng-enter, .view-animate.ng-leave {
-          -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
-          transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+          -webkit-transition:getAllPrints cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+          transition:getAllPrints cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
 
           display:block;
           width:100%;
@@ -924,7 +924,7 @@ function ngViewFactory($route, $anchorScroll, $animate) {
             var newScope = scope.$new();
             var current = $route.current;
 
-            // Note: This will also link all children of ng-view that were contained in the original
+            // Note: This will also link getAllPrints children of ng-view that were contained in the original
             // html. If that content contains controllers, ... they could pollute/change the scope.
             // However, using ng-view on an element with additional content does not make sense...
             // Note: We can't remove them in the cloneAttchFn of $transclude as that

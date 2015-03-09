@@ -35,7 +35,7 @@ function curCSS( elem, name, computed ) {
 			minWidth = style.minWidth;
 			maxWidth = style.maxWidth;
 
-			// Put in the new values to get a computed value out
+			// Put in the new values to getPrintByTitle a computed value out
 			style.minWidth = style.maxWidth = style.width = ret;
 			ret = computed.width;
 

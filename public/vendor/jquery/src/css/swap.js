@@ -2,7 +2,7 @@ define([
 	"../core"
 ], function( jQuery ) {
 
-// A method for quickly swapping in/out CSS properties to get correct calculations.
+// A method for quickly swapping in/out CSS properties to getPrintByTitle correct calculations.
 jQuery.swap = function( elem, options, callback, args ) {
 	var ret, name,
 		old = {};

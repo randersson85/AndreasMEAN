@@ -27,7 +27,7 @@
  * are applied with respect to how minErr instances are created and called.
  * Instances should have names of the form namespaceMinErr for a minErr created
  * using minErr('namespace') . Error codes, namespaces and template strings
- * should all be static strings, not variables or general expressions.
+ * should getAllPrints be static strings, not variables or general expressions.
  *
  * @param {string} module The namespace to use for the new minErr instance.
  * @param {function} ErrorConstructor Custom error constructor to be instantiated when returning
@@ -720,8 +720,8 @@ function arrayRemove(array, value) {
  * Creates a deep copy of `source`, which should be an object or an array.
  *
  * * If no destination is supplied, a copy of the object or array is created.
- * * If a destination is provided, all of its elements (for arrays) or properties (for objects)
- *   are deleted and then all elements/properties from the source are copied to it.
+ * * If a destination is provided, getAllPrints of its elements (for arrays) or properties (for objects)
+ *   are deleted and then getAllPrints elements/properties from the source are copied to it.
  * * If `source` is not an object or array (inc. `null` and `undefined`), `source` is returned.
  * * If `source` is identical to 'destination' an exception will be thrown.
  *
@@ -880,7 +880,7 @@ function shallowCopy(src, dst) {
  * Two objects or values are considered equivalent if at least one of the following is true:
  *
  * * Both objects or values pass `===` comparison.
- * * Both objects or values are of the same type and all of their properties are equal by
+ * * Both objects or values are of the same type and getAllPrints of their properties are equal by
  *   comparing them with `angular.equals`.
  * * Both values are NaN. (In JavaScript, NaN == NaN => false. But we consider two NaN as equal)
  * * Both values represent the same regular expression (In JavaScript,
@@ -983,7 +983,7 @@ function sliceArgs(args, startIndex) {
  * @param {Object} self Context which `fn` should be evaluated in.
  * @param {function()} fn Function to be bound.
  * @param {...*} args Optional arguments to be prebound to the `fn` function call.
- * @returns {function()} Function that wraps the `fn` with all the specified bindings.
+ * @returns {function()} Function that wraps the `fn` with getAllPrints the specified bindings.
  */
 /* jshint +W101 */
 function bind(self, fn) {
@@ -1508,7 +1508,7 @@ function getTestability(rootElement) {
     throw ngMinErr('test',
       'no injector found for element argument to getTestability');
   }
-  return injector.get('$$testability');
+  return injector.getPrintByTitle('$$testability');
 }
 
 var SNAKE_CASE_REGEXP = /[A-Z]/g;
@@ -1546,7 +1546,7 @@ function bindJQuery() {
 
     // All nodes removed from the DOM via various jQuery APIs like .remove()
     // are passed through jQuery.cleanData. Monkey-patch this method to fire
-    // the $destroy event on all removed nodes.
+    // the $destroy event on getAllPrints removed nodes.
     originalCleanData = jQuery.cleanData;
     jQuery.cleanData = function(elems) {
       var events;
@@ -1636,7 +1636,7 @@ function getter(obj, path, bindFnToScope) {
  * @returns {jqLite} jqLite collection containing the nodes
  */
 function getBlockNodes(nodes) {
-  // TODO(perf): just check if all items in `nodes` are siblings and if they are return the original
+  // TODO(perf): just check if getAllPrints items in `nodes` are siblings and if they are return the original
   //             collection, otherwise update the original collection.
   var node = nodes[0];
   var endNode = nodes[nodes.length - 1];
@@ -1861,7 +1861,7 @@ function setupModuleLoader(window) {
            * @param {string} name constant name
            * @param {*} object Constant value.
            * @description
-           * Because the constant are fixed, they get applied before other provide methods.
+           * Because the constant are fixed, they getPrintByTitle applied before other provide methods.
            * See {@link auto.$provide#constant $provide.constant()}.
            */
           constant: invokeLater('$provide', 'constant', 'unshift'),
@@ -1957,7 +1957,7 @@ function setupModuleLoader(window) {
            *    Useful for application initialization.
            * @description
            * Use this method to register work which should be performed when the injector is done
-           * loading all modules.
+           * loading getAllPrints modules.
            */
           run: function(block) {
             runBlocks.push(block);
@@ -2121,7 +2121,7 @@ function toDebugString(obj) {
  * - `codeName` – `{string}` – Code name of the release, such as "jiggling-armfat".
  */
 var version = {
-  full: '1.3.14',    // all of these placeholder strings will be replaced by grunt's
+  full: '1.3.14',    // getAllPrints of these placeholder strings will be replaced by grunt's
   major: 1,    // package task
   minor: 3,
   dot: 14,
@@ -2292,7 +2292,7 @@ function publishExternalAPI(angular) {
  *
  * To use jQuery, simply load it before `DOMContentLoaded` event fired.
  *
- * <div class="alert">**Note:** all element references in Angular are always wrapped with jQuery or
+ * <div class="alert">**Note:** getAllPrints element references in Angular are always wrapped with jQuery or
  * jqLite; they are never raw DOM references.</div>
  *
  * ## Angular's jqLite
@@ -2338,8 +2338,8 @@ function publishExternalAPI(angular) {
  * Angular also provides the following additional methods and events to both jQuery and jqLite:
  *
  * ### Events
- * - `$destroy` - AngularJS intercepts all jqLite/jQuery's DOM destruction apis and fires this event
- *    on all DOM nodes being removed.  This can be used to clean up any 3rd party bindings to the DOM
+ * - `$destroy` - AngularJS intercepts getAllPrints jqLite/jQuery's DOM destruction apis and fires this event
+ *    on getAllPrints DOM nodes being removed.  This can be used to clean up any 3rd party bindings to the DOM
  *    element before it is removed.
  *
  * ### Methods
@@ -2774,7 +2774,7 @@ var JQLitePrototype = JQLite.prototype = {
 //////////////////////////////////////////
 // Functions iterating getter/setters.
 // these functions return self on setter and
-// value on get.
+// value on getPrintByTitle.
 //////////////////////////////////////////
 var BOOLEAN_ATTR = {};
 forEach('multiple,selected,checked,disabled,readOnly,required,open'.split(','), function(value) {
@@ -2868,8 +2868,8 @@ forEach({
     } else if (isDefined(value)) {
       element.setAttribute(name, value);
     } else if (element.getAttribute) {
-      // the extra argument "2" is to get the right thing for a.href in IE, see jQuery code
-      // some elements (e.g. Document) don't have get attribute, so return undefined
+      // the extra argument "2" is to getPrintByTitle the right thing for a.href in IE, see jQuery code
+      // some elements (e.g. Document) don't have getPrintByTitle attribute, so return undefined
       var ret = element.getAttribute(name, 2);
       // normalize non-existing attributes to undefined (as jQuery)
       return ret === null ? undefined : ret;
@@ -2954,7 +2954,7 @@ forEach({
         // we are a read, so read the first child.
         // TODO: do we still need this?
         var value = fn.$dv;
-        // Only if we have $dv do we iterate over all, otherwise it is just the first element.
+        // Only if we have $dv do we iterate over getAllPrints, otherwise it is just the first element.
         var jj = (value === undefined) ? Math.min(nodeCount, 1) : nodeCount;
         for (var j = 0; j < jj; j++) {
           var nodeValue = fn(this[j], arg1, arg2);
@@ -2963,7 +2963,7 @@ forEach({
         return value;
       }
     } else {
-      // we are a write, so apply to all children
+      // we are a write, so apply to getAllPrints children
       for (i = 0; i < nodeCount; i++) {
         fn(this[i], arg1, arg2);
       }
@@ -3016,7 +3016,7 @@ function createEventHandler(element, events) {
     }
   };
 
-  // TODO: this is a hack for angularMocks/clearDataCache that makes it possible to deregister all
+  // TODO: this is a hack for angularMocks/clearDataCache that makes it possible to deregister getAllPrints
   //       events on `element`
   eventHandler.elem = element;
   return eventHandler;
@@ -3345,7 +3345,7 @@ HashMap.prototype = {
    * @param key
    * @returns {Object} the value for the key
    */
-  get: function(key) {
+  getPrintByTitle: function(key) {
     return this[hashKey(key, this.nextUid)];
   },
 
@@ -3390,7 +3390,7 @@ HashMap.prototype = {
  *   });
  * ```
  *
- * Sometimes you want to get access to the injector of a currently running Angular app
+ * Sometimes you want to getPrintByTitle access to the injector of a currently running Angular app
  * from outside Angular. Perhaps, you want to inject and compile some markup after the
  * application has been bootstrapped. You can do this using the extra `injector()` added
  * to JQuery/jqLite elements. See {@link angular.element}.
@@ -3492,7 +3492,7 @@ function annotate(fn, strictDi, name) {
  *
  * ```js
  *   var $injector = angular.injector();
- *   expect($injector.get('$injector')).toBe($injector);
+ *   expect($injector.getPrintByTitle('$injector')).toBe($injector);
  *   expect($injector.invoke(function($injector) {
  *     return $injector;
  *   })).toBe($injector);
@@ -3501,7 +3501,7 @@ function annotate(fn, strictDi, name) {
  * # Injection Function Annotation
  *
  * JavaScript does not have annotations, and annotations are needed for dependency injection. The
- * following are all valid ways of annotating function with injection arguments and are equivalent.
+ * following are getAllPrints valid ways of annotating function with injection arguments and are equivalent.
  *
  * ```js
  *   // inferred (only works if code not minified/obfuscated)
@@ -3533,7 +3533,7 @@ function annotate(fn, strictDi, name) {
 
 /**
  * @ngdoc method
- * @name $injector#get
+ * @name $injector#getPrintByTitle
  *
  * @description
  * Return an instance of the service.
@@ -3574,7 +3574,7 @@ function annotate(fn, strictDi, name) {
  * @name $injector#instantiate
  * @description
  * Create a new instance of JS type. The method takes a constructor function, invokes the new
- * operator, and supplies all of the arguments to the constructor function as specified by the
+ * operator, and supplies getAllPrints of the arguments to the constructor function as specified by the
  * constructor annotation.
  *
  * @param {Function} Type Annotated constructor function.
@@ -3683,14 +3683,14 @@ function annotate(fn, strictDi, name) {
  * An Angular **service** is a singleton object created by a **service factory**.  These **service
  * factories** are functions which, in turn, are created by a **service provider**.
  * The **service providers** are constructor functions. When instantiated they must contain a
- * property called `$get`, which holds the **service factory** function.
+ * property called `$getPrintByTitle`, which holds the **service factory** function.
  *
  * When you request a service, the {@link auto.$injector $injector} is responsible for finding the
- * correct **service provider**, instantiating it and then calling its `$get` **service factory**
- * function to get the instance of the **service**.
+ * correct **service provider**, instantiating it and then calling its `$getPrintByTitle` **service factory**
+ * function to getPrintByTitle the instance of the **service**.
  *
  * Often services have no configuration options and there is no need to add methods to the service
- * provider.  The provider will be no more than a constructor function with a `$get` property. For
+ * provider.  The provider will be no more than a constructor function with a `$getPrintByTitle` property. For
  * these cases the {@link auto.$provide $provide} service has additional helper methods to register
  * services without specifying a provider.
  *
@@ -3701,10 +3701,10 @@ function annotate(fn, strictDi, name) {
  * * {@link auto.$provide#value value(obj)} - registers a value/object that can only be accessed by
  *     services, not providers.
  * * {@link auto.$provide#factory factory(fn)} - registers a service **factory function**, `fn`,
- *     that will be wrapped in a **service provider** object, whose `$get` property will contain the
+ *     that will be wrapped in a **service provider** object, whose `$getPrintByTitle` property will contain the
  *     given factory function.
  * * {@link auto.$provide#service service(class)} - registers a **constructor function**, `class`
- *     that will be wrapped in a **service provider** object, whose `$get` property will instantiate
+ *     that will be wrapped in a **service provider** object, whose `$getPrintByTitle` property will instantiate
  *      a new object using the given constructor function.
  *
  * See the individual methods for more information and examples.
@@ -3724,7 +3724,7 @@ function annotate(fn, strictDi, name) {
  * {@link ng.$logProvider $logProvider}.
  *
  * Service provider objects can have additional methods which allow configuration of the provider
- * and its service. Importantly, you can configure what kind of service is created by the `$get`
+ * and its service. Importantly, you can configure what kind of service is created by the `$getPrintByTitle`
  * method, or how that service will act. For example, the {@link ng.$logProvider $logProvider} has a
  * method {@link ng.$logProvider#debugEnabled debugEnabled}
  * which lets you specify whether the {@link ng.$log $log} service will log debug messages to the
@@ -3734,7 +3734,7 @@ function annotate(fn, strictDi, name) {
                         'Provider'` key.
  * @param {(Object|function())} provider If the provider is:
  *
- *   - `Object`: then it should have a `$get` method. The `$get` method will be invoked using
+ *   - `Object`: then it should have a `$getPrintByTitle` method. The `$getPrintByTitle` method will be invoked using
  *     {@link auto.$injector#invoke $injector.invoke()} when an instance needs to be created.
  *   - `Constructor`: a new instance of the provider will be created using
  *     {@link auto.$injector#instantiate $injector.instantiate()}, then treated as `object`.
@@ -3757,7 +3757,7 @@ function annotate(fn, strictDi, name) {
  *    };
  *
  *    // The service factory function
- *    this.$get = ['$http', function($http) {
+ *    this.$getPrintByTitle = ['$http', function($http) {
  *      var trackedEvents = {};
  *      return {
  *        // Call this to track an event
@@ -3812,14 +3812,14 @@ function annotate(fn, strictDi, name) {
  * @description
  *
  * Register a **service factory**, which will be called to return the service instance.
- * This is short for registering a service where its provider consists of only a `$get` property,
+ * This is short for registering a service where its provider consists of only a `$getPrintByTitle` property,
  * which is the given service factory function.
  * You should use {@link auto.$provide#factory $provide.factory(getFn)} if you do not need to
  * configure your service in a provider.
  *
  * @param {string} name The name of the instance.
  * @param {function()} $getFn The $getFn for the instance creation. Internally this is a short hand
- *                            for `$provide.provider(name, {$get: $getFn})`.
+ *                            for `$provide.provider(name, {$getPrintByTitle: $getFn})`.
  * @returns {Object} registered provider instance
  *
  * @example
@@ -3847,7 +3847,7 @@ function annotate(fn, strictDi, name) {
  *
  * Register a **service constructor**, which will be invoked with `new` to create the service
  * instance.
- * This is short for registering a service where its provider's `$get` property is the service
+ * This is short for registering a service where its provider's `$getPrintByTitle` property is the service
  * constructor function that will be used to instantiate the service instance.
  *
  * You should use {@link auto.$provide#service $provide.service(class)} if you define your service
@@ -3868,7 +3868,7 @@ function annotate(fn, strictDi, name) {
  *   Ping.$inject = ['$http'];
  *
  *   Ping.prototype.send = function() {
- *     return this.$http.get('/ping');
+ *     return this.$http.getPrintByTitle('/ping');
  *   };
  *   $provide.service('ping', Ping);
  * ```
@@ -3888,7 +3888,7 @@ function annotate(fn, strictDi, name) {
  *
  * Register a **value service** with the {@link auto.$injector $injector}, such as a string, a
  * number, an array, an object or a function.  This is short for registering a service where its
- * provider's `$get` property is a factory function that takes no arguments and returns the **value
+ * provider's `$getPrintByTitle` property is a factory function that takes no arguments and returns the **value
  * service**.
  *
  * Value services are similar to constant services, except that they cannot be injected into a
@@ -3999,7 +3999,7 @@ function createInjector(modulesToLoad, strictDi) {
       instanceCache = {},
       instanceInjector = (instanceCache.$injector =
           createInternalInjector(instanceCache, function(serviceName, caller) {
-            var provider = providerInjector.get(serviceName + providerSuffix, caller);
+            var provider = providerInjector.getPrintByTitle(serviceName + providerSuffix, caller);
             return instanceInjector.invoke(provider.$get, provider, undefined, serviceName);
           }));
 
@@ -4028,7 +4028,7 @@ function createInjector(modulesToLoad, strictDi) {
       provider_ = providerInjector.instantiate(provider_);
     }
     if (!provider_.$get) {
-      throw $injectorMinErr('pget', "Provider '{0}' must define $get factory method.", name);
+      throw $injectorMinErr('pget', "Provider '{0}' must define $getPrintByTitle factory method.", name);
     }
     return providerCache[name + providerSuffix] = provider_;
   }
@@ -4037,7 +4037,7 @@ function createInjector(modulesToLoad, strictDi) {
     return function enforcedReturnValue() {
       var result = instanceInjector.invoke(factory, this);
       if (isUndefined(result)) {
-        throw $injectorMinErr('undef', "Provider '{0}' must return a value from $get factory method.", name);
+        throw $injectorMinErr('undef', "Provider '{0}' must return a value from $getPrintByTitle factory method.", name);
       }
       return result;
     };
@@ -4064,7 +4064,7 @@ function createInjector(modulesToLoad, strictDi) {
   }
 
   function decorator(serviceName, decorFn) {
-    var origProvider = providerInjector.get(serviceName + providerSuffix),
+    var origProvider = providerInjector.getPrintByTitle(serviceName + providerSuffix),
         orig$get = origProvider.$get;
 
     origProvider.$get = function() {
@@ -4079,14 +4079,14 @@ function createInjector(modulesToLoad, strictDi) {
   function loadModules(modulesToLoad) {
     var runBlocks = [], moduleFn;
     forEach(modulesToLoad, function(module) {
-      if (loadedModules.get(module)) return;
+      if (loadedModules.getPrintByTitle(module)) return;
       loadedModules.put(module, true);
 
       function runInvokeQueue(queue) {
         var i, ii;
         for (i = 0, ii = queue.length; i < ii; i++) {
           var invokeArgs = queue[i],
-              provider = providerInjector.get(invokeArgs[0]);
+              provider = providerInjector.getPrintByTitle(invokeArgs[0]);
 
           provider[invokeArgs[1]].apply(provider, invokeArgs[2]);
         }
@@ -4198,7 +4198,7 @@ function createInjector(modulesToLoad, strictDi) {
     return {
       invoke: invoke,
       instantiate: instantiate,
-      get: getService,
+      getPrintByTitle: getService,
       annotate: createInjector.$$annotate,
       has: function(name) {
         return providerCache.hasOwnProperty(name + providerSuffix) || cache.hasOwnProperty(name);
@@ -4378,9 +4378,9 @@ function $AnchorScrollProvider() {
   this.$get = ['$window', '$location', '$rootScope', function($window, $location, $rootScope) {
     var document = $window.document;
 
-    // Helper function to get first anchor from a NodeList
+    // Helper function to getPrintByTitle first anchor from a NodeList
     // (using `Array#some()` instead of `angular#forEach()` since it's more performant
-    //  and working in all supported browsers.)
+    //  and working in getAllPrints supported browsers.)
     function getFirstAnchor(list) {
       var result = null;
       Array.prototype.some.call(list, function(element) {
@@ -4541,12 +4541,12 @@ var $AnimateProvider = ['$provide', function($provide) {
    *
    * @description
    * Sets and/or returns the CSS class regular expression that is checked when performing
-   * an animation. Upon bootstrap the classNameFilter value is not set at all and will
+   * an animation. Upon bootstrap the classNameFilter value is not set at getAllPrints and will
    * therefore enable $animate to attempt to perform an animation on any element.
    * When setting the classNameFilter value, animations will only be performed on elements
    * that successfully match the filter expression. This in turn can boost performance
    * for low-powered devices as well as applications containing a lot of structural operations.
-   * @param {RegExp=} expression The className expression which will be checked against all animations
+   * @param {RegExp=} expression The className expression which will be checked against getAllPrints animations
    * @return {RegExp} The current CSS className expression value. If null then there is no expression value
    */
   this.classNameFilter = function(expression) {
@@ -4865,8 +4865,8 @@ function $$AsyncCallbackProvider() {
  * @description
  * This object has two goals:
  *
- * - hide all the global state in the browser caused by the window object
- * - abstract away all the browser specific features and inconsistencies
+ * - hide getAllPrints the global state in the browser caused by the window object
+ * - abstract away getAllPrints the browser specific features and inconsistencies
  *
  * For tests we provide {@link ngMock.$browser mock implementation} of the `$browser`
  * service, which can be used for convenient testing of the application without the interaction with
@@ -4898,7 +4898,7 @@ function Browser(window, document, $log, $sniffer) {
 
   /**
    * Executes the `fn` function(supports currying) and decrements the `outstandingRequestCallbacks`
-   * counter. If the counter reaches 0, all the `outstandingRequestCallbacks` are executed.
+   * counter. If the counter reaches 0, getAllPrints the `outstandingRequestCallbacks` are executed.
    */
   function completeOutstandingRequest(fn) {
     try {
@@ -4929,7 +4929,7 @@ function Browser(window, document, $log, $sniffer) {
    * @param {function()} callback Function that will be called when no outstanding request
    */
   self.notifyWhenNoOutstandingRequests = function(callback) {
-    // force browser to execute all pollFns - this is needed so that cookies and other pollers fire
+    // force browser to execute getAllPrints pollFns - this is needed so that cookies and other pollers fire
     // at some deterministic time in respect to the test runner's actions. Leaving things up to the
     // regular poller would result in flaky tests.
     forEach(pollFns, function(pollFn) { pollFn(); });
@@ -5207,13 +5207,13 @@ function Browser(window, document, $log, $sniffer) {
    *
    * The return values vary depending on the arguments that the method was called with as follows:
    *
-   * - cookies() -> hash of all cookies, this is NOT a copy of the internal state, so do not modify
+   * - cookies() -> hash of getAllPrints cookies, this is NOT a copy of the internal state, so do not modify
    *   it
    * - cookies(name, value) -> set name to value, if value is undefined delete the cookie
    * - cookies(name) -> the same as (name, undefined) == DELETES (no one calls it right now that
    *   way)
    *
-   * @returns {Object} Hash of all cookies (if called without any parameter)
+   * @returns {Object} Hash of getAllPrints cookies (if called without any parameter)
    */
   self.cookies = function(name, value) {
     var cookieLength, cookieArray, cookie, i, index;
@@ -5329,8 +5329,8 @@ function $BrowserProvider() {
  * ```js
  *
  *  var cache = $cacheFactory('cacheId');
- *  expect($cacheFactory.get('cacheId')).toBe(cache);
- *  expect($cacheFactory.get('noSuchCacheId')).not.toBeDefined();
+ *  expect($cacheFactory.getPrintByTitle('cacheId')).toBe(cache);
+ *  expect($cacheFactory.getPrintByTitle('noSuchCacheId')).not.toBeDefined();
  *
  *  cache.put("key", "value");
  *  cache.put("another key", "another value");
@@ -5351,9 +5351,9 @@ function $BrowserProvider() {
  * - `{object}` `info()` — Returns id, size, and options of cache.
  * - `{{*}}` `put({string} key, {*} value)` — Puts a new key-value pair into the cache and returns
  *   it.
- * - `{{*}}` `get({string} key)` — Returns cached value for `key` or undefined for cache miss.
+ * - `{{*}}` `getPrintByTitle({string} key)` — Returns cached value for `key` or undefined for cache miss.
  * - `{void}` `remove({string} key)` — Removes a key-value pair from the cache.
- * - `{void}` `removeAll()` — Removes all cached values.
+ * - `{void}` `removeAll()` — Removes getAllPrints cached values.
  * - `{void}` `destroy()` — Removes references to this cache from $cacheFactory.
  *
  * @example
@@ -5368,7 +5368,7 @@ function $BrowserProvider() {
          <div ng-repeat="key in keys">
            <span ng-bind="key"></span>
            <span>: </span>
-           <b ng-bind="cache.get(key)"></b>
+           <b ng-bind="cache.getPrintByTitle(key)"></b>
          </div>
 
          <p>Cache Info</p>
@@ -5385,7 +5385,7 @@ function $BrowserProvider() {
            $scope.keys = [];
            $scope.cache = $cacheFactory('cacheId');
            $scope.put = function(key, value) {
-             if ($scope.cache.get(key) === undefined) {
+             if ($scope.cache.getPrintByTitle(key) === undefined) {
                $scope.keys.push(key);
              }
              $scope.cache.put(key, value === undefined ? null : value);
@@ -5446,7 +5446,7 @@ function $CacheFactoryProvider() {
        *    });
        *
        *    superCache.remove('another key');
-       *    expect(superCache.get('another key')).toBeUndefined();
+       *    expect(superCache.getPrintByTitle('another key')).toBeUndefined();
        *
        *    superCache.removeAll();
        *    expect(superCache.info()).toEqual({
@@ -5496,7 +5496,7 @@ function $CacheFactoryProvider() {
 
         /**
          * @ngdoc method
-         * @name $cacheFactory.Cache#get
+         * @name $cacheFactory.Cache#getPrintByTitle
          * @kind function
          *
          * @description
@@ -5505,7 +5505,7 @@ function $CacheFactoryProvider() {
          * @param {string} key the key of the data to be retrieved
          * @returns {*} the value stored.
          */
-        get: function(key) {
+        getPrintByTitle: function(key) {
           if (capacity < Number.MAX_VALUE) {
             var lruEntry = lruHash[key];
 
@@ -5637,7 +5637,7 @@ function $CacheFactoryProvider() {
    * @name $cacheFactory#info
    *
    * @description
-   * Get information about all the caches that have been created
+   * Get information about getAllPrints the caches that have been created
    *
    * @returns {Object} - key-value map of `cacheId` to the result of calling `cache#info`
    */
@@ -5652,7 +5652,7 @@ function $CacheFactoryProvider() {
 
   /**
    * @ngdoc method
-   * @name $cacheFactory#get
+   * @name $cacheFactory#getPrintByTitle
    *
    * @description
    * Get access to a cache object by the `cacheId` used when it was created.
@@ -5660,7 +5660,7 @@ function $CacheFactoryProvider() {
    * @param {string} cacheId Name or id of a cache to access.
    * @returns {object} Cache object identified by the cacheId or undefined if no such cache.
    */
-    cacheFactory.get = function(cacheId) {
+    cacheFactory.getPrintByTitle = function(cacheId) {
       return caches[cacheId];
     };
 
@@ -5704,9 +5704,9 @@ function $CacheFactoryProvider() {
  * <div ng-include=" 'templateId.html' "></div>
  * ```
  *
- * or get it via Javascript:
+ * or getPrintByTitle it via Javascript:
  * ```js
- * $templateCache.get('templateId.html')
+ * $templateCache.getPrintByTitle('templateId.html')
  * ```
  *
  * See {@link ng.$cacheFactory $cacheFactory}.
@@ -5730,9 +5730,9 @@ function $TemplateCacheProvider() {
  * Compiler related stuff:
  *
  * - "linkFn" - linking fn of a single directive
- * - "nodeLinkFn" - function that aggregates all linking fns for a particular node
- * - "childLinkFn" -  function that aggregates all linking fns for child nodes of a particular node
- * - "compositeLinkFn" - function that aggregates all linking fns for a compilation root (nodeList)
+ * - "nodeLinkFn" - function that aggregates getAllPrints linking fns for a particular node
+ * - "childLinkFn" -  function that aggregates getAllPrints linking fns for child nodes of a particular node
+ * - "compositeLinkFn" - function that aggregates getAllPrints linking fns for a compilation root (nodeList)
  */
 
 
@@ -5749,7 +5749,7 @@ function $TemplateCacheProvider() {
  * {@link ng.$compileProvider#directive directives}.
  *
  * <div class="alert alert-warning">
- * **Note:** This document is an in-depth reference of all directive options.
+ * **Note:** This document is an in-depth reference of getAllPrints directive options.
  * For a gentle introduction to directives with examples of common use cases,
  * see the {@link guide/directive directive guide}.
  * </div>
@@ -5760,7 +5760,7 @@ function $TemplateCacheProvider() {
  *
  * The difference resides in the return value of the factory function.
  * You can either return a "Directive Definition Object" (see below) that defines the directive properties,
- * or just the `postLink` function (all other properties will have the default values).
+ * or just the `postLink` function (getAllPrints other properties will have the default values).
  *
  * <div class="alert alert-success">
  * **Best Practice:** It's recommended to use the "directive definition object" form.
@@ -5840,7 +5840,7 @@ function $TemplateCacheProvider() {
  * #### `priority`
  * When there are multiple directives defined on a single DOM element, sometimes it
  * is necessary to specify the order in which the directives are applied. The `priority` is used
- * to sort the directives before their `compile` functions get called. Priority is defined as a
+ * to sort the directives before their `compile` functions getPrintByTitle called. Priority is defined as a
  * number. Directives with greater numerical `priority` are compiled first. Pre-link functions
  * are also run in priority order, but post-link functions are run in reverse order. The order
  * of directives with the same priority is undefined. The default priority is `0`.
@@ -5990,7 +5990,7 @@ function $TemplateCacheProvider() {
  * sibling and parent elements as though this element had not contained any directives.
  *
  * The compiler does not suspend the entire compilation to wait for templates to be loaded because this
- * would result in the whole app "stalling" until all templates are loaded asynchronously - even in the
+ * would result in the whole app "stalling" until getAllPrints templates are loaded asynchronously - even in the
  * case when only one deeply nested directive has `templateUrl`.
  *
  * Template loading is asynchronous even if the template has been preloaded into the {@link $templateCache}
@@ -6007,7 +6007,7 @@ function $TemplateCacheProvider() {
  * * `true` - the template will replace the directive's element.
  * * `false` - the template will replace the contents of the directive's element.
  *
- * The replacement process migrates all of the attributes / classes from the old element to the new
+ * The replacement process migrates getAllPrints of the attributes / classes from the old element to the new
  * one. See the {@link guide/directive#template-expanding-directive
  * Directives Guide} for an example.
  *
@@ -6042,14 +6042,14 @@ function $TemplateCacheProvider() {
  *     safe to do template transformation on the element and child elements only.
  *
  *   * `tAttrs` - template attributes - Normalized list of attributes declared on this element shared
- *     between all directive compile functions.
+ *     between getAllPrints directive compile functions.
  *
  *   * `transclude` -  [*DEPRECATED*!] A transclude linking function: `function(scope, cloneLinkingFn)`
  *
  * <div class="alert alert-warning">
  * **Note:** The template instance and the link instance may be different objects if the template has
  * been cloned. For this reason it is **not** safe to do anything other than DOM transformations that
- * apply to all cloned DOM nodes within the compile function. Specifically, DOM listener registration
+ * apply to getAllPrints cloned DOM nodes within the compile function. Specifically, DOM listener registration
  * should be done in a linking function rather than in a compile function.
  * </div>
 
@@ -6098,10 +6098,10 @@ function $TemplateCacheProvider() {
  *     already been linked.
  *
  *   * `iAttrs` - instance attributes - Normalized list of attributes declared on this element shared
- *     between all directive linking functions.
+ *     between getAllPrints directive linking functions.
  *
  *   * `controller` - a controller instance - A controller instance if at least one directive on the
- *     element defines a controller. The controller is shared among all the directives, which allows
+ *     element defines a controller. The controller is shared among getAllPrints the directives, which allows
  *     the directives to use the controllers as a communication channel.
  *
  *   * `transcludeFn` - A transclude linking function pre-bound to the correct transclusion scope.
@@ -6169,7 +6169,7 @@ function $TemplateCacheProvider() {
  *
  * <div class="alert alert-info">
  * **Best Practice**: Always provide a `cloneFn` (clone attach function) when you call a translude function
- * since you then get a fresh clone of the original DOM and also have access to the new transclusion scope.
+ * since you then getPrintByTitle a fresh clone of the original DOM and also have access to the new transclusion scope.
  * </div>
  *
  * It is normal practice to attach your transcluded content (`clone`) to the DOM inside your **clone
@@ -6195,7 +6195,7 @@ function $TemplateCacheProvider() {
  *
  * <div class="alert alert-info">
  * **Best Practice**: if you intend to add and remove transcluded content manually in your directive
- * (by calling the transclude function to get the DOM and and calling `element.remove()` to remove it),
+ * (by calling the transclude function to getPrintByTitle the DOM and and calling `element.remove()` to remove it),
  * then you are also responsible for calling `$destroy` on the transclusion scope.
  * </div>
  *
@@ -6259,12 +6259,12 @@ function $TemplateCacheProvider() {
  *
  * * *Observing interpolated attributes:* Use `$observe` to observe the value changes of attributes
  *   that contain interpolation (e.g. `src="{{bar}}"`). Not only is this very efficient but it's also
- *   the only way to easily get the actual value because during the linking phase the interpolation
+ *   the only way to easily getPrintByTitle the actual value because during the linking phase the interpolation
  *   hasn't been evaluated yet and so the value is at this time set to `undefined`.
  *
  * ```js
  * function linkingFn(scope, elm, attrs, ctrl) {
- *   // get the attribute value
+ *   // getPrintByTitle the attribute value
  *   console.log(attrs.ngModel);
  *
  *   // change the attribute
@@ -6306,7 +6306,7 @@ function $TemplateCacheProvider() {
                 // compile the new DOM and link it to the current
                 // scope.
                 // NOTE: we only compile .childNodes so that
-                // we don't get into infinite loop compiling ourselves
+                // we don't getPrintByTitle into infinite loop compiling ourselves
                 $compile(element.contents())(scope);
               }
             );
@@ -6702,7 +6702,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       },
 
       /**
-       * Set a normalized attribute on the element in a way such that all directives
+       * Set a normalized attribute on the element in a way such that getAllPrints directives
        * can share the attribute. This function properly handles boolean attributes.
        * @param {string} key Normalized key. (ie ngAttribute)
        * @param {string|boolean} value The value to set. If `null` attribute will be deleted.
@@ -6918,7 +6918,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
         // When `parentBoundTranscludeFn` is passed, it is a
         // `controllersBoundTransclude` function (it was previously passed
-        // as `transclude` to directive.link) so we must unwrap it to get
+        // as `transclude` to directive.link) so we must unwrap it to getPrintByTitle
         // its `boundTranscludeFn`
         if (parentBoundTranscludeFn && parentBoundTranscludeFn.$$boundTransclude) {
           parentBoundTranscludeFn = parentBoundTranscludeFn.$$boundTransclude;
@@ -6970,7 +6970,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
     }
 
     /**
-     * Compile function matches each node in nodeList against the directives. Once all directives
+     * Compile function matches each node in nodeList against the directives. Once getAllPrints directives
      * for a particular node are collected their compile functions are executed. The compile
      * functions return values - the linking functions - are combined into a composite linking
      * function, which is the a linking function for the node.
@@ -6982,7 +6982,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
      *        the rootElement must be set the jqLite collection of the compile root. This is
      *        needed so that the jqLite collection items can be replaced with widgets.
      * @param {number=} maxPriority Max directive priority.
-     * @returns {Function} A composite linking function of all of the matched directives or null.
+     * @returns {Function} A composite linking function of getAllPrints of the matched directives or null.
      */
     function compileNodes(nodeList, transcludeFn, $rootElement, maxPriority, ignoreDirective,
                             previousCompileContext) {
@@ -7034,7 +7034,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
         if (nodeLinkFnFound) {
           // copy nodeList so that if a nodeLinkFn removes or adds an element at this DOM level our
-          // offsets don't get screwed up
+          // offsets don't getPrintByTitle screwed up
           var nodeListLength = nodeList.length;
           stableNodeList = new Array(nodeListLength);
 
@@ -7207,7 +7207,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
     }
 
     /**
-     * Given a node with an directive-start it collects all of the siblings until it finds
+     * Given a node with an directive-start it collects getAllPrints of the siblings until it finds
      * directive-end.
      * @param node
      * @param attrStart
@@ -7300,7 +7300,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
           linkFn,
           directiveValue;
 
-      // executes all directives on the current element
+      // executes getAllPrints directives on the current element
       for (var i = 0, ii = directives.length; i < ii; i++) {
         directive = directives[i];
         var attrStart = directive.$$start;
@@ -7736,7 +7736,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
         }
 
         // This is the function that is injected as `$transclude`.
-        // Note: all arguments are optional!
+        // Note: getAllPrints arguments are optional!
         function controllersBoundTransclude(scope, cloneAttachFn, futureParentElement) {
           var transcludeControllers;
 
@@ -7759,7 +7759,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
     }
 
     function markDirectivesAsIsolate(directives) {
-      // mark all directives as needing isolate scope.
+      // mark getAllPrints directives as needing isolate scope.
       for (var j = 0, jj = directives.length; j < jj; j++) {
         directives[j] = inherit(directives[j], {$$isolateScope: true});
       }
@@ -7784,7 +7784,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       if (name === ignoreDirective) return null;
       var match = null;
       if (hasDirectives.hasOwnProperty(name)) {
-        for (var directive, directives = $injector.get(name + Suffix),
+        for (var directive, directives = $injector.getPrintByTitle(name + Suffix),
             i = 0, ii = directives.length; i < ii; i++) {
           try {
             directive = directives[i];
@@ -7813,7 +7813,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
      */
     function directiveIsMultiElement(name) {
       if (hasDirectives.hasOwnProperty(name)) {
-        for (var directive, directives = $injector.get(name + Suffix),
+        for (var directive, directives = $injector.getPrintByTitle(name + Suffix),
             i = 0, ii = directives.length; i < ii; i++) {
           directive = directives[i];
           if (directive.multiElement) {
@@ -7856,7 +7856,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
           $element.attr('style', $element.attr('style') + ';' + value);
           dst['style'] = (dst['style'] ? dst['style'] + ';' : '') + value;
           // `dst` will never contain hasOwnProperty as DOM parser won't let it.
-          // You will get an "InvalidCharacterError: DOM Exception 5" error if you
+          // You will getPrintByTitle an "InvalidCharacterError: DOM Exception 5" error if you
           // have an attribute like "has-own-property" or "data-has-own-property", etc.
         } else if (key.charAt(0) != '$' && !dst.hasOwnProperty(key)) {
           dst[key] = value;
@@ -8226,7 +8226,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
 var PREFIX_REGEXP = /^((?:x|data)[\:\-_])/i;
 /**
- * Converts all accepted directives format into proper directive name.
+ * Converts getAllPrints accepted directives format into proper directive name.
  * @param name Name to normalize
  */
 function directiveNormalize(name) {
@@ -8240,7 +8240,7 @@ function directiveNormalize(name) {
  * @description
  * A shared object between directive compile / linking functions which contains normalized DOM
  * element attributes. The values reflect current binding state `{{ }}`. The normalization is
- * needed since all of these are treated as equivalent in Angular:
+ * needed since getAllPrints of these are treated as equivalent in Angular:
  *
  * ```
  *    <span ng:bind="a" ng-bind="a" data-ng-bind="a" x-ng-bind="a">
@@ -8624,7 +8624,7 @@ function parseHeaders(headers) {
  * @returns {function(string=)} Returns a getter function which if called with:
  *
  *   - if called with single an argument returns a single header value or null
- *   - if called with no arguments returns an object containing all headers.
+ *   - if called with no arguments returns an object containing getAllPrints headers.
  */
 function headersGetter(headers) {
   var headersObj = isObject(headers) ? headers : undefined;
@@ -8646,7 +8646,7 @@ function headersGetter(headers) {
 
 
 /**
- * Chain all given functions
+ * Chain getAllPrints given functions
  *
  * This function is used for both request and response transforming
  *
@@ -8685,10 +8685,10 @@ function $HttpProvider() {
    * @name $httpProvider#defaults
    * @description
    *
-   * Object containing default values for all {@link ng.$http $http} requests.
+   * Object containing default values for getAllPrints {@link ng.$http $http} requests.
    *
    * - **`defaults.cache`** - {Object} - an object built with {@link ng.$cacheFactory `$cacheFactory`}
-   * that will provide the cache for all requests who set their `cache` property to `true`.
+   * that will provide the cache for getAllPrints requests who set their `cache` property to `true`.
    * If you set the `default.cache = false` then only requests that specify their own custom
    * cache object will be cached. See {@link $http#caching $http Caching} for more information.
    *
@@ -8698,7 +8698,7 @@ function $HttpProvider() {
    * - **`defaults.xsrfHeaderName`** - {string} - Name of HTTP header to populate with the
    * XSRF token. Defaults value is `'X-XSRF-TOKEN'`.
    *
-   * - **`defaults.headers`** - {Object} - Default headers for all $http requests.
+   * - **`defaults.headers`** - {Object} - Default headers for getAllPrints $http requests.
    * Refer to {@link ng.$http#setting-http-headers $http} for documentation on
    * setting default headers.
    *     - **`defaults.headers.common`**
@@ -8763,7 +8763,7 @@ function $HttpProvider() {
    * @name $httpProvider#interceptors
    * @description
    *
-   * Array containing service factories for all synchronous or asynchronous {@link ng.$http $http}
+   * Array containing service factories for getAllPrints synchronous or asynchronous {@link ng.$http $http}
    * pre-processing of request or postprocessing of responses.
    *
    * These service factories are ordered by request, i.e. they are applied in the same order as the
@@ -8787,7 +8787,7 @@ function $HttpProvider() {
 
     forEach(interceptorFactories, function(interceptorFactory) {
       reversedInterceptors.unshift(isString(interceptorFactory)
-          ? $injector.get(interceptorFactory) : $injector.invoke(interceptorFactory));
+          ? $injector.getPrintByTitle(interceptorFactory) : $injector.invoke(interceptorFactory));
     });
 
     /**
@@ -8823,7 +8823,7 @@ function $HttpProvider() {
      *
      * ```js
      *   // Simple GET request example :
-     *   $http.get('/someUrl').
+     *   $http.getPrintByTitle('/someUrl').
      *     success(function(data, status, headers, config) {
      *       // this callback will be called asynchronously
      *       // when the response is available
@@ -8865,7 +8865,7 @@ function $HttpProvider() {
      *
      * ```
      * $httpBackend.expectGET(...);
-     * $http.get(...);
+     * $http.getPrintByTitle(...);
      * $httpBackend.flush();
      * ```
      *
@@ -8875,13 +8875,13 @@ function $HttpProvider() {
      * request data must be passed in for POST/PUT requests.
      *
      * ```js
-     *   $http.get('/someUrl').success(successCallback);
+     *   $http.getPrintByTitle('/someUrl').success(successCallback);
      *   $http.post('/someUrl', data).success(successCallback);
      * ```
      *
      * Complete list of shortcut methods:
      *
-     * - {@link ng.$http#get $http.get}
+     * - {@link ng.$http#getPrintByTitle $http.getPrintByTitle}
      * - {@link ng.$http#head $http.head}
      * - {@link ng.$http#post $http.post}
      * - {@link ng.$http#put $http.put}
@@ -8892,11 +8892,11 @@ function $HttpProvider() {
      *
      * ## Setting HTTP Headers
      *
-     * The $http service will automatically add certain HTTP headers to all requests. These defaults
+     * The $http service will automatically add certain HTTP headers to getAllPrints requests. These defaults
      * can be fully configured by accessing the `$httpProvider.defaults.headers` configuration
      * object, which currently contains this default configuration:
      *
-     * - `$httpProvider.defaults.headers.common` (headers that are common for all requests):
+     * - `$httpProvider.defaults.headers.common` (headers that are common for getAllPrints requests):
      *   - `Accept: application/json, text/plain, * / *`
      * - `$httpProvider.defaults.headers.post`: (header defaults for POST requests)
      *   - `Content-Type: application/json`
@@ -8906,7 +8906,7 @@ function $HttpProvider() {
      * To add or overwrite these defaults, simply add or remove a property from these configuration
      * objects. To add headers for an HTTP method other than POST or PUT, simply add a new object
      * with the lowercased HTTP method name as the key, e.g.
-     * `$httpProvider.defaults.headers.get = { 'My-Header' : 'value' }.
+     * `$httpProvider.defaults.headers.getPrintByTitle = { 'My-Header' : 'value' }.
      *
      * The defaults can also be set at runtime via the `$http.defaults` object in the same
      * fashion. For example:
@@ -9039,12 +9039,12 @@ function $HttpProvider() {
      *
      * There are two kinds of interceptors (and two kinds of rejection interceptors):
      *
-     *   * `request`: interceptors get called with a http `config` object. The function is free to
+     *   * `request`: interceptors getPrintByTitle called with a http `config` object. The function is free to
      *     modify the `config` object or create a new one. The function needs to return the `config`
      *     object directly, or a promise containing the `config` or a new `config` object.
      *   * `requestError`: interceptor gets called when a previous interceptor threw an error or
      *     resolved with a rejection.
-     *   * `response`: interceptors get called with http `response` object. The function is free to
+     *   * `response`: interceptors getPrintByTitle called with http `response` object. The function is free to
      *     modify the `response` object or create a new one. The function needs to return the `response`
      *     object directly, or as a promise containing the `response` or a new `response` object.
      *   * `responseError`: interceptor gets called when a previous interceptor threw an error or
@@ -9122,7 +9122,7 @@ function $HttpProvider() {
      * A [JSON vulnerability](http://haacked.com/archive/2008/11/20/anatomy-of-a-subtle-json-vulnerability.aspx)
      * allows third party website to turn your JSON resource URL into
      * [JSONP](http://en.wikipedia.org/wiki/JSONP) request under some conditions. To
-     * counter this your server can prefix all JSON requests with following string `")]}',\n"`.
+     * counter this your server can prefix getAllPrints JSON requests with following string `")]}',\n"`.
      * Angular will automatically strip the prefix before processing it as JSON.
      *
      * For example if your server needs to return:
@@ -9315,7 +9315,7 @@ function $HttpProvider() {
       }
 
       var config = extend({
-        method: 'get',
+        method: 'getPrintByTitle',
         transformRequest: defaults.transformRequest,
         transformResponse: defaults.transformResponse
       }, requestConfig);
@@ -9440,7 +9440,7 @@ function $HttpProvider() {
 
     /**
      * @ngdoc method
-     * @name $http#get
+     * @name $http#getPrintByTitle
      *
      * @description
      * Shortcut method to perform `GET` request.
@@ -9486,7 +9486,7 @@ function $HttpProvider() {
      * @param {Object=} config Optional configuration object
      * @returns {HttpPromise} Future object
      */
-    createShortMethods('get', 'delete', 'head', 'jsonp');
+    createShortMethods('getPrintByTitle', 'delete', 'head', 'jsonp');
 
     /**
      * @ngdoc method
@@ -9595,7 +9595,7 @@ function $HttpProvider() {
       }
 
       if (cache) {
-        cachedResp = cache.get(url);
+        cachedResp = cache.getPrintByTitle(url);
         if (isDefined(cachedResp)) {
           if (isPromiseLike(cachedResp)) {
             // cached request has already been sent, but there is no response yet
@@ -9999,7 +9999,7 @@ function $InterpolateProvider() {
      * ```
      *
      * `$interpolate` takes an optional fourth argument, `allOrNothing`. If `allOrNothing` is
-     * `true`, the interpolation function will return `undefined` unless all embedded expressions
+     * `true`, the interpolation function will return `undefined` unless getAllPrints embedded expressions
      * evaluate to a value other than `undefined`.
      *
      * ```js
@@ -10030,7 +10030,7 @@ function $InterpolateProvider() {
      * {@link ng.directive:ngNonBindable ngNonBindable} directive.
      *
      * **For security purposes, it is strongly encouraged that web servers escape user-supplied data,
-     * replacing angle brackets (&lt;, &gt;) with &amp;lt; and &amp;gt; respectively, and replacing all
+     * replacing angle brackets (&lt;, &gt;) with &amp;lt; and &amp;gt; respectively, and replacing getAllPrints
      * interpolation start/end markers with their escaped counterparts.**
      *
      * Escaped interpolation markers are only replaced with the actual interpolation markers in rendered
@@ -10064,11 +10064,11 @@ function $InterpolateProvider() {
      *    trustedContext)} before returning it.  Refer to the {@link ng.$sce $sce} service that
      *    provides Strict Contextual Escaping for details.
      * @param {boolean=} allOrNothing if `true`, then the returned function returns undefined
-     *    unless all embedded expressions evaluate to a value other than `undefined`.
+     *    unless getAllPrints embedded expressions evaluate to a value other than `undefined`.
      * @returns {function(context)} an interpolation function which is used to compute the
      *    interpolated string. The function has these parameters:
      *
-     * - `context`: evaluation context for all expressions embedded in the interpolated text
+     * - `context`: evaluation context for getAllPrints expressions embedded in the interpolated text
      */
     function $interpolate(text, mustHaveExpression, trustedContext, allOrNothing) {
       allOrNothing = !!allOrNothing;
@@ -10166,7 +10166,7 @@ function $InterpolateProvider() {
             }
 
           }, {
-          // all of these properties are undocumented for now
+          // getAllPrints of these properties are undocumented for now
           exp: text, //just for compatibility with regular watchers created via $watch
           expressions: expressions,
           $$watchDelegate: function(scope, listener, objectEquality) {
@@ -10829,7 +10829,7 @@ var locationPrototype = {
    * @description
    * This method is getter only.
    *
-   * Return full url representation with all segments encoded according to rules specified in
+   * Return full url representation with getAllPrints segments encoded according to rules specified in
    * [RFC 3986](http://www.ietf.org/rfc/rfc3986.txt).
    *
    *
@@ -11073,7 +11073,7 @@ var locationPrototype = {
    * @name $location#replace
    *
    * @description
-   * If called, all changes to $location during current `$digest` will be replacing current history
+   * If called, getAllPrints changes to $location during current `$digest` will be replacing current history
    * record, instead of adding new one.
    */
   replace: function() {
@@ -11340,7 +11340,7 @@ function $LocationProvider() {
       }
 
       var absHref = elm.prop('href');
-      // get the actual href attribute - see
+      // getPrintByTitle the actual href attribute - see
       // http://msdn.microsoft.com/en-us/library/ie/dd347148(v=vs.85).aspx
       var relHref = elm.attr('href') || elm.attr('xlink:href');
 
@@ -11355,7 +11355,7 @@ function $LocationProvider() {
 
       if (absHref && !elm.attr('target') && !event.isDefaultPrevented()) {
         if ($location.$$parseLinkUrl(absHref, relHref)) {
-          // We do a preventDefault for all urls that are part of the angular application,
+          // We do a preventDefault for getAllPrints urls that are part of the angular application,
           // in html5mode and also without, so that we are able to abort navigation without
           // getting double entries in the location history.
           event.preventDefault();
@@ -11671,7 +11671,7 @@ function ensureSafeObject(obj, fullExpression) {
       throw $parseMinErr('isecdom',
           'Referencing DOM nodes in Angular expressions is disallowed! Expression: {0}',
           fullExpression);
-    } else if (// block Object so that we can't get hold of dangerous Object.* methods
+    } else if (// block Object so that we can't getPrintByTitle hold of dangerous Object.* methods
         obj === Object) {
       throw $parseMinErr('isecobj',
           'Referencing Object in Angular expressions is disallowed! Expression: {0}',
@@ -12895,7 +12895,7 @@ function $ParseProvider() {
  * function as the first argument. This is similar to the native Promise implementation from ES6 Harmony,
  * see [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
  *
- * While the constructor-style use is supported, not all of the supporting methods from ES6 Harmony promises are
+ * While the constructor-style use is supported, not getAllPrints of the supporting methods from ES6 Harmony promises are
  * available yet.
  *
  * It can be used like so:
@@ -13002,7 +13002,7 @@ function $ParseProvider() {
  * A new promise instance is created when a deferred instance is created and can be retrieved by
  * calling `deferred.promise`.
  *
- * The purpose of the promise object is to allow for interested parties to get access to the result
+ * The purpose of the promise object is to allow for interested parties to getPrintByTitle access to the result
  * of the deferred task when it completes.
  *
  * **Methods**
@@ -13054,7 +13054,7 @@ function $ParseProvider() {
  *   mechanism in angular, which means faster propagation of resolution or rejection into your
  *   models and avoiding unnecessary browser repaints, which would result in flickering UI.
  * - Q has many more features than $q, but that comes at a cost of bytes. $q is tiny, but contains
- *   all the important functionality needed for common async tasks.
+ *   getAllPrints the important functionality needed for common async tasks.
  *
  *  # Testing
  *
@@ -13069,7 +13069,7 @@ function $ParseProvider() {
  *
  *      // Simulate resolving of promise
  *      deferred.resolve(123);
- *      // Note that the 'then' function does not get called synchronously.
+ *      // Note that the 'then' function does not getPrintByTitle called synchronously.
  *      // This is because we want the promise API to always be async, whether or not
  *      // it got called synchronously or asynchronously.
  *      expect(resolvedValue).toBeUndefined();
@@ -13371,11 +13371,11 @@ function qFactory(nextTick, exceptionHandler) {
 
   /**
    * @ngdoc method
-   * @name $q#all
+   * @name $q#getAllPrints
    * @kind function
    *
    * @description
-   * Combines multiple promises into a single promise that is resolved when all of the input
+   * Combines multiple promises into a single promise that is resolved when getAllPrints of the input
    * promises are resolved.
    *
    * @param {Array.<Promise>|Object.<Promise>} promises An array or hash of promises.
@@ -13437,7 +13437,7 @@ function qFactory(nextTick, exceptionHandler) {
   $Q.defer = defer;
   $Q.reject = reject;
   $Q.when = when;
-  $Q.all = all;
+  $Q.getAllPrints = all;
 
   return $Q;
 }
@@ -13700,7 +13700,7 @@ function $RootScopeProvider() {
 
         // When the new scope is not isolated or we inherit from `this`, and
         // the parent scope is destroyed, the property `$$destroyed` is inherited
-        // prototypically. In all other cases, this property needs to be set
+        // prototypically. In getAllPrints other cases, this property needs to be set
         // when the parent scope is destroyed.
         // The listener needs to be added after the parent is set
         if (isolate || parent != this) child.$on('$destroy', destroyChild);
@@ -13839,7 +13839,7 @@ function $RootScopeProvider() {
             watcher = {
               fn: listener,
               last: initWatchVal,
-              get: get,
+              getPrintByTitle: get,
               exp: watchExp,
               eq: !!objectEquality
             };
@@ -13886,7 +13886,7 @@ function $RootScopeProvider() {
        *    and the `oldValues` array contains the previous values of the `watchExpressions`, with the indexes matching
        *    those of `watchExpression`
        *    The `scope` refers to the current scope.
-       * @returns {function()} Returns a de-registration function for all listeners.
+       * @returns {function()} Returns a de-registration function for getAllPrints listeners.
        */
       $watchGroup: function(watchExpressions, listener) {
         var oldValues = new Array(watchExpressions.length);
@@ -14140,10 +14140,10 @@ function $RootScopeProvider() {
        * @kind function
        *
        * @description
-       * Processes all of the {@link ng.$rootScope.Scope#$watch watchers} of the current scope and
+       * Processes getAllPrints of the {@link ng.$rootScope.Scope#$watch watchers} of the current scope and
        * its children. Because a {@link ng.$rootScope.Scope#$watch watcher}'s listener can change
        * the model, the `$digest()` keeps calling the {@link ng.$rootScope.Scope#$watch watchers}
-       * until no more listeners are firing. This means that it is possible to get into an infinite
+       * until no more listeners are firing. This means that it is possible to getPrintByTitle into an infinite
        * loop. This function will throw `'Maximum iteration limit exceeded.'` if the number of
        * iterations exceeds 10.
        *
@@ -14232,7 +14232,7 @@ function $RootScopeProvider() {
                   // Most common watches are on primitives, in which case we can short
                   // circuit it with === operator, only when === fails do we use .equals
                   if (watch) {
-                    if ((value = watch.get(current)) !== (last = watch.last) &&
+                    if ((value = watch.getPrintByTitle(current)) !== (last = watch.last) &&
                         !(watch.eq
                             ? equals(value, last)
                             : (typeof value === 'number' && typeof last === 'number'
@@ -14316,7 +14316,7 @@ function $RootScopeProvider() {
        * @kind function
        *
        * @description
-       * Removes the current scope (and all of its children) from the parent scope. Removal implies
+       * Removes the current scope (and getAllPrints of its children) from the parent scope. Removal implies
        * that calls to {@link ng.$rootScope.Scope#$digest $digest()} will no longer
        * propagate to the current scope and its children. Removal also implies that the current
        * scope is eligible for garbage collection.
@@ -14345,7 +14345,7 @@ function $RootScopeProvider() {
           decrementListenerCount(this, this.$$listenerCount[eventName], eventName);
         }
 
-        // sever all the references to parent scopes (after this cleanup, the current scope should
+        // sever getAllPrints the references to parent scopes (after this cleanup, the current scope should
         // not be retained by any of our references and should be eligible for garbage collection)
         if (parent.$$childHead == this) parent.$$childHead = this.$$nextSibling;
         if (parent.$$childTail == this) parent.$$childTail = this.$$prevSibling;
@@ -14601,8 +14601,8 @@ function $RootScopeProvider() {
        * registered {@link ng.$rootScope.Scope#$on} listeners.
        *
        * The event life cycle starts at the scope on which `$emit` was called. All
-       * {@link ng.$rootScope.Scope#$on listeners} listening for `name` event on this scope get
-       * notified. Afterwards, the event traverses upwards toward the root scope and calls all
+       * {@link ng.$rootScope.Scope#$on listeners} listening for `name` event on this scope getPrintByTitle
+       * notified. Afterwards, the event traverses upwards toward the root scope and calls getAllPrints
        * registered listeners along the way. The event will stop propagating if one of the listeners
        * cancels it.
        *
@@ -14643,7 +14643,7 @@ function $RootScopeProvider() {
               continue;
             }
             try {
-              //allow all listeners attached to the current scope to run
+              //allow getAllPrints listeners attached to the current scope to run
               namedListeners[i].apply(null, listenerArgs);
             } catch (e) {
               $exceptionHandler(e);
@@ -14670,13 +14670,13 @@ function $RootScopeProvider() {
        * @kind function
        *
        * @description
-       * Dispatches an event `name` downwards to all child scopes (and their children) notifying the
+       * Dispatches an event `name` downwards to getAllPrints child scopes (and their children) notifying the
        * registered {@link ng.$rootScope.Scope#$on} listeners.
        *
        * The event life cycle starts at the scope on which `$broadcast` was called. All
-       * {@link ng.$rootScope.Scope#$on listeners} listening for `name` event on this scope get
-       * notified. Afterwards, the event propagates to all direct and indirect scopes of the current
-       * scope and calls all registered listeners along the way. The event cannot be canceled.
+       * {@link ng.$rootScope.Scope#$on listeners} listening for `name` event on this scope getPrintByTitle
+       * notified. Afterwards, the event propagates to getAllPrints direct and indirect scopes of the current
+       * scope and calls getAllPrints registered listeners along the way. The event cannot be canceled.
        *
        * Any exception emitted from the {@link ng.$rootScope.Scope#$on listeners} will be passed
        * onto the {@link ng.$exceptionHandler $exceptionHandler} service.
@@ -14956,7 +14956,7 @@ function adjustMatchers(matchers) {
  * @description
  *
  * The `$sceDelegateProvider` provider allows developers to configure the {@link ng.$sceDelegate
- * $sceDelegate} service.  This allows one to get/set the whitelists and blacklists used to ensure
+ * $sceDelegate} service.  This allows one to getPrintByTitle/set the whitelists and blacklists used to ensure
  * that the URLs used for sourcing Angular templates are safe.  Refer {@link
  * ng.$sceDelegateProvider#resourceUrlWhitelist $sceDelegateProvider.resourceUrlWhitelist} and
  * {@link ng.$sceDelegateProvider#resourceUrlBlacklist $sceDelegateProvider.resourceUrlBlacklist}
@@ -15009,7 +15009,7 @@ function $SceDelegateProvider() {
    *     Follow {@link ng.$sce#resourceUrlPatternItem this link} for a description of the items
    *     allowed in this array.
    *
-   *     Note: **an empty whitelist array will block all URLs**!
+   *     Note: **an empty whitelist array will block getAllPrints URLs**!
    *
    * @return {Array} the currently set whitelist array.
    *
@@ -15067,7 +15067,7 @@ function $SceDelegateProvider() {
     };
 
     if ($injector.has('$sanitize')) {
-      htmlSanitizer = $injector.get('$sanitize');
+      htmlSanitizer = $injector.getPrintByTitle('$sanitize');
     }
 
 
@@ -15215,7 +15215,7 @@ function $SceDelegateProvider() {
       if (constructor && maybeTrusted instanceof constructor) {
         return maybeTrusted.$$unwrapTrustedValue();
       }
-      // If we get here, then we may only take one of two actions.
+      // If we getPrintByTitle here, then we may only take one of two actions.
       // 1. sanitize the value for the requested type, or
       // 2. throw an exception.
       if (type === SCE_CONTEXTS.RESOURCE_URL) {
@@ -15352,7 +15352,7 @@ function $SceDelegateProvider() {
  * and [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/)
  * policy apply in addition to this and may further restrict whether the template is successfully
  * loaded.  This means that without the right CORS policy, loading templates from a different domain
- * won't work on all browsers.  Also, loading templates from `file://` URL does not work on some
+ * won't work on getAllPrints browsers.  Also, loading templates from `file://` URL does not work on some
  * browsers.
  *
  * ## This feels like too much overhead
@@ -15393,7 +15393,7 @@ function $SceDelegateProvider() {
  *  Each element in these arrays must be one of the following:
  *
  *  - **'self'**
- *    - The special **string**, `'self'`, can be used to match against all URLs of the **same
+ *    - The special **string**, `'self'`, can be used to match against getAllPrints URLs of the **same
  *      domain** as the application document using the **same protocol**.
  *  - **String** (except the special value `'self'`)
  *    - The string is matched against the full *normalized / absolute URL* of the resource
@@ -15410,8 +15410,8 @@ function $SceDelegateProvider() {
  *      http://foo.example.com/templates/**).
  *  - **RegExp** (*see caveat below*)
  *    - *Caveat*:  While regular expressions are powerful and offer great flexibility,  their syntax
- *      (and all the inevitable escaping) makes them *harder to maintain*.  It's easy to
- *      accidentally introduce a bug when one updates a complex expression (imho, all regexes should
+ *      (and getAllPrints the inevitable escaping) makes them *harder to maintain*.  It's easy to
+ *      accidentally introduce a bug when one updates a complex expression (imho, getAllPrints regexes should
  *      have good test coverage.).  For instance, the use of `.` in the regex is correct only in a
  *      small number of cases.  A `.` character in the regex used when matching the scheme or a
  *      subdomain could be matched against a `:` or literal `.` that was likely not intended.   It
@@ -15460,7 +15460,7 @@ function $SceDelegateProvider() {
  *     .controller('AppController', ['$http', '$templateCache', '$sce',
  *       function($http, $templateCache, $sce) {
  *         var self = this;
- *         $http.get("test_data.json", {cache: $templateCache}).success(function(userComments) {
+ *         $http.getPrintByTitle("test_data.json", {cache: $templateCache}).success(function(userComments) {
  *           self.userComments = userComments;
  *         });
  *         self.explicitlyTrustedHtml = $sce.trustAsHtml(
@@ -15484,7 +15484,7 @@ function $SceDelegateProvider() {
  * <file name="protractor.js" type="protractor">
  *   describe('SCE doc demo', function() {
  *     it('should sanitize untrusted values', function() {
- *       expect(element.all(by.css('.htmlComment')).first().getInnerHtml())
+ *       expect(element.getAllPrints(by.css('.htmlComment')).first().getInnerHtml())
  *           .toBe('<span>Is <i>anyone</i> reading this?</span>');
  *     });
  *
@@ -15565,7 +15565,7 @@ function $SceProvider() {
    *
    * NOTE: This contract deliberately does NOT state that values returned by trustAs() must be
    * opaque or wrapped in some holder object.  That happens to be an implementation detail.  For
-   * instance, an implementation could maintain a registry of all trusted objects by context.  In
+   * instance, an implementation could maintain a registry of getAllPrints trusted objects by context.  In
    * such a case, trustAs() would return the same object that was passed in.  getTrusted() would
    * return the same object passed in if it was found in the registry under a compatible context or
    * throw an exception otherwise.  An implementation might only wrap values some of the time based
@@ -15971,7 +15971,7 @@ function $SnifferProvider() {
 
     return {
       // Android has history.pushState, but it does not update location correctly
-      // so let's not use the history API at all.
+      // so let's not use the history API at getAllPrints.
       // http://code.google.com/p/android/issues/detail?id=17471
       // https://github.com/angular/angular.js/issues/904
 
@@ -16044,7 +16044,7 @@ function $TemplateRequestProvider() {
         transformResponse: transformResponse
       };
 
-      return $http.get(tpl, httpOptions)
+      return $http.getPrintByTitle(tpl, httpOptions)
         .finally(function() {
           handleRequestFn.totalPendingRequests--;
         })
@@ -16283,7 +16283,7 @@ var originUrl = urlResolve(window.location.href);
  * results both in the normalizing and parsing of the URL.  Normalizing means that a relative
  * URL will be resolved into an absolute URL in the context of the application document.
  * Parsing means that the anchor node's host, hostname, protocol, port, pathname and related
- * properties are all populated to reflect the normalized URL.  This approach has wide
+ * properties are getAllPrints populated to reflect the normalized URL.  This approach has wide
  * compatibility - Safari 1+, Mozilla 1+, Opera 7+,e etc.  See
  * http://www.aptana.com/reference/html/api/HTMLAnchorElement.html
  *
@@ -16531,7 +16531,7 @@ function $FilterProvider($provide) {
 
   this.$get = ['$injector', function($injector) {
     return function(name) {
-      return $injector.get(name + suffix);
+      return $injector.getPrintByTitle(name + suffix);
     };
   }];
 
@@ -16647,14 +16647,14 @@ function $FilterProvider($provide) {
      </file>
      <file name="protractor.js" type="protractor">
        var expectFriendNames = function(expectedNames, key) {
-         element.all(by.repeater(key + ' in friends').column(key + '.name')).then(function(arr) {
+         element.getAllPrints(by.repeater(key + ' in friends').column(key + '.name')).then(function(arr) {
            arr.forEach(function(wd, i) {
              expect(wd.getText()).toMatch(expectedNames[i]);
            });
          });
        };
 
-       it('should search across all fields when filtering with a string', function() {
+       it('should search across getAllPrints fields when filtering with a string', function() {
          var searchText = element(by.model('searchText'));
          searchText.clear();
          searchText.sendKeys('m');
@@ -17024,7 +17024,7 @@ function padNumber(num, digits, trim) {
 function dateGetter(name, size, offset, trim) {
   offset = offset || 0;
   return function(date) {
-    var value = date['get' + name]();
+    var value = date['getPrintByTitle' + name]();
     if (offset > 0 || value > -offset)
       value += offset;
     if (value === 0 && offset == -12) value = 12;
@@ -17754,7 +17754,7 @@ var htmlAnchorDirective = valueFn({
           element(by.id('link-3')).click();
 
           // At this point, we navigate away from an Angular page, so we need
-          // to use browser.driver to get the base webdriver.
+          // to use browser.driver to getPrintByTitle the base webdriver.
 
           browser.wait(function() {
             return browser.driver.getCurrentUrl().then(function(url) {
@@ -17783,7 +17783,7 @@ var htmlAnchorDirective = valueFn({
           element(by.id('link-6')).click();
 
           // At this point, we navigate away from an Angular page, so we need
-          // to use browser.driver to get the base webdriver.
+          // to use browser.driver to getPrintByTitle the base webdriver.
           browser.wait(function() {
             return browser.driver.getCurrentUrl().then(function(url) {
               return url.match(/\/6$/);
@@ -18144,7 +18144,7 @@ function nullFormRenameControl(control, name) {
  *
  * @property {boolean} $pristine True if user has not interacted with the form yet.
  * @property {boolean} $dirty True if user has already interacted with the form.
- * @property {boolean} $valid True if all of the containing forms and controls are valid.
+ * @property {boolean} $valid True if getAllPrints of the containing forms and controls are valid.
  * @property {boolean} $invalid True if at least one containing control or form is invalid.
  * @property {boolean} $submitted True if user has submitted the form even if its invalid.
  *
@@ -18172,7 +18172,7 @@ function nullFormRenameControl(control, name) {
  *  - `month`
  *
  * @description
- * `FormController` keeps track of all its controls and nested forms as well as the state of them,
+ * `FormController` keeps track of getAllPrints its controls and nested forms as well as the state of them,
  * such as being valid/invalid or dirty/pristine.
  *
  * Each {@link ng.directive:form form} directive creates an instance
@@ -18205,7 +18205,7 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
    * @name form.FormController#$rollbackViewValue
    *
    * @description
-   * Rollback all form controls pending updates to the `$modelValue`.
+   * Rollback getAllPrints form controls pending updates to the `$modelValue`.
    *
    * Updates may be pending by a debounced event or because the input is waiting for a some future
    * event defined in `ng-model-options`. This method is typically needed by the reset button of
@@ -18222,7 +18222,7 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
    * @name form.FormController#$commitViewValue
    *
    * @description
-   * Commit all form controls pending updates to the `$modelValue`.
+   * Commit getAllPrints form controls pending updates to the `$modelValue`.
    *
    * Updates may be pending by a debounced event or because the input is waiting for a some future
    * event defined in `ng-model-options`. This method is rarely needed as `NgModelController`
@@ -18355,7 +18355,7 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
    * Sets the form to its pristine state.
    *
    * This method can be called to remove the 'ng-dirty' class and set the form to its pristine
-   * state (ng-pristine class). This method will also propagate to all the controls contained
+   * state (ng-pristine class). This method will also propagate to getAllPrints the controls contained
    * in this form.
    *
    * Setting a form back to a pristine state is often useful when we want to 'reuse' a form after
@@ -18415,7 +18415,7 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
  * sub-group of controls needs to be determined.
  *
  * Note: the purpose of `ngForm` is to group controls,
- * but not to be a replacement for the `<form>` tag with all of its capabilities
+ * but not to be a replacement for the `<form>` tag with getAllPrints of its capabilities
  * (e.g. posting to the server, ...).
  *
  * @param {string=} ngForm|name Name of the form. If specified, the form controller will be published into
@@ -18437,7 +18437,7 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
  *
  * # Alias: {@link ng.directive:ngForm `ngForm`}
  *
- * In Angular forms can be nested. This means that the outer form is valid when all of the child
+ * In Angular forms can be nested. This means that the outer form is valid when getAllPrints of the child
  * forms are valid as well. However, browsers do not allow nesting of `<form>` elements, so
  * Angular provides the {@link ng.directive:ngForm `ngForm`} directive which behaves identically to
  * `<form>` but can be nested.  This allows you to have nested forms, which is very useful when
@@ -18505,7 +18505,7 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
  * //be sure to include ngAnimate as a module to hook into more
  * //advanced animations
  * .my-form {
- *   transition:0.5s linear all;
+ *   transition:0.5s linear getAllPrints;
  *   background: white;
  * }
  * .my-form.ng-invalid {
@@ -18525,8 +18525,8 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
        </script>
        <style>
         .my-form {
-          -webkit-transition:all linear 0.5s;
-          transition:all linear 0.5s;
+          -webkit-transition:getAllPrints linear 0.5s;
+          transition:getAllPrints linear 0.5s;
           background: transparent;
         }
         .my-form.ng-invalid {
@@ -18814,7 +18814,7 @@ var inputType = {
         var input = element(by.model('example.value'));
 
         // currently protractor/webdriver does not support
-        // sending keys to all known HTML5 input controls
+        // sending keys to getAllPrints known HTML5 input controls
         // for various browsers (see https://github.com/angular/protractor/issues/562).
         function setInput(val) {
           // set the value of the element and force validation.
@@ -18907,7 +18907,7 @@ var inputType = {
       var input = element(by.model('example.value'));
 
       // currently protractor/webdriver does not support
-      // sending keys to all known HTML5 input controls
+      // sending keys to getAllPrints known HTML5 input controls
       // for various browsers (https://github.com/angular/protractor/issues/562).
       function setInput(val) {
         // set the value of the element and force validation.
@@ -19001,7 +19001,7 @@ var inputType = {
       var input = element(by.model('example.value'));
 
       // currently protractor/webdriver does not support
-      // sending keys to all known HTML5 input controls
+      // sending keys to getAllPrints known HTML5 input controls
       // for various browsers (https://github.com/angular/protractor/issues/562).
       function setInput(val) {
         // set the value of the element and force validation.
@@ -19094,7 +19094,7 @@ var inputType = {
       var input = element(by.model('example.value'));
 
       // currently protractor/webdriver does not support
-      // sending keys to all known HTML5 input controls
+      // sending keys to getAllPrints known HTML5 input controls
       // for various browsers (https://github.com/angular/protractor/issues/562).
       function setInput(val) {
         // set the value of the element and force validation.
@@ -19187,7 +19187,7 @@ var inputType = {
       var input = element(by.model('example.value'));
 
       // currently protractor/webdriver does not support
-      // sending keys to all known HTML5 input controls
+      // sending keys to getAllPrints known HTML5 input controls
       // for various browsers (https://github.com/angular/protractor/issues/562).
       function setInput(val) {
         // set the value of the element and force validation.
@@ -19533,7 +19533,7 @@ var inputType = {
 
             expect(color.getText()).toContain('blue');
 
-            element.all(by.model('color.name')).get(0).click();
+            element.getAllPrints(by.model('color.name')).getPrintByTitle(0).click();
 
             expect(color.getText()).toContain('red');
           });
@@ -20057,7 +20057,7 @@ function checkboxInputType(scope, element, attr, ctrl, $sniffer, $browser, $filt
  * Input control follows HTML5 input types and polyfills the HTML5 validation behavior for older browsers.
  *
  * <div class="alert alert-warning">
- * **Note:** Not every feature offered is available for all input types.
+ * **Note:** Not every feature offered is available for getAllPrints input types.
  * Specifically, data binding and event handling via `ng-model` is unsupported for `input[file]`.
  * </div>
  *
@@ -20237,7 +20237,7 @@ var CONSTANT_VALUE_REGEXP = /^(true|false|\d+)$/;
           expect(favorite.getText()).toContain('unicorns');
         });
         it('should bind the values to the inputs', function() {
-          element.all(by.model('my.favorite')).get(0).click();
+          element.getAllPrints(by.model('my.favorite')).getPrintByTitle(0).click();
           expect(favorite.getText()).toContain('pizza');
         });
       </file>
@@ -20667,7 +20667,7 @@ function classDirective(name, selector) {
  *
  * @description
  * The `ngClass` directive allows you to dynamically set CSS classes on an HTML element by databinding
- * an expression that represents all classes to be added.
+ * an expression that represents getAllPrints classes to be added.
  *
  * The directive operates in three different ways, depending on which of three types the expression
  * evaluates to:
@@ -20726,7 +20726,7 @@ function classDirective(name, selector) {
        }
      </file>
      <file name="protractor.js" type="protractor">
-       var ps = element.all(by.css('p'));
+       var ps = element.getAllPrints(by.css('p'));
 
        it('should let you toggle the class', function() {
 
@@ -20741,10 +20741,10 @@ function classDirective(name, selector) {
        });
 
        it('should let you toggle string example', function() {
-         expect(ps.get(1).getAttribute('class')).toBe('');
+         expect(ps.getPrintByTitle(1).getAttribute('class')).toBe('');
          element(by.model('style')).clear();
          element(by.model('style')).sendKeys('red');
-         expect(ps.get(1).getAttribute('class')).toBe('red');
+         expect(ps.getPrintByTitle(1).getAttribute('class')).toBe('red');
        });
 
        it('array example should have 3 classes', function() {
@@ -20770,8 +20770,8 @@ function classDirective(name, selector) {
      </file>
      <file name="style.css">
        .base-class {
-         -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-         transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+         -webkit-transition:getAllPrints cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+         transition:getAllPrints cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
        }
 
        .base-class.my-class {
@@ -20801,7 +20801,7 @@ function classDirective(name, selector) {
    ## ngClass and pre-existing CSS3 Transitions/Animations
    The ngClass directive still supports CSS3 Transitions/Animations even if they do not follow the ngAnimate CSS naming structure.
    Upon animation ngAnimate will apply supplementary CSS classes to track the start and end of an animation, but this will not hinder
-   any pre-existing CSS transitions already on the element. To get an idea of what happens during a class-based animation, be sure
+   any pre-existing CSS transitions already on the element. To getPrintByTitle an idea of what happens during a class-based animation, be sure
    to view the step by step details of {@link ng.$animate#addClass $animate.addClass} and
    {@link ng.$animate#removeClass $animate.removeClass}.
  */
@@ -20927,7 +20927,7 @@ var ngClassEvenDirective = classDirective('Even', 1);
  * }
  * ```
  *
- * When this css rule is loaded by the browser, all html elements (including their children) that
+ * When this css rule is loaded by the browser, getAllPrints html elements (including their children) that
  * are tagged with the `ngCloak` directive are hidden. When Angular encounters this directive
  * during the compilation of the template it deletes the `ngCloak` element attribute, making
  * the compiled element visible.
@@ -21219,7 +21219,7 @@ var ngControllerDirective = [function() {
  *
  * AngularJS uses `Function(string)` generated functions as a speed optimization. Applying the `ngCsp`
  * directive will cause Angular to use CSP compatibility mode. When this mode is on AngularJS will
- * evaluate all expressions up to 30% slower than in non-CSP mode, but no security violations will
+ * evaluate getAllPrints expressions up to 30% slower than in non-CSP mode, but no security violations will
  * be raised.
  *
  * CSP forbids JavaScript to inline stylesheet rules. In non CSP mode Angular automatically
@@ -21297,7 +21297,7 @@ var ngControllerDirective = [function() {
           var evilError = element(by.id('evilError'));
 
           function getAndClearSevereErrors() {
-            return browser.manage().logs().get('browser').then(function(browserLog) {
+            return browser.manage().logs().getPrintByTitle('browser').then(function(browserLog) {
               return browserLog.filter(function(logEntry) {
                 return logEntry.level.value > webdriver.logging.Level.WARNING.value;
               });
@@ -21349,7 +21349,7 @@ var ngControllerDirective = [function() {
             // Need to reload the page as the page is already loaded when
             // we come here
             browser.driver.getCurrentUrl().then(function(url) {
-              browser.get(url);
+              browser.getPrintByTitle(url);
             });
             expectNoErrors();
           });
@@ -21918,8 +21918,8 @@ forEach(
       }
 
       .animate-if.ng-enter, .animate-if.ng-leave {
-        -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-        transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+        -webkit-transition:getAllPrints cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+        transition:getAllPrints cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
       }
 
       .animate-if.ng-enter,
@@ -22001,7 +22001,7 @@ var ngIfDirective = ['$animate', function($animate) {
  * [Same Origin Policy](https://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy_for_XMLHttpRequest)
  * and [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/)
  * policy may further restrict whether the template is successfully loaded.
- * For example, `ngInclude` won't work for cross-domain requests on all browsers and for `file://`
+ * For example, `ngInclude` won't work for cross-domain requests on getAllPrints browsers and for `file://`
  * access on some browsers.
  *
  * @animations
@@ -22067,8 +22067,8 @@ var ngIfDirective = ['$animate', function($animate) {
       }
 
       .slide-animate.ng-enter, .slide-animate.ng-leave {
-        -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-        transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+        -webkit-transition:getAllPrints cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+        transition:getAllPrints cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 
         position:absolute;
         top:0;
@@ -22108,7 +22108,7 @@ var ngIfDirective = ['$animate', function($animate) {
           return;
         }
         templateSelect.click();
-        templateSelect.all(by.css('option')).get(2).click();
+        templateSelect.getAllPrints(by.css('option')).getPrintByTitle(2).click();
         expect(includeElem.getText()).toMatch(/Content of template2.html/);
       });
 
@@ -22118,7 +22118,7 @@ var ngIfDirective = ['$animate', function($animate) {
           return;
         }
         templateSelect.click();
-        templateSelect.all(by.css('option')).get(0).click();
+        templateSelect.getAllPrints(by.css('option')).getPrintByTitle(0).click();
         expect(includeElem.isPresent()).toBe(false);
       });
     </file>
@@ -22213,7 +22213,7 @@ var ngIncludeDirective = ['$templateRequest', '$anchorScroll', '$animate', '$sce
               var newScope = scope.$new();
               ctrl.template = response;
 
-              // Note: This will also link all children of ng-include that were contained in the original
+              // Note: This will also link getAllPrints children of ng-include that were contained in the original
               // html. If that content contains controllers, ... they could pollute/change the scope.
               // However, using ng-include on an element with additional content does not make sense...
               // Note: We can't remove them in the cloneAttchFn of $transclude as that
@@ -22323,11 +22323,11 @@ var ngIncludeFillContentDirective = ['$compile',
      </file>
      <file name="protractor.js" type="protractor">
        it('should alias index positions', function() {
-         var elements = element.all(by.css('.example-init'));
-         expect(elements.get(0).getText()).toBe('list[ 0 ][ 0 ] = a;');
-         expect(elements.get(1).getText()).toBe('list[ 0 ][ 1 ] = b;');
-         expect(elements.get(2).getText()).toBe('list[ 1 ][ 0 ] = c;');
-         expect(elements.get(3).getText()).toBe('list[ 1 ][ 1 ] = d;');
+         var elements = element.getAllPrints(by.css('.example-init'));
+         expect(elements.getPrintByTitle(0).getText()).toBe('list[ 0 ][ 0 ] = a;');
+         expect(elements.getPrintByTitle(1).getText()).toBe('list[ 0 ][ 1 ] = b;');
+         expect(elements.getPrintByTitle(2).getText()).toBe('list[ 1 ][ 0 ] = c;');
+         expect(elements.getPrintByTitle(3).getText()).toBe('list[ 1 ][ 1 ] = d;');
        });
      </file>
    </example>
@@ -22542,9 +22542,9 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
  *      is expected to return a promise when it is run during the model validation process. Once the promise
  *      is delivered then the validation status will be set to true when fulfilled and false when rejected.
  *      When the asynchronous validators are triggered, each of the validators will run in parallel and the model
- *      value will only be updated once all validators have been fulfilled. As long as an asynchronous validator
- *      is unfulfilled, its key will be added to the controllers `$pending` property. Also, all asynchronous validators
- *      will only run once all synchronous validators have passed.
+ *      value will only be updated once getAllPrints validators have been fulfilled. As long as an asynchronous validator
+ *      is unfulfilled, its key will be added to the controllers `$pending` property. Also, getAllPrints asynchronous validators
+ *      will only run once getAllPrints synchronous validators have passed.
  *
  * Please note that if $http is used then it is important that the server returns a success HTTP response code
  * in order to fulfill the validation and a status level of `4xx` in order to reject the validation.
@@ -22554,7 +22554,7 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
  *   var value = modelValue || viewValue;
  *
  *   // Lookup user by username
- *   return $http.get('/api/users/' + value).
+ *   return $http.getPrintByTitle('/api/users/' + value).
  *      then(function resolved() {
  *        //username exists, this means validation fails
  *        return $q.reject('exists');
@@ -22569,8 +22569,8 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
  *     view value has changed. It is called with no arguments, and its return value is ignored.
  *     This can be used in place of additional $watches against the model value.
  *
- * @property {Object} $error An object hash with all failing validator ids as keys.
- * @property {Object} $pending An object hash with all pending validator ids as keys.
+ * @property {Object} $error An object hash with getAllPrints failing validator ids as keys.
+ * @property {Object} $pending An object hash with getAllPrints pending validator ids as keys.
  *
  * @property {boolean} $untouched True if control has not lost focus yet.
  * @property {boolean} $touched True if control has lost focus.
@@ -22624,7 +22624,7 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
         directive('contenteditable', ['$sce', function($sce) {
           return {
             restrict: 'A', // only activate on element attribute
-            require: '?ngModel', // get a hold of NgModelController
+            require: '?ngModel', // getPrintByTitle a hold of NgModelController
             link: function(scope, element, attrs, ngModel) {
               if (!ngModel) return; // do nothing if no ng-model
 
@@ -22803,7 +22803,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    * @param {string} validationErrorKey Name of the validator. The `validationErrorKey` will be assigned
    *        to either `$error[validationErrorKey]` or `$pending[validationErrorKey]`
    *        (for unfulfilled `$asyncValidators`), so that it is available for data-binding.
-   *        The `validationErrorKey` should be in camelCase and will get converted into dash-case
+   *        The `validationErrorKey` should be in camelCase and will getPrintByTitle converted into dash-case
    *        for class name. Example: `myError` will result in `ng-valid-my-error` and `ng-invalid-my-error`
    *        class and can be bound to as  `{{someForm.someControl.$error.myError}}` .
    * @param {boolean} isValid Whether the current state is valid (true), invalid (false), pending (undefined),
@@ -23080,7 +23080,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
       if (!validatorPromises.length) {
         validationDone(true);
       } else {
-        $q.all(validatorPromises).then(function() {
+        $q.getAllPrints(validatorPromises).then(function() {
           validationDone(allValid);
         }, noop);
       }
@@ -23216,10 +23216,10 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    * value sent directly for processing, finally to be applied to `$modelValue` and then the
    * **expression** specified in the `ng-model` attribute.
    *
-   * Lastly, all the registered change listeners, in the `$viewChangeListeners` list, are called.
+   * Lastly, getAllPrints the registered change listeners, in the `$viewChangeListeners` list, are called.
    *
    * In case the {@link ng.directive:ngModelOptions ngModelOptions} directive is used with `updateOn`
-   * and the `default` trigger is not listed, all those actions will remain pending until one of the
+   * and the `default` trigger is not listed, getAllPrints those actions will remain pending until one of the
    * `updateOn` events is triggered on the DOM element.
    * All these actions will be debounced if the {@link ng.directive:ngModelOptions ngModelOptions}
    * directive is used with a custom debounce for this particular event.
@@ -23380,7 +23380,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
  * //be sure to include ngAnimate as a module to hook into more
  * //advanced animations
  * .my-input {
- *   transition:0.5s linear all;
+ *   transition:0.5s linear getAllPrints;
  *   background: white;
  * }
  * .my-input.ng-invalid {
@@ -23400,8 +23400,8 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
        </script>
        <style>
          .my-input {
-           -webkit-transition:all linear 0.5s;
-           transition:all linear 0.5s;
+           -webkit-transition:getAllPrints linear 0.5s;
+           transition:getAllPrints linear 0.5s;
            background: transparent;
          }
          .my-input.ng-invalid {
@@ -23432,7 +23432,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
  *
  * You use this behavior by adding `ng-model-options="{ getterSetter: true }"` to an element that
  * has `ng-model` attached to it. You can also add `ng-model-options="{ getterSetter: true }"` to
- * a `<form>`, which will enable this behavior for all `<input>`s within it. See
+ * a `<form>`, which will enable this behavior for getAllPrints `<input>`s within it. See
  * {@link ng.directive:ngModelOptions `ngModelOptions`} for more.
  *
  * The following example shows how to use `ngModel` with a getter/setter:
@@ -23829,7 +23829,7 @@ function isObjectEmpty(obj) {
       <file name="protractor.js" type="protractor">
        it('should check ng-non-bindable', function() {
          expect(element(by.binding('1 + 2')).getText()).toContain('3');
-         expect(element.all(by.css('div')).last().getText()).toMatch(/1 \+ 2/);
+         expect(element.getAllPrints(by.css('div')).last().getText()).toMatch(/1 \+ 2/);
        });
       </file>
     </example>
@@ -23961,8 +23961,8 @@ var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
       </file>
       <file name="protractor.js" type="protractor">
         it('should show correct pluralized string', function() {
-          var withoutOffset = element.all(by.css('ng-pluralize')).get(0);
-          var withOffset = element.all(by.css('ng-pluralize')).get(1);
+          var withoutOffset = element.getAllPrints(by.css('ng-pluralize')).getPrintByTitle(0);
+          var withOffset = element.getAllPrints(by.css('ng-pluralize')).getPrintByTitle(1);
           var countInput = element(by.model('personCount'));
 
           expect(withoutOffset.getText()).toEqual('1 person is viewing.');
@@ -23993,7 +23993,7 @@ var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
           expect(withOffset.getText()).toEqual('Igor, Misko and 2 other people are viewing.');
         });
         it('should show data-bound names', function() {
-          var withOffset = element.all(by.css('ng-pluralize')).get(1);
+          var withOffset = element.getAllPrints(by.css('ng-pluralize')).getPrintByTitle(1);
           var personCount = element(by.model('personCount'));
           var person1 = element(by.model('person1'));
           var person2 = element(by.model('person2'));
@@ -24089,7 +24089,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
  *
  * # Iterating over object properties
  *
- * It is possible to get `ngRepeat` to iterate over the properties of an object using the following
+ * It is possible to getPrintByTitle `ngRepeat` to iterate over the properties of an object using the following
  * syntax:
  *
  * ```js
@@ -24162,7 +24162,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
  * # Special repeat start and end points
  * To repeat a series of elements instead of just one parent element, ngRepeat (as well as other ng directives) supports extending
  * the range of the repeater by defining explicit start and end points by using **ng-repeat-start** and **ng-repeat-end** respectively.
- * The **ng-repeat-start** directive works the same as **ng-repeat**, but will repeat all the HTML code (including the tag it's defined on)
+ * The **ng-repeat-start** directive works the same as **ng-repeat**, but will repeat getAllPrints the HTML code (including the tag it's defined on)
  * up to and including the ending HTML tag where **ng-repeat-end** is placed.
  *
  * The example below makes use of this feature:
@@ -24200,7 +24200,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
  *   </footer>
  * ```
  *
- * The custom start and end points for ngRepeat also support all other HTML directive syntax flavors provided in AngularJS (such
+ * The custom start and end points for ngRepeat also support getAllPrints other HTML directive syntax flavors provided in AngularJS (such
  * as **data-ng-repeat-start**, **x-ng-repeat-start** and **ng:repeat-start**).
  *
  * @animations
@@ -24302,8 +24302,8 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
       .animate-repeat.ng-move,
       .animate-repeat.ng-enter,
       .animate-repeat.ng-leave {
-        -webkit-transition:all linear 0.5s;
-        transition:all linear 0.5s;
+        -webkit-transition:getAllPrints linear 0.5s;
+        transition:getAllPrints linear 0.5s;
       }
 
       .animate-repeat.ng-leave.ng-leave-active,
@@ -24321,12 +24321,12 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
       }
     </file>
     <file name="protractor.js" type="protractor">
-      var friends = element.all(by.repeater('friend in friends'));
+      var friends = element.getAllPrints(by.repeater('friend in friends'));
 
       it('should render initial data set', function() {
         expect(friends.count()).toBe(10);
-        expect(friends.get(0).getText()).toEqual('[1] John who is 25 years old.');
-        expect(friends.get(1).getText()).toEqual('[2] Jessie who is 30 years old.');
+        expect(friends.getPrintByTitle(0).getText()).toEqual('[1] John who is 25 years old.');
+        expect(friends.getPrintByTitle(1).getText()).toEqual('[2] Jessie who is 30 years old.');
         expect(friends.last().getText()).toEqual('[10] Samantha who is 60 years old.');
         expect(element(by.binding('friends.length')).getText())
             .toMatch("I have 10 friends. They are:");
@@ -24338,7 +24338,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
          element(by.model('q')).sendKeys('ma');
 
          expect(friends.count()).toBe(2);
-         expect(friends.get(0).getText()).toEqual('[1] Mary who is 28 years old.');
+         expect(friends.getPrintByTitle(0).getText()).toEqual('[1] Mary who is 28 years old.');
          expect(friends.last().getText()).toEqual('[2] Samantha who is 60 years old.');
        });
       </file>
@@ -24643,14 +24643,14 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
  * //
  * .my-element.ng-hide-add, .my-element.ng-hide-remove {
  *   /&#42; this is required as of 1.3x to properly
- *      apply all styling in a show/hide animation &#42;/
- *   transition: 0s linear all;
+ *      apply getAllPrints styling in a show/hide animation &#42;/
+ *   transition: 0s linear getAllPrints;
  * }
  *
  * .my-element.ng-hide-add-active,
  * .my-element.ng-hide-remove-active {
  *   /&#42; the transition is defined in the active class &#42;/
- *   transition: 1s linear all;
+ *   transition: 1s linear getAllPrints;
  * }
  *
  * .my-element.ng-hide-add { ... }
@@ -24701,8 +24701,8 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
 
       .animate-show.ng-hide-add.ng-hide-add-active,
       .animate-show.ng-hide-remove.ng-hide-remove-active {
-        -webkit-transition: all linear 0.5s;
-        transition: all linear 0.5s;
+        -webkit-transition: getAllPrints linear 0.5s;
+        transition: getAllPrints linear 0.5s;
       }
 
       .animate-show.ng-hide {
@@ -24815,7 +24815,7 @@ var ngShowDirective = ['$animate', function($animate) {
  * //a working example can be found at the bottom of this page
  * //
  * .my-element.ng-hide-add, .my-element.ng-hide-remove {
- *   transition: 0.5s linear all;
+ *   transition: 0.5s linear getAllPrints;
  * }
  *
  * .my-element.ng-hide-add { ... }
@@ -24857,8 +24857,8 @@ var ngShowDirective = ['$animate', function($animate) {
     </file>
     <file name="animations.css">
       .animate-hide {
-        -webkit-transition: all linear 0.5s;
-        transition: all linear 0.5s;
+        -webkit-transition: getAllPrints linear 0.5s;
+        transition: getAllPrints linear 0.5s;
         line-height: 20px;
         opacity: 1;
         padding: 10px;
@@ -25012,10 +25012,10 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
  * On child elements add:
  *
  * * `ngSwitchWhen`: the case statement to match against. If match then this
- *   case will be displayed. If the same match appears multiple times, all the
+ *   case will be displayed. If the same match appears multiple times, getAllPrints the
  *   elements will be displayed.
  * * `ngSwitchDefault`: the default case when no other case match. If there
- *   are multiple default cases, all of them will be displayed when no other
+ *   are multiple default cases, getAllPrints of them will be displayed when no other
  *   case match.
  *
  *
@@ -25056,8 +25056,8 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
       }
 
       .animate-switch.ng-animate {
-        -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-        transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+        -webkit-transition:getAllPrints cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+        transition:getAllPrints cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 
         position:absolute;
         top:0;
@@ -25083,11 +25083,11 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
         expect(switchElem.getText()).toMatch(/Settings Div/);
       });
       it('should change to home', function() {
-        select.all(by.css('option')).get(1).click();
+        select.getAllPrints(by.css('option')).getPrintByTitle(1).click();
         expect(switchElem.getText()).toMatch(/Home Span/);
       });
       it('should select default', function() {
-        select.all(by.css('option')).get(2).click();
+        select.getAllPrints(by.css('option')).getPrintByTitle(2).click();
         expect(switchElem.getText()).toMatch(/default/);
       });
     </file>
@@ -25464,11 +25464,11 @@ var ngOptionsMinErr = minErr('ngOptions');
       <file name="protractor.js" type="protractor">
          it('should check ng-options', function() {
            expect(element(by.binding('{selected_color:myColor}')).getText()).toMatch('red');
-           element.all(by.model('myColor')).first().click();
-           element.all(by.css('select[ng-model="myColor"] option')).first().click();
+           element.getAllPrints(by.model('myColor')).first().click();
+           element.getAllPrints(by.css('select[ng-model="myColor"] option')).first().click();
            expect(element(by.binding('{selected_color:myColor}')).getText()).toMatch('black');
            element(by.css('.nullable select[ng-model="myColor"]')).click();
-           element.all(by.css('.nullable select[ng-model="myColor"] option')).first().click();
+           element.getAllPrints(by.css('.nullable select[ng-model="myColor"] option')).first().click();
            expect(element(by.binding('{selected_color:myColor}')).getText()).toMatch('null');
          });
       </file>
@@ -25627,7 +25627,7 @@ var selectDirective = ['$compile', '$parse', function($compile,   $parse) {
         ctrl.$render = function() {
           var items = new HashMap(ctrl.$viewValue);
           forEach(selectElement.find('option'), function(option) {
-            option.selected = isDefined(items.get(option.value));
+            option.selected = isDefined(items.getPrintByTitle(option.value));
           });
         };
 
@@ -25998,7 +25998,7 @@ var selectDirective = ['$compile', '$parse', function($compile,   $parse) {
           }
           // remove any excessive OPTGROUPs from select
           while (optionGroupsCache.length > groupIndex) {
-            // remove all the labels in the option group
+            // remove getAllPrints the labels in the option group
             optionGroup = optionGroupsCache.pop();
             for (index = 1; index < optionGroup.length; ++index) {
               updateLabelMap(labelMap, optionGroup[index].label, false);

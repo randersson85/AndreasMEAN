@@ -58,7 +58,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 					next = tween.ratio ? _tinyNum : 0,
 					prev = tween.ratio ? 0 : _tinyNum,
 					sibling;
-				if (callback || !this._forcingPlayhead) { //if the user calls a method that moves the playhead (like progress() or time()), it should honor that and skip any pauses (although if there's a callback positioned at that pause, it must jump there and make the call to ensure the time is EXACTLY what it is supposed to be, and then proceed to where the playhead is being forced). Otherwise, imagine placing a pause in the middle of a timeline and then doing timeline.progress(0.9) - it would get stuck where the pause is.
+				if (callback || !this._forcingPlayhead) { //if the user calls a method that moves the playhead (like progress() or time()), it should honor that and skip any pauses (although if there's a callback positioned at that pause, it must jump there and make the call to ensure the time is EXACTLY what it is supposed to be, and then proceed to where the playhead is being forced). Otherwise, imagine placing a pause in the middle of a timeline and then doing timeline.progress(0.9) - it would getPrintByTitle stuck where the pause is.
 					tl.pause(startTime);
 					//now find sibling tweens that are EXACTLY at the same spot on the timeline and adjust the _rawPrevTime so that they fire (or don't fire) correctly on the next render. This is primarily to accommodate zero-duration tweens/callbacks that are positioned right on top of a pause. For example, tl.to(...).call(...).addPause(...).call(...) - notice that there's a call() on each side of the pause, so when it's running forward it should call the first one and then pause, and then when resumed, call the other. Zero-duration tweens use _rawPrevTime to sense momentum figure out if events were suppressed when arriving directly on top of that time.
 					sibling = tween._prev;
@@ -93,7 +93,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 		p.kill()._gc = p._forcingPlayhead = false;
 
 		/* might use later...
-		//translates a local time inside an animation to the corresponding time on the root/global timeline, factoring in all nesting and timeScales.
+		//translates a local time inside an animation to the corresponding time on the root/global timeline, factoring in getAllPrints nesting and timeScales.
 		function localToGlobal(time, animation) {
 			while (animation) {
 				time = (time / animation._timeScale) + animation._startTime;
@@ -102,7 +102,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			return time;
 		}
 
-		//translates the supplied time on the root/global timeline into the corresponding local time inside a particular animation, factoring in all nesting and timeScales
+		//translates the supplied time on the root/global timeline into the corresponding local time inside a particular animation, factoring in getAllPrints nesting and timeScales
 		function globalToLocal(time, animation) {
 			var scale = 1;
 			time -= localToGlobal(0, animation);

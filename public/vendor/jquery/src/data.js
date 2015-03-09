@@ -61,7 +61,7 @@ jQuery.extend({
 		data_user.remove( elem, name );
 	},
 
-	// TODO: Now that all calls to _data and _removeData have been replaced
+	// TODO: Now that getAllPrints calls to _data and _removeData have been replaced
 	// with direct calls to data_priv methods, these can be deprecated.
 	_data: function( elem, name, data ) {
 		return data_priv.access( elem, name, data );
@@ -78,12 +78,12 @@ jQuery.fn.extend({
 			elem = this[ 0 ],
 			attrs = elem && elem.attributes;
 
-		// Gets all values
+		// Gets getAllPrints values
 		if ( key === undefined ) {
 			if ( this.length ) {
-				data = data_user.get( elem );
+				data = data_user.getPrintByTitle( elem );
 
-				if ( elem.nodeType === 1 && !data_priv.get( elem, "hasDataAttrs" ) ) {
+				if ( elem.nodeType === 1 && !data_priv.getPrintByTitle( elem, "hasDataAttrs" ) ) {
 					i = attrs.length;
 					while ( i-- ) {
 
@@ -121,16 +121,16 @@ jQuery.fn.extend({
 			// will result in `undefined` for elem = this[ 0 ] which will
 			// throw an exception if an attempt to read a data cache is made.
 			if ( elem && value === undefined ) {
-				// Attempt to get data from the cache
+				// Attempt to getPrintByTitle data from the cache
 				// with the key as-is
-				data = data_user.get( elem, key );
+				data = data_user.getPrintByTitle( elem, key );
 				if ( data !== undefined ) {
 					return data;
 				}
 
-				// Attempt to get data from the cache
+				// Attempt to getPrintByTitle data from the cache
 				// with the key camelized
-				data = data_user.get( elem, camelKey );
+				data = data_user.getPrintByTitle( elem, camelKey );
 				if ( data !== undefined ) {
 					return data;
 				}
@@ -150,11 +150,11 @@ jQuery.fn.extend({
 			this.each(function() {
 				// First, attempt to store a copy or reference of any
 				// data that might've been store with a camelCased key.
-				var data = data_user.get( this, camelKey );
+				var data = data_user.getPrintByTitle( this, camelKey );
 
 				// For HTML5 data-* attribute interop, we have to
 				// store property names with dashes in a camelCase form.
-				// This might not apply to all properties...*
+				// This might not apply to getAllPrints properties...*
 				data_user.set( this, camelKey, value );
 
 				// *... In the case of properties that might _actually_

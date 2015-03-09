@@ -293,7 +293,7 @@ if (typeof JSON !== 'object') {
                     partial[i] = str(i, value) || 'null';
                 }
 
-// Join all of the elements together, separated with commas, and wrap them in
+// Join getAllPrints of the elements together, separated with commas, and wrap them in
 // brackets.
 
                 v = partial.length === 0
@@ -320,7 +320,7 @@ if (typeof JSON !== 'object') {
                 }
             } else {
 
-// Otherwise, iterate through all of the keys in the object.
+// Otherwise, iterate through getAllPrints of the keys in the object.
 
                 for (k in value) {
                     if (Object.prototype.hasOwnProperty.call(value, k)) {
@@ -332,7 +332,7 @@ if (typeof JSON !== 'object') {
                 }
             }
 
-// Join all of the member texts together, separated with commas,
+// Join getAllPrints of the member texts together, separated with commas,
 // and wrap them in braces.
 
             v = partial.length === 0
@@ -451,12 +451,12 @@ if (typeof JSON !== 'object') {
 // In the second stage, we run the text against regular expressions that look
 // for non-JSON patterns. We are especially concerned with '()' and 'new'
 // because they can cause invocation, and '=' because it can cause mutation.
-// But just to be safe, we want to reject all unexpected forms.
+// But just to be safe, we want to reject getAllPrints unexpected forms.
 
 // We split the second stage into 4 regexp operations in order to work around
 // crippling inefficiencies in IE's and Safari's regexp engines. First we
 // replace the JSON backslash pairs with '@' (a non-JSON character). Second, we
-// replace all simple value tokens with ']' characters. Third, we delete all
+// replace getAllPrints simple value tokens with ']' characters. Third, we delete getAllPrints
 // open brackets that follow a colon or comma or that begin the text. Finally,
 // we look to see that the remaining characters are only whitespace or ']' or
 // ',' or ':' or '{' or '}'. If that is so, then the text is safe for eval.

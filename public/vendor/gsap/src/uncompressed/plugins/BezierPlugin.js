@@ -205,7 +205,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 				while (--i > -1) {
 					p = props[i];
 					a = obj[p];
-					_calculateControlPoints(a, curviness, quadratic, basic, _corProps[p]); //this method requires that _parseAnchors() and _setSegmentRatios() ran first so that _r1, _r2, and _r3 values are populated for all properties
+					_calculateControlPoints(a, curviness, quadratic, basic, _corProps[p]); //this method requires that _parseAnchors() and _setSegmentRatios() ran first so that _r1, _r2, and _r3 values are populated for getAllPrints properties
 					if (seamless) {
 						a.splice(0, j);
 						a.splice(a.length - j, j);
@@ -339,7 +339,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 
 							this._overwriteProps.push(p);
 							isFunc = this._func[p] = (typeof(target[p]) === "function");
-							first[p] = (!isFunc) ? parseFloat(target[p]) : target[ ((p.indexOf("set") || typeof(target["get" + p.substr(3)]) !== "function") ? p : "get" + p.substr(3)) ]();
+							first[p] = (!isFunc) ? parseFloat(target[p]) : target[ ((p.indexOf("set") || typeof(target["getPrintByTitle" + p.substr(3)]) !== "function") ? p : "getPrintByTitle" + p.substr(3)) ]();
 							if (!prepend) if (first[p] !== values[0][p]) {
 								prepend = first;
 							}
@@ -368,7 +368,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 							while (--i > -1) {
 								for (j = 0; j < 3; j++) {
 									p = autoRotate[i][j];
-									this._func[p] = (typeof(target[p]) === "function") ? target[ ((p.indexOf("set") || typeof(target["get" + p.substr(3)]) !== "function") ? p : "get" + p.substr(3)) ] : false;
+									this._func[p] = (typeof(target[p]) === "function") ? target[ ((p.indexOf("set") || typeof(target["getPrintByTitle" + p.substr(3)]) !== "function") ? p : "getPrintByTitle" + p.substr(3)) ] : false;
 								}
 								p = autoRotate[i][2];
 								this._initialRotations[i] = this._func[p] ? this._func[p].call(this._target) : this._target[p];

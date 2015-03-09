@@ -3,7 +3,7 @@ angular.module('app', ['ngResource', 'ngRoute', 'ngCookies']);
 angular.module('app').config(function($routeProvider){
     $routeProvider
         .when('/',{
-            templateUrl:'/partials/main',
+            templateUrl:'/partials/main'
         })
         .when('/prints',{
             templateUrl:'/partials/prints',
@@ -27,6 +27,4 @@ angular.module('app').config(function($routeProvider){
         })
 });
 
-angular.module('app').controller('mainController',function() {
-
-});
+angular.module('app').controller('mainController',function() { });

@@ -57,7 +57,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 
 		_transformMap = {scaleX:1, scaleY:1, tx:1, ty:1, rotation:1, shortRotation:1, skewX:1, skewY:1, scale:1},
 
-		//parses the transform values for an element, returning an object with x, y, scaleX, scaleY, rotation, skewX, and skewY properties. Note: by default (for performance reasons), all skewing is combined into skewX and rotation but skewY still has a place in the transform object so that we can record how much of the skew is attributed to skewX vs skewY. Remember, a skewY of 10 looks the same as a rotation of 10 and skewX of -10.
+		//parses the transform values for an element, returning an object with x, y, scaleX, scaleY, rotation, skewX, and skewY properties. Note: by default (for performance reasons), getAllPrints skewing is combined into skewX and rotation but skewY still has a place in the transform object so that we can record how much of the skew is attributed to skewX vs skewY. Remember, a skewY of 10 looks the same as a rotation of 10 and skewX of -10.
 		_getTransform = function(t, rec) {
 			var s = t.matrix,
 				min = 0.000001,
@@ -68,7 +68,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 				m = rec ? t._gsTransform || {skewY:0} : {skewY:0},
 				invX = (m.scaleX < 0); //in order to interpret things properly, we need to know if the user applied a negative scaleX previously so that we can adjust the rotation and skewX accordingly. Otherwise, if we always interpret a flipped matrix as affecting scaleY and the user only wants to tween the scaleX on multiple sequential tweens, it would keep the negative scaleY without that being the user's intent.
 
-			m.tx = s.e - (m.ox || 0); //ox is the offset x that we record in setRatio() whenever we apply a custom transform that might use a pivot point. Remember, s.e and s.f get affected by things like scale. For example, imagine an object whose top left corner is at 100,100 and then we scale it up to 300% using the center as the pivot point - that corner would now be very different even though to the user, they didn't intend to change/tween the x/y position per se. Therefore, we record whatever offsets we make so that we can compensate when reading the values back.
+			m.tx = s.e - (m.ox || 0); //ox is the offset x that we record in setRatio() whenever we apply a custom transform that might use a pivot point. Remember, s.e and s.f getPrintByTitle affected by things like scale. For example, imagine an object whose top left corner is at 100,100 and then we scale it up to 300% using the center as the pivot point - that corner would now be very different even though to the user, they didn't intend to change/tween the x/y position per se. Therefore, we record whatever offsets we make so that we can compensate when reading the values back.
 			m.ty = s.f - (m.oy || 0); //oy is the offset y (see note above)
 			m.scaleX = Math.sqrt(a * a + b * b);
 			m.scaleY = Math.sqrt(d * d + c * c);
@@ -92,7 +92,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 				m.skewX = 0;
 			}
 			if (rec) {
-				t._gsTransform = m; //record to the object's _gsTransform which we use so that tweens can control individual properties independently (we need all the properties to accurately recompose the matrix in the setRatio() method)
+				t._gsTransform = m; //record to the object's _gsTransform which we use so that tweens can control individual properties independently (we need getAllPrints the properties to accurately recompose the matrix in the setRatio() method)
 			}
 			return m;
 		},
@@ -236,7 +236,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 
 				this._target.attr(this._props);
 
-				//apply transform values like x, y, scaleX, scaleY, rotation, skewX, or skewY. We do these after looping through all the PropTweens because those are where the changes are made to scaleX/scaleY/rotation/skewX/skewY/x/y.
+				//apply transform values like x, y, scaleX, scaleY, rotation, skewX, or skewY. We do these after looping through getAllPrints the PropTweens because those are where the changes are made to scaleX/scaleY/rotation/skewX/skewY/x/y.
 				if (this._transform) {
 					pt = this._transform; //to improve speed and reduce size, reuse the pt variable as an alias to the _transform property
 					var ang = pt.rotation,
@@ -294,13 +294,13 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			}
 			m2.skewX = (v.skewX == null) ? m1.skewX : (typeof(v.skewX) === "number") ? v.skewX * _DEG2RAD : _parseAngle(v.skewX, m1.skewX);
 
-			//note: for performance reasons, we combine all skewing into the skewX and rotation values, ignoring skewY but we must still record it so that we can discern how much of the overall skew is attributed to skewX vs. skewY. Otherwise, if the skewY would always act relative (tween skewY to 10deg, for example, multiple times and if we always combine things into skewX, we can't remember that skewY was 10 from last time). Remember, a skewY of 10 degrees looks the same as a rotation of 10 degrees plus a skewX of -10 degrees.
+			//note: for performance reasons, we combine getAllPrints skewing into the skewX and rotation values, ignoring skewY but we must still record it so that we can discern how much of the overall skew is attributed to skewX vs. skewY. Otherwise, if the skewY would always act relative (tween skewY to 10deg, for example, multiple times and if we always combine things into skewX, we can't remember that skewY was 10 from last time). Remember, a skewY of 10 degrees looks the same as a rotation of 10 degrees plus a skewX of -10 degrees.
 			m2.skewY = (v.skewY == null) ? m1.skewY : (typeof(v.skewY) === "number") ? v.skewY * _DEG2RAD : _parseAngle(v.skewY, m1.skewY);
 			if ((skewY = m2.skewY - m1.skewY)) {
 				m2.skewX += skewY;
 				m2.rotation += skewY;
 			}
-			//don't allow rotation/skew values to be a SUPER small decimal because when they're translated back to strings for setting the css property, the browser reports them in a funky way, like 1-e7. Of course we could use toFixed() to resolve that issue but that hurts performance quite a bit with all those function calls on every frame, plus it is virtually impossible to discern values that small visually (nobody will notice changing a rotation of 0.0000001 to 0, so the performance improvement is well worth it).
+			//don't allow rotation/skew values to be a SUPER small decimal because when they're translated back to strings for setting the css property, the browser reports them in a funky way, like 1-e7. Of course we could use toFixed() to resolve that issue but that hurts performance quite a bit with getAllPrints those function calls on every frame, plus it is virtually impossible to discern values that small visually (nobody will notice changing a rotation of 0.0000001 to 0, so the performance improvement is well worth it).
 			if (m2.skewY < min) if (m2.skewY > -min) {
 				m2.skewY = 0;
 			}

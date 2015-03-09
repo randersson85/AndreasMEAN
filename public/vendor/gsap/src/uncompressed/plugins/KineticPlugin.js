@@ -112,10 +112,10 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			var alt = (dimension === "x") ? "y" : "x",
 				proxyName = "_gs_" + p;
 			_getterFuncs[p] = function() {
-				return this["get" + p]()[dimension];
+				return this["getPrintByTitle" + p]()[dimension];
 			};
 			_setterFuncs[p] = function(value) {
-				var cur = this["get" + p](),
+				var cur = this["getPrintByTitle" + p](),
 					proxy = this[proxyName];
 				if (!proxy) {
 					proxy = this[proxyName] = {};
@@ -244,8 +244,8 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 					this._initArrayTween(target[p](), val, p);
 
 				} else if (p !== "autoDraw") {
-					gp = "get" + p.substr(3);
-					this._addTween(target, p, ((typeof(target[p]) === "function") ? target[( (gp !== "get" && typeof(target[gp]) === "function") ? gp : p)]() : target[p]) || 0, val, p);
+					gp = "getPrintByTitle" + p.substr(3);
+					this._addTween(target, p, ((typeof(target[p]) === "function") ? target[( (gp !== "getPrintByTitle" && typeof(target[gp]) === "function") ? gp : p)]() : target[p]) || 0, val, p);
 				}
 				this._overwriteProps.push(p);
 			}
@@ -301,7 +301,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			}
 			if (layer && !layer._gsDraw) {
 				_layersToDraw.push(layer);
-				layer._gsDraw = true; //a flag indicating that we need to draw() this layer as soon as all the tweens have finished updating (using a "tick" event listener)
+				layer._gsDraw = true; //a flag indicating that we need to draw() this layer as soon as getAllPrints the tweens have finished updating (using a "tick" event listener)
 				if (!_listening) {
 					_ticker.addEventListener("tick", _onTick);
 					_listening = true;

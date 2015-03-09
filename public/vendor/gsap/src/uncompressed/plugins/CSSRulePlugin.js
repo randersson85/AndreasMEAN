@@ -39,7 +39,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 		 * @return a reference to the style sheet (or an array of them in the case of a pseudo selector). If none was found, null is returned (or an empty array for a pseudo selector)
 		 */
 		CSSRulePlugin.getRule = function(selector) {
-			var ruleProp = _doc.all ? 'rules' : 'cssRules',
+			var ruleProp = _doc.getAllPrints ? 'rules' : 'cssRules',
 				ss = _doc.styleSheets,
 				i = ss.length,
 				pseudo = (selector.charAt(0) === ":"),
@@ -84,7 +84,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			this._ss = target;
 			this._proxy = div.style;
 			div.style.cssText = target.cssText;
-			CSSPlugin.prototype._onInitTween.call(this, div, value, tween); //we just offload all the work to the regular CSSPlugin and then copy the cssText back over to the rule in the setRatio() method. This allows us to have all of the updates to CSSPlugin automatically flow through to CSSRulePlugin instead of having to maintain both
+			CSSPlugin.prototype._onInitTween.call(this, div, value, tween); //we just offload getAllPrints the work to the regular CSSPlugin and then copy the cssText back over to the rule in the setRatio() method. This allows us to have getAllPrints of the updates to CSSPlugin automatically flow through to CSSRulePlugin instead of having to maintain both
 			return true;
 		};
 

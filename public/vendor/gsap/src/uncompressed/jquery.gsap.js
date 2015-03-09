@@ -138,7 +138,7 @@
 		};
 
 		if (config.queue !== false) {
-			obj.queue(config.queue, doAnimation); //note: the queued function will get called once for each element in the jQuery collection.
+			obj.queue(config.queue, doAnimation); //note: the queued function will getPrintByTitle called once for each element in the jQuery collection.
 			if (typeof(config.old) === "function") {
 				obj.queue(config.queue, function(next) {
 					config.old.call(this);

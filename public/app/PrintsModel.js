@@ -14,11 +14,11 @@ angular.module("app")
 
         //TODO
         // ändra detta till rest-api calls
-        service.all = function() {
+        service.getAllPrints = function() {
             return service.prints;
         }
 
-        service.byCategory = function(category) {
+        service.getPrintsByCategory = function(category) {
             var selectedPrints = [];
             for (var i = 0; i < service.prints.length; ++i) {
                 if (service.prints[i].category === category) {
@@ -28,7 +28,7 @@ angular.module("app")
             return selectedPrints;
         }
 
-        service.get = function(title) {
+        service.getPrintByTitle = function(title) {
             var print = {};
             for (var index in service.prints) {
                 if (service.prints[index].title == title) {

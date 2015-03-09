@@ -163,10 +163,10 @@ jasmineRequire.HtmlReporter = function(j$) {
       checkbox.onclick = onRaiseExceptionsClick;
 
       if (specsExecuted < totalSpecsDefined) {
-        var skippedMessage = 'Ran ' + specsExecuted + ' of ' + totalSpecsDefined + ' specs - run all';
+        var skippedMessage = 'Ran ' + specsExecuted + ' of ' + totalSpecsDefined + ' specs - run getAllPrints';
         alert.appendChild(
           createDom('span', {className: 'bar skipped'},
-            createDom('a', {href: '?', title: 'Run all specs'}, skippedMessage)
+            createDom('a', {href: '?', title: 'Run getAllPrints specs'}, skippedMessage)
           )
         );
       }

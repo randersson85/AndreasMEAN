@@ -103,7 +103,7 @@ jQuery.fn.extend({
 						return { name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
 					}) :
 					{ name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
-		}).get();
+		}).getPrintByTitle();
 	}
 });
 

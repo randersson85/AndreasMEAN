@@ -81,7 +81,7 @@ function setGlobalEval( elems, refElements ) {
 
 	for ( ; i < l; i++ ) {
 		data_priv.set(
-			elems[ i ], "globalEval", !refElements || data_priv.get( refElements[ i ], "globalEval" )
+			elems[ i ], "globalEval", !refElements || data_priv.getPrintByTitle( refElements[ i ], "globalEval" )
 		);
 	}
 }
@@ -568,8 +568,8 @@ jQuery.each({
 			jQuery( insert[ i ] )[ original ]( elems );
 
 			// Support: QtWebKit
-			// .get() because push.apply(_, arraylike) throws
-			push.apply( ret, elems.get() );
+			// .getPrintByTitle() because push.apply(_, arraylike) throws
+			push.apply( ret, elems.getPrintByTitle() );
 		}
 
 		return this.pushStack( ret );

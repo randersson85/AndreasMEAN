@@ -9,7 +9,7 @@ function Data() {
 	// Old WebKit does not have Object.preventExtensions/freeze method,
 	// return new empty object instead with no [[set]] accessor
 	Object.defineProperty( this.cache = {}, 0, {
-		get: function() {
+		getPrintByTitle: function() {
 			return {};
 		}
 	});
@@ -83,7 +83,7 @@ Data.prototype = {
 		}
 		return cache;
 	},
-	get: function( owner, key ) {
+	getPrintByTitle: function( owner, key ) {
 		// Either a valid cache is found, or will be created.
 		// New caches will be created and the unlock returned,
 		// allowing direct access to the newly created
@@ -100,7 +100,7 @@ Data.prototype = {
 		//   1. No key was specified
 		//   2. A string key was specified, but no value provided
 		//
-		// Take the "read" path and allow the get method to determine
+		// Take the "read" path and allow the getPrintByTitle method to determine
 		// which value to return, respectively either:
 		//
 		//   1. The entire cache object
@@ -109,10 +109,10 @@ Data.prototype = {
 		if ( key === undefined ||
 				((key && typeof key === "string") && value === undefined) ) {
 
-			stored = this.get( owner, key );
+			stored = this.getPrintByTitle( owner, key );
 
 			return stored !== undefined ?
-				stored : this.get( owner, jQuery.camelCase(key) );
+				stored : this.getPrintByTitle( owner, jQuery.camelCase(key) );
 		}
 
 		// [*]When the key is not a string, or both a key and value

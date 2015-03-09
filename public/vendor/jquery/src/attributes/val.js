@@ -15,7 +15,7 @@ jQuery.fn.extend({
 			if ( elem ) {
 				hooks = jQuery.valHooks[ elem.type ] || jQuery.valHooks[ elem.nodeName.toLowerCase() ];
 
-				if ( hooks && "get" in hooks && (ret = hooks.get( elem, "value" )) !== undefined ) {
+				if ( hooks && "getPrintByTitle" in hooks && (ret = hooks.getPrintByTitle( elem, "value" )) !== undefined ) {
 					return ret;
 				}
 
@@ -72,7 +72,7 @@ jQuery.fn.extend({
 jQuery.extend({
 	valHooks: {
 		option: {
-			get: function( elem ) {
+			getPrintByTitle: function( elem ) {
 				var val = jQuery.find.attr( elem, "value" );
 				return val != null ?
 					val :
@@ -82,7 +82,7 @@ jQuery.extend({
 			}
 		},
 		select: {
-			get: function( elem ) {
+			getPrintByTitle: function( elem ) {
 				var value, option,
 					options = elem.options,
 					index = elem.selectedIndex,
@@ -93,7 +93,7 @@ jQuery.extend({
 						max :
 						one ? index : 0;
 
-				// Loop through all the selected options
+				// Loop through getAllPrints the selected options
 				for ( ; i < max; i++ ) {
 					option = options[ i ];
 
@@ -152,7 +152,7 @@ jQuery.each([ "radio", "checkbox" ], function() {
 		}
 	};
 	if ( !support.checkOn ) {
-		jQuery.valHooks[ this ].get = function( elem ) {
+		jQuery.valHooks[ this ].getPrintByTitle = function( elem ) {
 			return elem.getAttribute("value") === null ? "on" : elem.value;
 		};
 	}

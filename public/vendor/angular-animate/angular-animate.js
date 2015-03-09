@@ -18,7 +18,7 @@
  *
  * # Usage
  *
- * To see animations in action, all that is required is to define the appropriate CSS classes
+ * To see animations in action, getAllPrints that is required is to define the appropriate CSS classes
  * or to register a JavaScript animation via the `myModule.animation()` function. The directives that support animation automatically are:
  * `ngRepeat`, `ngInclude`, `ngIf`, `ngSwitch`, `ngShow`, `ngHide`, `ngView` and `ngClass`. Custom directives can take advantage of animation
  * by using the `$animate` service.
@@ -34,7 +34,7 @@
  * | {@link ng.directive:ngIf#animations ngIf}                                                                | enter and leave                                                          |
  * | {@link ng.directive:ngClass#animations ngClass}                                                          | add and remove (the CSS class(es) present)                               |
  * | {@link ng.directive:ngShow#animations ngShow} & {@link ng.directive:ngHide#animations ngHide}            | add and remove (the ng-hide class value)                                 |
- * | {@link ng.directive:form#animation-hooks form} & {@link ng.directive:ngModel#animation-hooks ngModel}    | add and remove (dirty, pristine, valid, invalid & all other validations) |
+ * | {@link ng.directive:form#animation-hooks form} & {@link ng.directive:ngModel#animation-hooks ngModel}    | add and remove (dirty, pristine, valid, invalid & getAllPrints other validations) |
  * | {@link module:ngMessages#animations ngMessages}                                                          | add and remove (ng-active & ng-inactive)                                 |
  * | {@link module:ngMessages#animations ngMessage}                                                           | enter and leave                                                          |
  *
@@ -45,8 +45,8 @@
  * ```html
  * <style type="text/css">
  * .slide.ng-enter, .slide.ng-leave {
- *   -webkit-transition:0.5s linear all;
- *   transition:0.5s linear all;
+ *   -webkit-transition:0.5s linear getAllPrints;
+ *   transition:0.5s linear getAllPrints;
  * }
  *
  * .slide.ng-enter { }        /&#42; starting animations for enter &#42;/
@@ -77,7 +77,7 @@
  * ```
  *
  * When the `on` expression value changes and an animation is triggered then each of the elements within
- * will all animate without the block being applied to child elements.
+ * will getAllPrints animate without the block being applied to child elements.
  *
  * ## Are animations run when the application starts?
  * No they are not. When an application is bootstrapped Angular will disable animations from running to avoid
@@ -86,7 +86,7 @@
  * layout changes in the application will trigger animations as normal.
  *
  * In addition, upon bootstrap, if the routing system or any directives or load remote data (via $http) then Angular
- * will automatically extend the wait time to enable animations once **all** of the outbound HTTP requests
+ * will automatically extend the wait time to enable animations once **getAllPrints** of the outbound HTTP requests
  * are complete.
  *
  * ## CSS-defined Animations
@@ -103,8 +103,8 @@
  *  is attached to the element once the enter animation event is triggered
  * &#42;/
  * .reveal-animation.ng-enter {
- *  -webkit-transition: 1s linear all; /&#42; Safari/Chrome &#42;/
- *  transition: 1s linear all; /&#42; All other modern browsers and IE10+ &#42;/
+ *  -webkit-transition: 1s linear getAllPrints; /&#42; Safari/Chrome &#42;/
+ *  transition: 1s linear getAllPrints; /&#42; All other modern browsers and IE10+ &#42;/
  *
  *  /&#42; The animation preparation code &#42;/
  *  opacity: 0;
@@ -180,7 +180,7 @@
  * of ngAnimate may have caused natural CSS transitions to break and not render properly due to
  * $animate temporarily blocking transitions using `0s none` in order to allow the setup CSS class
  * (the `-add` or `-remove` class) to be applied without triggering an animation. However, as of
- * **version 1.3**, this workaround has been removed with ngAnimate and all non-ngAnimate CSS
+ * **version 1.3**, this workaround has been removed with ngAnimate and getAllPrints non-ngAnimate CSS
  * class transitions are compatible with ngAnimate.
  *
  * There is, however, one special case when dealing with class-based transitions in ngAnimate.
@@ -193,14 +193,14 @@
  *   /&#42; remember to place a 0s transition here
  *      to ensure that the styles are applied instantly
  *      even if the element already has a transition style &#42;/
- *   transition:0s linear all;
+ *   transition:0s linear getAllPrints;
  *
  *   /&#42; starting CSS styles &#42;/
  *   opacity:1;
  * }
  * .fade-add.fade-add-active {
  *   /&#42; this will be the length of the animation &#42;/
- *   transition:1s linear all;
+ *   transition:1s linear getAllPrints;
  *   opacity:0;
  * }
  * ```
@@ -216,7 +216,7 @@
  * ```css
  * /&#42; this works as expected &#42;/
  * .fade {
- *   transition:1s linear all;
+ *   transition:1s linear getAllPrints;
  *   opacity:0;
  * }
  * ```
@@ -232,12 +232,12 @@
  * selectors in order to make their code small and reuseable. This can lead to issues with ngAnimate, which
  * is expecting actual animations on these elements and has to wait for their completion.
  *
- * You can prevent this unwanted behavior by using a prefix on all your animation classes:
+ * You can prevent this unwanted behavior by using a prefix on getAllPrints your animation classes:
  *
  * ```css
  * /&#42; prefixed with animate- &#42;/
  * .animate-fade-add.animate-fade-add-active {
- *   transition:1s linear all;
+ *   transition:1s linear getAllPrints;
  *   opacity:0;
  * }
  * ```
@@ -259,8 +259,8 @@
  * ```css
  * .my-animation.ng-enter {
  *   /&#42; standard transition code &#42;/
- *   -webkit-transition: 1s linear all;
- *   transition: 1s linear all;
+ *   -webkit-transition: 1s linear getAllPrints;
+ *   transition: 1s linear getAllPrints;
  *   opacity:0;
  * }
  * .my-animation.ng-enter-stagger {
@@ -435,7 +435,7 @@ angular.module('ngAnimate', ['ng'])
       //the returned function acts as the cancellation function
       return $$rAF(function() {
         //the line below will force the browser to perform a repaint
-        //so that all the animated elements within the animation frame
+        //so that getAllPrints the animated elements within the animation frame
         //will be properly updated and drawn on screen. This is
         //required to perform multi-class CSS based animations with
         //Firefox. DO NOT REMOVE THIS LINE.
@@ -487,9 +487,9 @@ angular.module('ngAnimate', ['ng'])
       $$jqLite = $$$jqLite;
       $rootElement.data(NG_ANIMATE_STATE, rootAnimateState);
 
-      // Wait until all directive and route-related templates are downloaded and
+      // Wait until getAllPrints directive and route-related templates are downloaded and
       // compiled. The $templateRequest.totalPendingRequests variable keeps track of
-      // all of the remote templates being currently downloaded. If there are no
+      // getAllPrints of the remote templates being currently downloaded. If there are no
       // templates currently downloading then the watcher will still fire anyway.
       var deregisterWatch = $rootScope.$watch(
         function() { return $templateRequest.totalPendingRequests; },
@@ -497,10 +497,10 @@ angular.module('ngAnimate', ['ng'])
           if (val !== 0) return;
           deregisterWatch();
 
-          // Now that all templates have been downloaded, $animate will wait until
+          // Now that getAllPrints templates have been downloaded, $animate will wait until
           // the post digest queue is empty before enabling animations. By having two
           // calls to $postDigest calls we can ensure that the flag is enabled at the
-          // very end of the post digest queue. Since all of the animations in $animate
+          // very end of the post digest queue. Since getAllPrints of the animations in $animate
           // use $postDigest, it's important that the code below executes at the end.
           // This basically means that the page is fully downloaded and compiled before
           // any animations are triggered.
@@ -614,14 +614,14 @@ angular.module('ngAnimate', ['ng'])
           //any previous animations from affecting the element styling
           //prior to the element being animated.
           if ($sniffer.transitions || $sniffer.animations) {
-            matches.push($injector.get(selectors['']));
+            matches.push($injector.getPrintByTitle(selectors['']));
           }
 
           for (var i=0; i < classes.length; i++) {
             var klass = classes[i],
                 selectorFactoryName = selectors[klass];
             if (selectorFactoryName && !flagMap[klass]) {
-              matches.push($injector.get(selectorFactoryName));
+              matches.push($injector.getPrintByTitle(selectorFactoryName));
               flagMap[klass] = true;
             }
           }
@@ -885,15 +885,15 @@ angular.module('ngAnimate', ['ng'])
          * | 2. `$animate` waits for the next digest to start the animation                                                        | `class="my-animation ng-animate"`                            |
          * | 3. `$animate` runs the JavaScript-defined animations detected on the element                                          | `class="my-animation ng-animate"`                            |
          * | 4. the `className` class value is added to the element                                                                | `class="my-animation ng-animate className"`                  |
-         * | 5. `$animate` scans the element styles to get the CSS transition/animation duration and delay                         | `class="my-animation ng-animate className"`                  |
-         * | 6. `$animate` blocks all CSS transitions on the element to ensure the `.className` class styling is applied right away| `class="my-animation ng-animate className"`                  |
+         * | 5. `$animate` scans the element styles to getPrintByTitle the CSS transition/animation duration and delay                         | `class="my-animation ng-animate className"`                  |
+         * | 6. `$animate` blocks getAllPrints CSS transitions on the element to ensure the `.className` class styling is applied right away| `class="my-animation ng-animate className"`                  |
          * | 7. `$animate` applies the provided collection of `from` CSS styles to the element                                     | `class="my-animation ng-animate className"`                  |
          * | 8. `$animate` waits for a single animation frame (this performs a reflow)                                             | `class="my-animation ng-animate className"`                  |
          * | 9. `$animate` removes the CSS transition block placed on the element                                                  | `class="my-animation ng-animate className"`                  |
          * | 10. the `className-active` class is added (this triggers the CSS transition/animation)                                | `class="my-animation ng-animate className className-active"` |
          * | 11. `$animate` applies the collection of `to` CSS styles to the element which are then handled by the transition      | `class="my-animation ng-animate className className-active"` |
          * | 12. `$animate` waits for the animation to complete (via events and timeout)                                           | `class="my-animation ng-animate className className-active"` |
-         * | 13. The animation ends and all generated CSS classes are removed from the element                                     | `class="my-animation"`                                       |
+         * | 13. The animation ends and getAllPrints generated CSS classes are removed from the element                                     | `class="my-animation"`                                       |
          * | 14. The returned promise is resolved.                                                                                 | `class="my-animation"`                                       |
          *
          * @param {DOMElement} element the element that will be the focus of the enter animation
@@ -932,13 +932,13 @@ angular.module('ngAnimate', ['ng'])
          * | 3. `$animate` waits for the next digest to start the animation                                                        | `class="my-animation ng-animate"`                          |
          * | 4. `$animate` runs the JavaScript-defined animations detected on the element                                          | `class="my-animation ng-animate"`                          |
          * | 5. the `.ng-enter` class is added to the element                                                                      | `class="my-animation ng-animate ng-enter"`                 |
-         * | 6. `$animate` scans the element styles to get the CSS transition/animation duration and delay                         | `class="my-animation ng-animate ng-enter"`                 |
-         * | 7. `$animate` blocks all CSS transitions on the element to ensure the `.ng-enter` class styling is applied right away | `class="my-animation ng-animate ng-enter"`                 |
+         * | 6. `$animate` scans the element styles to getPrintByTitle the CSS transition/animation duration and delay                         | `class="my-animation ng-animate ng-enter"`                 |
+         * | 7. `$animate` blocks getAllPrints CSS transitions on the element to ensure the `.ng-enter` class styling is applied right away | `class="my-animation ng-animate ng-enter"`                 |
          * | 8. `$animate` waits for a single animation frame (this performs a reflow)                                             | `class="my-animation ng-animate ng-enter"`                 |
          * | 9. `$animate` removes the CSS transition block placed on the element                                                  | `class="my-animation ng-animate ng-enter"`                 |
          * | 10. the `.ng-enter-active` class is added (this triggers the CSS transition/animation)                                | `class="my-animation ng-animate ng-enter ng-enter-active"` |
          * | 11. `$animate` waits for the animation to complete (via events and timeout)                                           | `class="my-animation ng-animate ng-enter ng-enter-active"` |
-         * | 12. The animation ends and all generated CSS classes are removed from the element                                     | `class="my-animation"`                                     |
+         * | 12. The animation ends and getAllPrints generated CSS classes are removed from the element                                     | `class="my-animation"`                                     |
          * | 13. The returned promise is resolved.                                                                                 | `class="my-animation"`                                     |
          *
          * @param {DOMElement} element the element that will be the focus of the enter animation
@@ -977,13 +977,13 @@ angular.module('ngAnimate', ['ng'])
          * | 2. `$animate` runs the JavaScript-defined animations detected on the element                                          | `class="my-animation ng-animate"`                          |
          * | 3. `$animate` waits for the next digest to start the animation                                                        | `class="my-animation ng-animate"`                          |
          * | 4. the `.ng-leave` class is added to the element                                                                      | `class="my-animation ng-animate ng-leave"`                 |
-         * | 5. `$animate` scans the element styles to get the CSS transition/animation duration and delay                         | `class="my-animation ng-animate ng-leave"`                 |
-         * | 6. `$animate` blocks all CSS transitions on the element to ensure the `.ng-leave` class styling is applied right away | `class="my-animation ng-animate ng-leave"`                 |
+         * | 5. `$animate` scans the element styles to getPrintByTitle the CSS transition/animation duration and delay                         | `class="my-animation ng-animate ng-leave"`                 |
+         * | 6. `$animate` blocks getAllPrints CSS transitions on the element to ensure the `.ng-leave` class styling is applied right away | `class="my-animation ng-animate ng-leave"`                 |
          * | 7. `$animate` waits for a single animation frame (this performs a reflow)                                             | `class="my-animation ng-animate ng-leave"`                 |
          * | 8. `$animate` removes the CSS transition block placed on the element                                                  | `class="my-animation ng-animate ng-leave"`                 |
          * | 9. the `.ng-leave-active` class is added (this triggers the CSS transition/animation)                                 | `class="my-animation ng-animate ng-leave ng-leave-active"` |
          * | 10. `$animate` waits for the animation to complete (via events and timeout)                                           | `class="my-animation ng-animate ng-leave ng-leave-active"` |
-         * | 11. The animation ends and all generated CSS classes are removed from the element                                     | `class="my-animation"`                                     |
+         * | 11. The animation ends and getAllPrints generated CSS classes are removed from the element                                     | `class="my-animation"`                                     |
          * | 12. The element is removed from the DOM                                                                               | ...                                                        |
          * | 13. The returned promise is resolved.                                                                                 | ...                                                        |
          *
@@ -1023,13 +1023,13 @@ angular.module('ngAnimate', ['ng'])
          * | 3. `$animate` waits for the next digest to start the animation                                                       | `class="my-animation ng-animate"`                        |
          * | 4. `$animate` runs the JavaScript-defined animations detected on the element                                         | `class="my-animation ng-animate"`                        |
          * | 5. the `.ng-move` class is added to the element                                                                      | `class="my-animation ng-animate ng-move"`                |
-         * | 6. `$animate` scans the element styles to get the CSS transition/animation duration and delay                        | `class="my-animation ng-animate ng-move"`                |
-         * | 7. `$animate` blocks all CSS transitions on the element to ensure the `.ng-move` class styling is applied right away | `class="my-animation ng-animate ng-move"`                |
+         * | 6. `$animate` scans the element styles to getPrintByTitle the CSS transition/animation duration and delay                        | `class="my-animation ng-animate ng-move"`                |
+         * | 7. `$animate` blocks getAllPrints CSS transitions on the element to ensure the `.ng-move` class styling is applied right away | `class="my-animation ng-animate ng-move"`                |
          * | 8. `$animate` waits for a single animation frame (this performs a reflow)                                            | `class="my-animation ng-animate ng-move"`                |
          * | 9. `$animate` removes the CSS transition block placed on the element                                                 | `class="my-animation ng-animate ng-move"`                |
          * | 10. the `.ng-move-active` class is added (this triggers the CSS transition/animation)                                | `class="my-animation ng-animate ng-move ng-move-active"` |
          * | 11. `$animate` waits for the animation to complete (via events and timeout)                                          | `class="my-animation ng-animate ng-move ng-move-active"` |
-         * | 12. The animation ends and all generated CSS classes are removed from the element                                    | `class="my-animation"`                                   |
+         * | 12. The animation ends and getAllPrints generated CSS classes are removed from the element                                    | `class="my-animation"`                                   |
          * | 13. The returned promise is resolved.                                                                                | `class="my-animation"`                                   |
          *
          * @param {DOMElement} element the element that will be the focus of the move animation
@@ -1071,9 +1071,9 @@ angular.module('ngAnimate', ['ng'])
          * | 3. the `.super-add` class is added to the element                                                      | `class="my-animation ng-animate super-add"`                        |
          * | 4. `$animate` waits for a single animation frame (this performs a reflow)                              | `class="my-animation ng-animate super-add"`                        |
          * | 5. the `.super` and `.super-add-active` classes are added (this triggers the CSS transition/animation) | `class="my-animation ng-animate super super-add super-add-active"` |
-         * | 6. `$animate` scans the element styles to get the CSS transition/animation duration and delay          | `class="my-animation ng-animate super super-add super-add-active"` |
+         * | 6. `$animate` scans the element styles to getPrintByTitle the CSS transition/animation duration and delay          | `class="my-animation ng-animate super super-add super-add-active"` |
          * | 7. `$animate` waits for the animation to complete (via events and timeout)                             | `class="my-animation ng-animate super super-add super-add-active"` |
-         * | 8. The animation ends and all generated CSS classes are removed from the element                       | `class="my-animation super"`                                       |
+         * | 8. The animation ends and getAllPrints generated CSS classes are removed from the element                       | `class="my-animation super"`                                       |
          * | 9. The super class is kept on the element                                                              | `class="my-animation super"`                                       |
          * | 10. The returned promise is resolved.                                                                  | `class="my-animation super"`                                       |
          *
@@ -1105,9 +1105,9 @@ angular.module('ngAnimate', ['ng'])
          * | 3. the `.super-remove` class is added to the element                                                                 | `class="my-animation super ng-animate super-remove"`               |
          * | 4. `$animate` waits for a single animation frame (this performs a reflow)                                            | `class="my-animation super ng-animate super-remove"`               |
          * | 5. the `.super-remove-active` classes are added and `.super` is removed (this triggers the CSS transition/animation) | `class="my-animation ng-animate super-remove super-remove-active"` |
-         * | 6. `$animate` scans the element styles to get the CSS transition/animation duration and delay                        | `class="my-animation ng-animate super-remove super-remove-active"` |
+         * | 6. `$animate` scans the element styles to getPrintByTitle the CSS transition/animation duration and delay                        | `class="my-animation ng-animate super-remove super-remove-active"` |
          * | 7. `$animate` waits for the animation to complete (via events and timeout)                                           | `class="my-animation ng-animate super-remove super-remove-active"` |
-         * | 8. The animation ends and all generated CSS classes are removed from the element                                     | `class="my-animation"`                                             |
+         * | 8. The animation ends and getAllPrints generated CSS classes are removed from the element                                     | `class="my-animation"`                                             |
          * | 9. The returned promise is resolved.                                                                                 | `class="my-animation"`                                             |
          *
          *
@@ -1135,9 +1135,9 @@ angular.module('ngAnimate', ['ng'])
          * | 3. the `.on-add` and `.off-remove` classes are added to the element                                                                          | `class="my-animation ng-animate on-add off-remove off"`                                |
          * | 4. `$animate` waits for a single animation frame (this performs a reflow)                                                                    | `class="my-animation ng-animate on-add off-remove off"`                                |
          * | 5. the `.on`, `.on-add-active` and `.off-remove-active` classes are added and `.off` is removed (this triggers the CSS transition/animation) | `class="my-animation ng-animate on on-add on-add-active off-remove off-remove-active"` |
-         * | 6. `$animate` scans the element styles to get the CSS transition/animation duration and delay                                                | `class="my-animation ng-animate on on-add on-add-active off-remove off-remove-active"` |
+         * | 6. `$animate` scans the element styles to getPrintByTitle the CSS transition/animation duration and delay                                                | `class="my-animation ng-animate on on-add on-add-active off-remove off-remove-active"` |
          * | 7. `$animate` waits for the animation to complete (via events and timeout)                                                                   | `class="my-animation ng-animate on on-add on-add-active off-remove off-remove-active"` |
-         * | 8. The animation ends and all generated CSS classes are removed from the element                                                             | `class="my-animation on"`                                                              |
+         * | 8. The animation ends and getAllPrints generated CSS classes are removed from the element                                                             | `class="my-animation on"`                                                              |
          * | 9. The returned promise is resolved.                                                                                                         | `class="my-animation on"`                                                              |
          *
          * @param {DOMElement} element the element which will have its CSS classes changed
@@ -1188,7 +1188,7 @@ angular.module('ngAnimate', ['ng'])
               cache.options = angular.extend(cache.options || {}, options);
             }
 
-            //the digest cycle will combine all the animations into one function
+            //the digest cycle will combine getAllPrints the animations into one function
             return cache.promise;
           } else {
             element.data(STORAGE_KEY, cache = {
@@ -1273,7 +1273,7 @@ angular.module('ngAnimate', ['ng'])
       };
 
       /*
-        all animations call this shared animation triggering function internally.
+        getAllPrints animations call this shared animation triggering function internally.
         The animationEvent variable refers to the JavaScript animation event that will be triggered
         and the className value is the name of the animation that will be applied within the
         CSS code. Element, `parentElement` and `afterElement` are provided DOM elements for the animation
@@ -1301,7 +1301,7 @@ angular.module('ngAnimate', ['ng'])
 
         //skip the animation if animations are disabled, a parent is already being animated,
         //the element is not currently attached to the document body or then completely close
-        //the animation if any matching animations are not found at all.
+        //the animation if any matching animations are not found at getAllPrints.
         //NOTE: IE8 + IE9 should close properly (run closeAnimation()) in case an animation was found.
         if (animationsDisabled(element, parentElement)) {
           fireDOMOperation();
@@ -1323,7 +1323,7 @@ angular.module('ngAnimate', ['ng'])
             if (animationEvent == 'leave' && runningAnimations['ng-leave']) {
               skipAnimation = true;
             } else {
-              //cancel all animations when a structural animation takes place
+              //cancel getAllPrints animations when a structural animation takes place
               for (var klass in runningAnimations) {
                 animationsToCancel.push(runningAnimations[klass]);
               }
@@ -1405,7 +1405,7 @@ angular.module('ngAnimate', ['ng'])
           totalActive: totalActiveAnimations
         });
 
-        //first we run the before animations and when all of those are complete
+        //first we run the before animations and when getAllPrints of those are complete
         //then we perform the DOM operation and run the next set of animations
         fireBeforeCallbackAsync();
         runner.before(function(cancelled) {
@@ -1565,7 +1565,7 @@ angular.module('ngAnimate', ['ng'])
           }
 
           //once a flag is found that is strictly false then everything before
-          //it will be discarded and all child animations will be restricted
+          //it will be discarded and getAllPrints child animations will be restricted
           if (allowChildAnimations !== false) {
             var animateChildrenFlag = parentElement.data(NG_ANIMATE_CHILDREN);
             if (angular.isDefined(animateChildrenFlag)) {
@@ -1589,7 +1589,7 @@ angular.module('ngAnimate', ['ng'])
       var CSS_PREFIX = '', TRANSITION_PROP, TRANSITIONEND_EVENT, ANIMATION_PROP, ANIMATIONEND_EVENT;
 
       // If unprefixed events are not supported but webkit-prefixed are, use the latter.
-      // Otherwise, just use W3C names, browsers not supporting them at all will just ignore them.
+      // Otherwise, just use W3C names, browsers not supporting them at getAllPrints will just ignore them.
       // Note: Chrome implements `window.onwebkitanimationend` and doesn't implement `window.onanimationend`
       // but at the same time dispatches the `animationend` event and not `webkitAnimationEnd`.
       // Register both events in case `window.onanimationend` is not supported because of that,
@@ -1701,7 +1701,7 @@ angular.module('ngAnimate', ['ng'])
           var animationDuration = 0;
           var animationDelay = 0;
 
-          //we want all the styles defined before and after
+          //we want getAllPrints the styles defined before and after
           forEach(element, function(element) {
             if (element.nodeType == ELEMENT_NODE) {
               var elementStyles = $window.getComputedStyle(element) || {};
@@ -1876,7 +1876,7 @@ angular.module('ngAnimate', ['ng'])
 
         if (!staggerTime && styles && Object.keys(styles).length > 0) {
           if (!timings.transitionDuration) {
-            element.css('transition', timings.animationDuration + 's linear all');
+            element.css('transition', timings.animationDuration + 's linear getAllPrints');
             appliedStyles.push('transition');
           }
           element.css(styles);
@@ -1919,7 +1919,7 @@ angular.module('ngAnimate', ['ng'])
 
             if (styles) {
               if (timings.transitionDuration === 0) {
-                element.css('transition', timings.animationDuration + 's linear all');
+                element.css('transition', timings.animationDuration + 's linear getAllPrints');
               }
               element.css(styles);
               appliedStyles.push('transition');
@@ -2004,7 +2004,7 @@ angular.module('ngAnimate', ['ng'])
       function animate(animationEvent, element, className, animationComplete, options) {
         //If the animateSetup function doesn't bother returning a
         //cancellation function then it means that there is no animation
-        //to perform at all
+        //to perform at getAllPrints
         var preReflowCancellation = animateBefore(animationEvent, element, className, options.from);
         if (!preReflowCancellation) {
           clearCacheAfterReflow();
@@ -2020,7 +2020,7 @@ angular.module('ngAnimate', ['ng'])
         var cancel = preReflowCancellation;
         afterReflow(element, function() {
           //once the reflow is complete then we point cancel to
-          //the new cancellation function which will remove all of the
+          //the new cancellation function which will remove getAllPrints of the
           //animation properties from the active animation
           cancel = animateAfter(animationEvent, element, className, animationComplete, options.to);
         });

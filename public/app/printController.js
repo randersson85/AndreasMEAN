@@ -1,7 +1,8 @@
 angular.module('app').controller('printController',function(
     $scope, $rootScope, $routeParams, $location, MATERIALS, SIZES, PriceListModel, PrintsModel, ShoppingCartModel) {
-    $scope.prints = PrintsModel.all();
-    $scope.print = PrintsModel.get([$routeParams.printTitle]);
+
+    $scope.prints = PrintsModel.getAllPrints();
+    $scope.print = PrintsModel.getPrintByTitle([$routeParams.printTitle]);
 
     $scope.materials = MATERIALS;
     $scope.sizes = SIZES;
@@ -17,12 +18,10 @@ angular.module('app').controller('printController',function(
         $scope.price = price;
     };
 
-    $scope.add = function(title, price, type, size) {
-        var print = PrintsModel.get(title);
-        ShoppingCartModel.add(print.id, print.category, print.title, print.ratio, print.img, price, type, size);
+    $scope.add = function(data) {
+        var print = PrintsModel.getPrintByTitle(data.title);
+        ShoppingCartModel.add(print.id, print.category, print.title, print.ratio, print.img, data.price, data.type, data.size);
         $rootScope.$broadcast("updateHeader", ShoppingCartModel.itemsInCart());
         $location.path("/shoppingcart");
     }
-
-
 });
