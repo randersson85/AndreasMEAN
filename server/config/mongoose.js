@@ -8,15 +8,18 @@ module.exports = function(config) {
         console.log('database connection opened');
     });
 
-    var messageSchema = mongoose.Schema(
-        {
-            messages: String
-        }
-    );
-    var Message = mongoose.model('Message', messageSchema);
-
-    var mongoMessage;
-    Message.findOne().exec(function (err, messageDoc) {
-        mongoMessage = messageDoc.messages;
+    var userSchema = mongoose.Schema({
+        firstName: String,
+        lastName: String,
+        userName: String
     });
+
+    var User = mongoose.model('User',userSchema);
+
+    User.find({}).exec(function(err,collection){
+        if(collection.length===0){
+            User.create({firstName:'Robert',lastName:'Andersson',userName:'robert'});
+            User.create({firstName:'Johan',lastName:'Nyström',userName:'johan'});
+        }
+    })
 }

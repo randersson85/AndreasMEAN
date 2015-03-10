@@ -20,7 +20,8 @@
     "superslides": "~0.6.2",
     "font-awesome": "~4.3.0",
     "jasmine": "~2.2.1",
-    "angular-cookies": "~1.3.14"
+    "angular-cookies": "~1.3.14",
+    "hello": "~1.5.0"
   },
   "devDependencies": {
     "jasmine": "~2.2.1"
