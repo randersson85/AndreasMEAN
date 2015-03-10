@@ -1,6 +1,6 @@
-var mongoose = require ('mongoose');
+var mongoose = require('mongoose');
 
-module.exports = function(config) {
+module.exports = function (config) {
     mongoose.connect(config.db);
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error'));
@@ -14,12 +14,14 @@ module.exports = function(config) {
         userName: String
     });
 
-    var User = mongoose.model('User',userSchema);
+    var User = mongoose.model('User', userSchema);
 
-    User.find({}).exec(function(err,collection){
-        if(collection.length===0){
-            User.create({firstName:'Robert',lastName:'Andersson',userName:'robert'});
-            User.create({firstName:'Johan',lastName:'Nyström',userName:'johan'});
+    User.find({}).exec(function (err, collection) {
+        if (collection.length === 0) {
+            User.create({firstName: 'Robert', lastName: 'Andersson', userName: 'robert'});
+            User.create({firstName: 'Johan', lastName: 'Nyström', userName: 'johan'});
         }
-    })
+    });
+
+
 }

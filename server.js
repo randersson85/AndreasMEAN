@@ -21,7 +21,7 @@ passport.use(new LocalStrategy(
                 console.log("findOne failning")
                 return done (null, false);
             }
-        })
+        });
     }
 ));
 
