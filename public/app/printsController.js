@@ -2,10 +2,24 @@ angular.module('app').controller('printsController',function($scope, $routeParam
 
     $scope.category = $routeParams.category;
 
-    if ($scope.category == 'All') {
-        $scope.prints = PrintsModel.all();
-        $scope.category = 'All Prints'
-    } else {
-        $scope.prints = PrintsModel.byCategory($routeParams.category);
+    function getAll() {
+        PrintsModel.all().success(function(result) {
+            $scope.prints = result;
+        });
     }
+
+    function getByCategory() {
+        PrintsModel.byCategory($routeParams.category).success(function(result) {
+            $scope.prints = result;
+        });
+    }
+
+    if ($scope.category === 'All') {
+        getAll();
+    } else {
+        getByCategory();
+    }
+
+
+    console.log($scope.prints);
 });

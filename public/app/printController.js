@@ -1,16 +1,23 @@
 angular.module('app').controller('printController',function(
-    $scope, $rootScope, $routeParams, $location, MATERIALS, SIZES, PriceListModel, PrintsModel, ShoppingCartModel) {
-    $scope.prints = PrintsModel.all();
-    $scope.print = PrintsModel.get([$routeParams.printTitle]);
+    $scope, $rootScope, $routeParams, $location, MATERIALS,
+    SIZES, PriceListModel, PrintsModel, ShoppingCartModel) {
+
+    function getOne() {
+        PrintsModel.get([$routeParams.printTitle]).success(function(result) {
+            console.log(result[0]);
+            $scope.print = result[0];
+            $scope.size = $scope.print.ratio === '16x9' ? SIZES[0].size : SIZES[4].size;
+            $scope.price = $scope.print.ratio === '16x9' ? 300 : 350;
+        });
+    }
+    getOne();
+
 
     $scope.materials = MATERIALS;
     $scope.sizes = SIZES;
 
     $scope.material = MATERIALS[0].name;
 
-    //Hack för att sätta defaultvärden i dropdowns
-    $scope.size = $scope.print.ratio === '16x9' ? SIZES[0].size : SIZES[4].size;
-    $scope.price = $scope.print.ratio === '16x9' ? 300 : 350;
 
     $scope.setPrice = function(type, size) {
         var price = PriceListModel.getPriceFor(type, size);
@@ -18,11 +25,11 @@ angular.module('app').controller('printController',function(
     };
 
     $scope.add = function(title, price, type, size) {
-        var print = PrintsModel.get(title);
+        var print = $scope.print;
         ShoppingCartModel.add(print.id, print.category, print.title, print.ratio, print.img, price, type, size);
         $rootScope.$broadcast("updateHeader", ShoppingCartModel.itemsInCart());
         $location.path("/shoppingcart");
-    }
+    };
 
 
 });
