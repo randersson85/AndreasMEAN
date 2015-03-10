@@ -1,15 +1,26 @@
-angular.module('app').controller('loginController', function ($scope, $http, identity, auth) {
+angular.module('app').controller('loginController', function (
+    $scope, $http, $location, identity, auth, notifier) {
+
     $scope.identity = identity;
     $scope.auth = auth;
 
     $scope.signin = function (username, password) {
         auth.authenticateUser(username, password).then(function (success) {
             if (success) {
-                console.log('Inloggningen är klar');
+                notifier.success('Inloggningen lyckades');
             }
             else {
-                console.log('Något gick fel vid inloggning, kontrollera dina uppgifter');
+                notifier.error('Inloggningen misslyckades. Kontrollera dina uppgifter');
             }
+        });
+    };
+
+    $scope.signout = function() {
+        auth.logoutUser().then(function() {
+            $scope.username = "";
+            $scope.password = "";
+            notifier.success('Du är nu utloggad!');
+            $location.path('/');
         });
     };
 });
