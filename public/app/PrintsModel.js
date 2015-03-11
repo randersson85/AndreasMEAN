@@ -32,4 +32,8 @@ angular.module("app")
             console.log("delete called in model with title " + title );
             return $http.post('/api/print/' + title);
         };
+
+        service.update = function(title, category, ratio, img, alt) {
+            return $http.put('/api/print/', {title: title, category: category, ratio: ratio, img: img, alt: alt});
+        };
     });

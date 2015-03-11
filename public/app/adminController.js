@@ -1,6 +1,10 @@
 angular.module('app').controller('adminController',function($scope, identity, $routeParams, PrintsModel, notifier) {
 
     $scope.identity = identity;
+    $scope.currentTitle = $routeParams.title;
+    $scope.currentPrint = PrintsModel.get($scope.currentTitle).success(function(result) {
+        $scope.currentPrint = result[0];
+    });
 
     function getAll() {
         PrintsModel.all().success(function(result) {
@@ -27,8 +31,11 @@ angular.module('app').controller('adminController',function($scope, identity, $r
         getAll();
         };
 
-    $scope.update = function(title) {
-
+    $scope.update = function(title, category, ratio, img, alt) {
+        console.log("update called");
+        PrintsModel.update(title, category, ratio, img, alt);
+        notifier.success("Produkt uppdaterad");
+        getAll();
     };
 
 });

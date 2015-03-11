@@ -70,6 +70,25 @@ module.exports = function (app) {
         });
     });
 
+    app.put('/api/print/', function(req, res) {
+        console.log(req.body);
+        Print.update(
+            {title: req.body.title},
+            {
+                $set: {
+                    category: req.body.category,
+                    ratio: req.body.ratio,
+                    img: req.body.img,
+                    alt: req.body.alt
+                }
+            }, function (err, print) {
+                if (err) {
+                    throw err;
+                }
+                res.send(print);
+            });
+    });
+
     ///////////////////////////
 
     app.get('/partials/:partialPath', function (req, res) {
