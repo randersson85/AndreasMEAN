@@ -1,5 +1,7 @@
-.main-content
+.main-content(ng-show="identity.isAuthenticated()")
     h2 Add new print
+    p
+        a(href="#admin") View Products
     form.admin(ng-submit="add(title, category, title, img, alt)")
         input(placeholder="Title" ng-model="title" required)
         br

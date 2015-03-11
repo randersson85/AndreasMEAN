@@ -1,4 +1,6 @@
-angular.module('app').controller('adminController',function($scope, $routeParams, PrintsModel, notifier) {
+angular.module('app').controller('adminController',function($scope, identity, $routeParams, PrintsModel, notifier) {
+
+    $scope.identity = identity;
 
     function getAll() {
         PrintsModel.all().success(function(result) {
@@ -20,13 +22,14 @@ angular.module('app').controller('adminController',function($scope, $routeParams
 
     $scope.delete = function(title) {
         console.log("delete called with title " + title );
-        PrintsModel.delete(title).then(function(success) {
-            if (success) {
-                notifier.success("Produkt borttagen");
-            } else {
-                notifier.error("Det gick inte ta bort produkten");
-            }
-        });
+        PrintsModel.delete(title);
+        notifier.success("Produkt borttagen");
+        getAll();
+        };
+
+    $scope.update = function(title) {
+
     };
+
 });
 

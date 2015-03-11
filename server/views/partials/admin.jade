@@ -1,25 +1,28 @@
 
-.main-content(ng-controller="loginController")
-        form(ng-hide="identity.isAuthenticated()")
+.main-content.admin(ng-controller="loginController")
+    div(ng-hide="identity.isAuthenticated()")
+        h2 Please sign in
+        p Authorized users only
+        form
             input.admin(placeholder="Email", ng-model="username")
             br
             input.admin(type="password",placeholder="Password", ng-model="password")
             br
             button.btn(ng-click="signin(username, password)") Sign In
-        div(ng-controller="adminController")
-           h2 Products
-           p
-                a(href="#admin/add") Add new Print
-           .admin-listing-print
-               .admin-listing-row(ng-repeat="print in prints")
-                   .column
-                       img(src="img/printImg/{{ print.img }}")
-                   .column
-                       p {{ print.title }}
-                   .column
-                       p Edit
-                   .column
-                       p
+    div(ng-controller="adminController" ng-show="identity.isAuthenticated()")
+       h2 Products
+       p
+            a(href="#admin/add") Add new Print
+       .admin-listing-print
+           .admin-listing-row(ng-repeat="print in prints")
+               .column
+                   img(src="img/printImg/{{ print.img }}")
+               .column
+                   p {{ print.title }}
+               .column
+                   p Edit
+               .column
+                   p
                             a(href="" ng-click="delete(print.title)") Delete
 .clearfix(style="width:400px;")
     h1.mobileHidden &nbsp;

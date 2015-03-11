@@ -30,6 +30,6 @@ angular.module("app")
 
         service.delete = function(title) {
             console.log("delete called in model with title " + title );
-            return $http.delete('/api/print/', {title: title});
+            return $http.post('/api/print/' + title);
         };
     });

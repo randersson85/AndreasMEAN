@@ -55,15 +55,14 @@ module.exports = function (app) {
         print.save(function(err) {
             if (err) {
                 res.send(500, err);
-                console.log(err);
             }
             res.json(print);
         });
     });
 
-    app.delete('/api/print/', function(req, res) {
+    app.post('/api/print/:title', function(req, res) {
         console.log("trying to delete");
-        var title = req.body.title;
+        var title = req.params.title;
         Print.remove( { title: title }, function(err) {
             if (err) {
                 console.log(err);
