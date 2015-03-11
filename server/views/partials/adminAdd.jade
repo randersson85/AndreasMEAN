@@ -1,0 +1,16 @@
+.main-content
+    h2 Add new print
+    form.admin(ng-submit="add(title, category, title, img, alt)")
+        input(placeholder="Title" ng-model="title" required)
+        br
+        input(placeholder="Category" ng-model="category" required)
+        br
+        input(placeholder="Ratio" ng-model="ratio" required)
+        br
+        input(placeholder="Image url" ng-model="img" required)
+        br
+        input(placeholder="Image alt text" ng-model="alt" required)
+        br
+        button(type="submit").btn Add Product
+.clearfix(style="width:400px;")
+    h1.mobileHidden &nbsp;

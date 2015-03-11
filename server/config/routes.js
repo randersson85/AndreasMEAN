@@ -41,6 +41,36 @@ module.exports = function (app) {
             } else {throw err;}
         });
     });
+
+    app.post('/api/print/add/', function(req, res) {
+        console.log(req);
+        var print = new Print({
+            title: req.body.title,
+            category: req.body.category,
+            ratio: req.body.ratio,
+            img: req.body.img,
+            alt: req.body.alt,
+            dateAdded:  {type: Date, default: Date.now}
+        });
+        print.save(function(err) {
+            if (err) {
+                res.send(500, err);
+                console.log(err);
+            }
+            res.json(print);
+        });
+    });
+
+    app.delete('/api/print/', function(req, res) {
+        console.log("trying to delete");
+        var title = req.body.title;
+        Print.remove( { title: title }, function(err) {
+            if (err) {
+                console.log(err);
+            }
+        });
+    });
+
     ///////////////////////////
 
     app.get('/partials/:partialPath', function (req, res) {

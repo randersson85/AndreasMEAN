@@ -14,7 +14,7 @@ angular.module('app').controller('printsController',function($scope, $routeParam
         });
     }
 
-    if ($scope.category === 'All') {
+    if ($scope.category === 'All' || $scope.category === undefined) {
         getAll();
     } else {
         getByCategory();

@@ -21,10 +21,14 @@ angular.module('app').config(function($routeProvider){
             templateUrl:'/partials/admin',
             controller: 'loginController'
         })
+        .when('/admin/add',{
+            templateUrl:'/partials/adminAdd',
+            controller: 'adminController'
+        })
         .when('/shoppingcart',{
             templateUrl:'/partials/shoppingcart',
             controller: 'shoppingcartController'
-        })
+        });
 });
 
 angular.module('app').controller('mainController',function() {

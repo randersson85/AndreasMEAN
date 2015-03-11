@@ -23,4 +23,13 @@ angular.module("app")
         service.get = function(title) {
             return $http.get('/api/print/' + title);
         };
+
+        service.add = function(title, category, ratio, img, alt) {
+            return $http.post('/api/print/add/', {title: title, category: category, ratio: ratio, img: img, alt: alt});
+        };
+
+        service.delete = function(title) {
+            console.log("delete called in model with title " + title );
+            return $http.delete('/api/print/', {title: title});
+        };
     });

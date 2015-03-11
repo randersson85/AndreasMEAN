@@ -186,6 +186,18 @@ a {
         text-decoration: none;
     }
 
+.admin input {
+
+    width:200px;
+    height:35px;
+    padding:5px;
+    font-size: 1.2em;
+    font-family: Lato;
+    font-weight: 300;
+    margin:5px 0;
+
+}
+
 header#topHeader {
     position:absolute;
     background-color: rgba(0,0,0,0.9);
