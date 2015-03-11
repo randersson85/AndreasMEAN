@@ -2,7 +2,7 @@
     h2 Edit {{ currentTitle }}
     p
         a(href="#admin") View Products
-    form.admin(ng-submit="update(title, category, title, img, alt)")
+    form.admin(ng-submit="update(title, category, ratio, img, alt)")
         input(placeholder="{{ currentTitle }}" ng-model="title" required)
         br
         input(placeholder="{{ currentPrint.category }}" ng-model="category" required)
