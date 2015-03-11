@@ -2,16 +2,16 @@
     h2 Edit {{ currentTitle }}
     p
         a(href="#admin") View Products
-    form.admin(ng-submit="update(title, category, ratio, img, alt)")
-        input(placeholder="{{ currentTitle }}" ng-model="title" required)
+    form.admin(ng-submit="update(currentTitle, currentPrint.category, currentPrint.ratio, currentPrint.img, currentPrint.alt)")
+        input(placeholder="{{ currentTitle }}" ng-model="currentTitle" required disabled)
         br
-        input(placeholder="{{ currentPrint.category }}" ng-model="category" required)
+        input(placeholder="{{ currentPrint.category }}" ng-model="currentPrint.category" required)
         br
-        input(placeholder="{{ currentPrint.ratio }}" ng-model="ratio" required)
+        input(placeholder="{{ currentPrint.ratio }}" ng-model="currentPrint.ratio" required)
         br
-        input(placeholder="{{ currentPrint.img }}" ng-model="img" required)
+        input(placeholder="{{ currentPrint.img }}" ng-model="currentPrint.img" required)
         br
-        input(placeholder="{{ currentPrint.alt }}" ng-model="alt" required)
+        input(placeholder="{{ currentPrint.alt }}" ng-model="currentPrint.alt" required)
         br
         button(type="submit").btn Update
 .clearfix(style="width:400px;")

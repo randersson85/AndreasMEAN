@@ -6,6 +6,7 @@ angular.module('app').controller('adminController',function($scope, identity, $r
         $scope.currentPrint = result[0];
     });
 
+
     function getAll() {
         PrintsModel.all().success(function(result) {
             $scope.prints = result;
