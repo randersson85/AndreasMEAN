@@ -38,6 +38,4 @@ angular.module('app').controller('adminController',function($scope, identity, $r
         notifier.success("Produkt uppdaterad");
         getAll();
     };
-
 });
-
