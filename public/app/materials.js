@@ -1,4 +1,5 @@
 angular.module('app').constant('MATERIALS', [
-    {name: 'Paper print'},
+    {name: 'Glossy paper'},
+    {name: 'Matte paper'},
     {name: 'Plexi glass'}
 ]);

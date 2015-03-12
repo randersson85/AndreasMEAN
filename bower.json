@@ -22,7 +22,8 @@
     "angular-cookies": "~1.3.14",
     "hello": "~1.5.0",
     "angular-mocks": "~1.3.14",
-    "flow": "*"
+    "flow": "*",
+    "ng-flow": "~2"
   },
   "devDependencies": {
     "jasmine": "~2.2.1"
