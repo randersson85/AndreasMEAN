@@ -1,5 +1,7 @@
+//Anger vilken namnrymd som controllern ska vara aktiv i, vad den lyssnar på för anrop, skickar sedan in beroenden
 angular.module('app').controller('adminController',function($scope, identity, $routeParams, PrintsModel, notifier) {
 
+    //Hämtar variabler från scope och sätter detta till controllerns variabler
     $scope.identity = identity;
     $scope.currentTitle = $routeParams.title;
     $scope.currentPrint = PrintsModel.get($scope.currentTitle).success(function(result) {
@@ -15,7 +17,6 @@ angular.module('app').controller('adminController',function($scope, identity, $r
     getAll();
 
     $scope.add = function(title, category, ratio, img, alt) {
-        console.log("add called");
         PrintsModel.add(title, category, ratio, img, alt).then(function (success) {
                 if (success) {
                     notifier.success("Produkt tillagd");
@@ -26,14 +27,12 @@ angular.module('app').controller('adminController',function($scope, identity, $r
     };
 
     $scope.delete = function(title) {
-        console.log("delete called with title " + title );
         PrintsModel.delete(title);
         notifier.success("Produkt borttagen");
         getAll();
         };
 
     $scope.update = function(title, category, ratio, img, alt) {
-        console.log("update called");
         PrintsModel.update(title, category, ratio, img, alt);
         notifier.success("Produkt uppdaterad");
         getAll();

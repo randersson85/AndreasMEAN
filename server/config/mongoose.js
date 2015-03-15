@@ -9,22 +9,22 @@ module.exports = function (config) {
         console.log('database connection opened');
     });
 
-    var userSchema = mongoose.Schema({
+    var userSchema = mongoose.Schema({  //Skapar upp databasschema enligt efterföljande parametrar
         firstName: String,
         lastName: String,
         userName: String,
         salt: String,
         hashed_pwd: String
     });
-    userSchema.methods = {
+    userSchema.methods = {              //Skapar databasmetoder som ska finnas tillgängliga
         authenticate: function(passwordToMatch) {
             return hashPwd(this.salt, passwordToMatch) === this.hashed_pwd;
         }
     };
 
     var User = mongoose.model('User', userSchema);
-    User.find({}).exec(function (err, collection) {
-        if (collection.length === 0) {
+    User.find({}).exec(function (err, collection) {     //Hämtar samtliga lagrade användare i databasen
+        if (collection.length === 0) {                  //Finns inga användare i databasen, skapas två användare
             var salt, hash;
             salt = createSalt();
             hash = hashPwd(salt, 'robert');
@@ -45,11 +45,19 @@ module.exports = function (config) {
         }
     });
 };
-
+/**
+ * Skapar ett salt som används för att hasha vårat lösenord
+ * Saltet består av 128 slumpmässiga bitar som konverteras till base64
+ */
 function createSalt() {
     return crypto.randomBytes(128).toString('base64');
 }
-
+/**
+ *
+ * @param salt  salt från createSalt
+ * @param pwd   valt användarnamn
+ * @returns     returnerar lösenordet hashat med saltet
+ */
 function hashPwd(salt, pwd) {
     var hmac = crypto.createHmac('sha1', salt);
     return hmac.update(pwd).digest('hex');
