@@ -1,4 +1,3 @@
-//Importerar beroenden och ställer in vårat webramverk
 var express = require('express'),
     logger = require('morgan'),
     bodyParser = require('body-parser'),
@@ -8,23 +7,23 @@ var express = require('express'),
     passport = require('passport');
 
 
-module.exports = function (app, config) {
+module.exports = function(app, config) {
     function compile(str, path) {
         return stylus(str).set('filename', path);
     }
 
-    app.set('views', config.rootPath + '/server/views'); //Vart vyer finns på servern
-    app.set('view engine', 'jade'); // Jade används för att rendrera sidorna
-    app.use(logger('dev'));         // Skapar en loggfunktion
-    app.use(cookieParser());        // Skapar förutsättningar för användande av cookies
+    app.set('views', config.rootPath + '/server/views');
+    app.set('view engine', 'jade');
+    app.use(logger('dev'));
+    app.use(cookieParser());
     app.use(bodyParser.urlencoded({extended: true}));
-    app.use(bodyParser.json());     // Möjliggör parsning av JSON data
+    app.use(bodyParser.json());
 
-    app.use(session({secret: 'supernova', saveUninitialized: true, resave: false})); //Inställningar för sessionskaka
+    app.use(session({secret: 'supernova', saveUninitialized: true, resave: false}));
 
     app.use(passport.initialize());
     app.use(passport.session());
-//Inställningar för stylus
+
     app.use(stylus.middleware(
         {
             src: config.rootPath + '/public',
