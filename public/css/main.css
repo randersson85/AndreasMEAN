@@ -1063,7 +1063,8 @@ nav .fa {
     }
 
     .slides-wrapper{
-        height: 100vh;
+        max-height: 1000px;
+        height: 100vh!important;
     }
 }
 
