@@ -17,11 +17,11 @@ module.exports = function (app) {
     var Print = mongoose.model('Print', printSchema);
 
     app.get('/api/prints', function (req, res){
-        return Print.find({}), function(err, docs) {
+        return Print.find({}, function(err, docs) {
             if (!err){
                 return res.send(docs);
             } else {throw err;}
-        };
+        });
     });
 
     app.get('/api/prints/:category', function (req, res){
