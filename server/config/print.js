@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-
-var printSchema = mongoose.Schema({     //Ställer in schemamodellen för produkter
+//Ställer in schemamodellen för produkter
+var printSchema = mongoose.Schema({
     title: String,
     category: String,
     ratio: String,
