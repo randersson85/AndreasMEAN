@@ -1,5 +1,6 @@
 angular.module('app', ['ngResource', 'ngRoute', 'flow']);
 
+//Sätter upp routes och vilka filer som ska laddas.
 angular.module('app').config(function($routeProvider){
     $routeProvider
         .when('/',{

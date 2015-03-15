@@ -1,14 +1,14 @@
+//Inställningar för passport vilket används för autentisering
 var passport = require('passport'),
     mongoose = require('mongoose'),
     LocalStrategy = require('passport-local').Strategy,
     User = mongoose.model('User');
 
 module.exports = function() {
-    passport.use(new LocalStrategy(
+    passport.use(new LocalStrategy(     //Använder lokal autentisering
         function (username,password,done){
-            User.findOne({userName:username}).exec(function(err,user){
+            User.findOne({userName:username}).exec(function(err,user){ //Letar efter angiven användare
                 if(user && user.authenticate(password)){
-                    console.log("user and password ok");
                     return done(null, user);
                 }else{
                     return done (null, false);

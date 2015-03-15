@@ -27,6 +27,6 @@ angular.module('app').controller('shoppingcartController',function(
     $scope.sum = ShoppingCartModel.sum();
     $scope.updateSum = function() {
         $scope.sum = ShoppingCartModel.sum();
-    }
+    };
     $scope.itemsInCart = ShoppingCartModel.itemsInCart();
 });

@@ -50,7 +50,7 @@ angular.module("app")
                 }
             }
             $cookieStore.put('cart', service.cart);
-        }
+        };
 
         service.increment = function(id, type, size) {
             if (service.cart === []) {
@@ -65,7 +65,7 @@ angular.module("app")
                 }
             }
             $cookieStore.put('cart', service.cart);
-        }
+        };
 
         service.decrement = function(id, type, size) {
             if (service.cart === []) {
@@ -84,7 +84,7 @@ angular.module("app")
                 }
             }
             $cookieStore.put('cart', service.cart);
-        }
+        };
 
         service.sum = function() {
             if (service.cart === []) {
@@ -107,7 +107,7 @@ angular.module("app")
             };
             $cookieStore.put('cart', service.cart);
             return qty;
-        }
+        };
 
         service.all = function() {
             return $cookieStore.get('cart');

@@ -4,8 +4,8 @@ var mongoose = require('mongoose');
 module.exports = function (app) {
 
 
-///////////////////////////
-    var printSchema = mongoose.Schema({
+
+    var printSchema = mongoose.Schema({     //Skapar upp databasschema för produkter
         title: String,
         category: String,
         ratio: String,
