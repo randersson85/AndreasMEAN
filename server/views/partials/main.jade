@@ -1,4 +1,4 @@
-.intro-text
+.intro-text(role="main")
     h2
         span.thin.row-1 Fantastic
         br
@@ -9,7 +9,7 @@
         span.light.row-3 Photography
 
     .btn Buy Prints
-.slides-wrapper
+.slides-wrapper(role="banner")
     #slides
         .slides-container
             img(src='img/printImg/newyork.jpg' alt='Taxi cars in New York')
@@ -17,9 +17,9 @@
             img(src='img/printImg/roads.jpg', alt='Close up of road')
         nav.slides-navigation
             a.next(href='#')
-                img(src='img/arrow_right.png', alt='Arrow right')
+                img(src='img/arrow_right.png', alt='Scroll right')
             a.prev(href='#')
-                img(src='img/arrow_left.png', alt='Arrow left')
+                img(src='img/arrow_left.png', alt='Scroll left')
     script.
         $(function () {
             $('#slides').superslides({

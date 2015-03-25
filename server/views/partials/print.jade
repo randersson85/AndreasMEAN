@@ -1,4 +1,4 @@
-.main-content(style="min-height:0")
+.main-content(style="min-height:0" role="navigation")
     h2 {{ print.title }}
     p.crumbs
         a(href="#/") Home
@@ -8,7 +8,7 @@
         a(href="#prints/{{ print.category }}") {{ print.category }}
         span >
         span {{ print.title }}
-#infoWrapper(ng-controller="shoppingcartController")
+#infoWrapper(ng-controller="shoppingcartController" role="main")
     .printInfo
         .printImage
             img(src="img/printImg/{{ print.img }}")
