@@ -12,7 +12,7 @@
 #infoWrapper(ng-controller="shoppingcartController" role="main")
     .printInfo
         .printImage
-            img(src="img/printImg/{{ print.img }}")
+            img(src="img/printImg/{{ print.img }}" alt="{{ print.title }}" title="{{ print.title }}")
             .printDetails
                 h2.italic {{ print.title }}
                 h3.thin {{ price | currency :"" : 2 }} sek

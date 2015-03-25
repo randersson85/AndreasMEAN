@@ -37,7 +37,6 @@ angular.module("app")
                 });
             }
             $cookieStore.put('cart', service.cart);
-            console.log(service.cart);
         };
 
         service.remove = function(id, type, size) {
@@ -111,5 +110,5 @@ angular.module("app")
 
         service.all = function() {
             return $cookieStore.get('cart');
-        }
+        };
     });

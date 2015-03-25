@@ -4,7 +4,6 @@ angular.module('app').controller('printController',function(
 
     function getOne() {
         PrintsModel.get([$routeParams.printTitle]).success(function(result) {
-            console.log(result[0]);
             $scope.print = result[0];
             $scope.size = $scope.print.ratio === '16x9' ? SIZES[0].size : SIZES[4].size;
             $scope.price = $scope.print.ratio === '16x9' ? 300 : 350;

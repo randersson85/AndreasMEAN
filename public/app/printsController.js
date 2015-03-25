@@ -21,5 +21,4 @@ angular.module('app').controller('printsController',function($scope, $routeParam
     }
 
 
-    console.log($scope.prints);
 });

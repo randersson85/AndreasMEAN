@@ -1,5 +1,5 @@
 function Product (id, title, category, ratio, image) {
-    this.id = id; // product code (SKU = stock keeping unit)
+    this.id = id;
     this.title = title;
     this.category = category;
     this.ratio = ratio;

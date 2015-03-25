@@ -23,4 +23,5 @@ angular.module('app').controller('loginController', function (
             $location.path('/');
         });
     };
+
 });

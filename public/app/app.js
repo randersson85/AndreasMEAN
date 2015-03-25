@@ -29,12 +29,31 @@ angular.module('app').config(function($routeProvider){
             templateUrl:'/partials/adminUpdate',
             controller: 'adminController'
         })
+        .when('/lol',{
+            templateUrl:'/partials/uploadtest',
+            controller: 'adminController'
+        })
         .when('/shoppingcart',{
             templateUrl:'/partials/shoppingcart',
             controller: 'shoppingcartController'
         });
+
 });
 
 angular.module('app').controller('mainController',function() {
 
 });
+
+angular.module('app').config(['flowFactoryProvider', function (flowFactoryProvider) {
+    flowFactoryProvider.defaults = {
+        target: '/upload',
+        permanentErrors:[404, 500, 501]
+    };
+    // You can also set default events:
+    flowFactoryProvider.on('catchAll', function (event) {
+        console.log("ng-flow arbetar, stör ej " + event )
+        console.log(arguments);
+    });
+    // Can be used with different implementations of Flow.js
+    // flowFactoryProvider.factory = fustyFlowFactory;
+}]);
