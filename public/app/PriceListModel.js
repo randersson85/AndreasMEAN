@@ -24,10 +24,10 @@ angular.module("app")
             {"type": "Plexi glass","size": "100x56","price": 4970},
             {"type": "Plexi glass","size": "110x62","price": 7139},
             {"type": "Plexi glass","size": "120x68","price": 7345},
-            {"type": "Plexi glass","size": "120x40","price": 7883},
-            {"type": "Plexi glass","size": "150x50","price": 11743},
-            {"type": "Plexi glass","size": "180x60","price": 12899},
-            {"type": "Plexi glass","size": "210x70","price": 14740}
+            {"type": "Plexi glass","size": "120x40","price": 6500},
+            {"type": "Plexi glass","size": "150x50","price": 10800},
+            {"type": "Plexi glass","size": "180x60","price": 11600},
+            {"type": "Plexi glass","size": "210x70","price": 14900}
         ];
 
         service.getPriceFor = function(type, size) {

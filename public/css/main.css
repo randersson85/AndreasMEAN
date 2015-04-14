@@ -116,6 +116,7 @@ h6 {font-size: 0.8em;}
 .italic{font-style: italic;}
 
 
+
 /* ==========================================================================
    Custom styles
    ========================================================================== */
@@ -150,6 +151,17 @@ a:focus div {
 #logo-wrapper {
     position:absolute;
     left:50%;
+}
+
+.aboutInfo {
+    width:75%;
+    min-width:400px;
+    margin: 0 auto;
+    padding: 3% 0;
+}
+
+.aboutInfo p {
+    text-align: left!important;
 }
 
 #logo{

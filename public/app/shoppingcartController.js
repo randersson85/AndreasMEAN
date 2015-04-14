@@ -1,5 +1,6 @@
 angular.module('app').controller('shoppingcartController',function(
     $scope, $rootScope, ShoppingCartModel)  {
+    "use strict";
 
     $scope.cart = ShoppingCartModel.all();
 
@@ -29,4 +30,8 @@ angular.module('app').controller('shoppingcartController',function(
         $scope.sum = ShoppingCartModel.sum();
     };
     $scope.itemsInCart = ShoppingCartModel.itemsInCart();
+
+    $scope.checkout = function() {
+        ShoppingCartModel.checkoutPayPal();
+    };
 });

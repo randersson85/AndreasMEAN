@@ -29,9 +29,8 @@ angular.module('app').config(function($routeProvider){
             templateUrl:'/partials/adminUpdate',
             controller: 'adminController'
         })
-        .when('/lol',{
-            templateUrl:'/partials/uploadtest',
-            controller: 'adminController'
+        .when('/about',{
+            templateUrl:'/partials/about',
         })
         .when('/shoppingcart',{
             templateUrl:'/partials/shoppingcart',
