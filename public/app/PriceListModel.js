@@ -1,33 +1,34 @@
+"use strict";
 angular.module("app")
     .service('PriceListModel',
     function() {
         var service = this;
 
         service.pricelist = [
-            {"type": "Matte paper","size": "90x51", "price": 300},
-            {"type": "Matte paper","size": "100x56","price": 400},
-            {"type": "Matte paper","size": "110x62","price": 500},
-            {"type": "Matte paper","size": "120x68","price": 600},
-            {"type": "Matte paper","size": "120x40","price": 350},
-            {"type": "Matte paper","size": "150x50","price": 450},
-            {"type": "Matte paper","size": "180x60","price": 550},
-            {"type": "Matte paper","size": "210x70","price": 650},
-            {"type": "Glossy paper","size": "90x51", "price": 300},
-            {"type": "Glossy paper","size": "100x56","price": 400},
-            {"type": "Glossy paper","size": "110x62","price": 500},
-            {"type": "Glossy paper","size": "120x68","price": 600},
-            {"type": "Glossy paper","size": "120x40","price": 350},
-            {"type": "Glossy paper","size": "150x50","price": 450},
-            {"type": "Glossy paper","size": "180x60","price": 550},
-            {"type": "Glossy paper","size": "210x70","price": 650},
-            {"type": "Plexi glass","size": "90x51", "price": 4620},
-            {"type": "Plexi glass","size": "100x56","price": 4970},
-            {"type": "Plexi glass","size": "110x62","price": 7139},
-            {"type": "Plexi glass","size": "120x68","price": 7345},
-            {"type": "Plexi glass","size": "120x40","price": 6500},
-            {"type": "Plexi glass","size": "150x50","price": 10800},
-            {"type": "Plexi glass","size": "180x60","price": 11600},
-            {"type": "Plexi glass","size": "210x70","price": 14900}
+            {"type": "Matte paper","size": "34x60", "price": 1100},
+            {"type": "Matte paper","size": "45x80","price": 1500},
+            {"type": "Matte paper","size": "56x80","price": 1900},
+            {"type": "Matte paper","size": "68x120","price": 2300},
+            {"type": "Matte paper","size": "40x120","price": 1400},
+            {"type": "Matte paper","size": "50x150","price": 2000},
+            {"type": "Matte paper","size": "60x180","price": 2700},
+            {"type": "Matte paper","size": "70x210","price": 3300},
+            {"type": "Glossy paper","size": "34x60", "price": 1100},
+            {"type": "Glossy paper","size": "45x80","price": 1500},
+            {"type": "Glossy paper","size": "56x80","price": 1900},
+            {"type": "Glossy paper","size": "68x120","price": 2300},
+            {"type": "Glossy paper","size": "40x120","price": 1400},
+            {"type": "Glossy paper","size": "50x150","price": 2000},
+            {"type": "Glossy paper","size": "60x180","price": 2700},
+            {"type": "Glossy paper","size": "70x210","price": 3300},
+            {"type": "Plexi glass","size": "34x60", "price": 2500},
+            {"type": "Plexi glass","size": "45x80","price": 2700},
+            {"type": "Plexi glass","size": "56x80","price": 3800},
+            {"type": "Plexi glass","size": "68x120","price": 6500},
+            {"type": "Plexi glass","size": "40x120","price": 6500},
+            {"type": "Plexi glass","size": "50x150","price": 10800},
+            {"type": "Plexi glass","size": "60x180","price": 11600},
+            {"type": "Plexi glass","size": "70x210","price": 14900}
         ];
 
         service.getPriceFor = function(type, size) {
@@ -38,8 +39,7 @@ angular.module("app")
                 }
             }
             return price;
-        }
-
+        };
 
     });
 

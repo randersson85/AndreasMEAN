@@ -1,10 +1,10 @@
 angular.module('app').constant('SIZES', [
-    {format: "16x9", size: "90x51"},
-    {format: "16x9", size: "100x56"},
-    {format: "16x9", size: "110x62"},
-    {format: "16x9", size: "120x68"},
-    {format: "3x1", size: "120x40"},
-    {format: "3x1", size: "150x50"},
-    {format: "3x1", size: "180x60"},
-    {format: "3x1", size: "210x70"}
+    {format: "16x9", size: "34x60"},
+    {format: "16x9", size: "45x80"},
+    {format: "16x9", size: "56x100"},
+    {format: "16x9", size: "68x120"},
+    {format: "3x1", size: "40x120"},
+    {format: "3x1", size: "50x150"},
+    {format: "3x1", size: "60x180"},
+    {format: "3x1", size: "70x210"}
 ]);

@@ -27,18 +27,10 @@ module.exports = function (config) {
         if (collection.length === 0) {                  //Finns inga användare i databasen, skapas två användare
             var salt, hash;
             salt = createSalt();
-            hash = hashPwd(salt, 'robert');
-            User.create({firstName: 'Robert',
-                lastName: 'Andersson',
-                userName: 'robert',
-                salt: salt,
-                hashed_pwd: hash
-            });
-            salt = createSalt();
-            hash = hashPwd(salt, 'johan');
-            User.create({firstName: 'Johan',
-                lastName: 'Nyström',
-                userName: 'johan',
+            hash = hashPwd(salt, 'X&My+q%KysZ2LSEbvLY36@3bY!3%rSAKc6QjnW$hs%p+zNFX7=cU@x+qazc*ejZDzge6dC?hTRYkbC&gPqqQWLdFNBMJ?qMXcsKscA#mZ_s$%KK*t#9$G2dTYJAMQM@f?@UU9S-#mz28_yX!tNgq%d=R5Q5K?*wjhY$7pUKXp=$9fPG5JsxP2A?wQczMz_qNebeqgavnLRkut^F!_*MZyDHX*AG-H#cT?kNg*AmV%8@Y?ZgE+dQmf@GDn!n!T3@!');
+            User.create({firstName: 'Andreas',
+                lastName: 'Karlsson',
+                userName: 'Megakarlsson',
                 salt: salt,
                 hashed_pwd: hash
             });

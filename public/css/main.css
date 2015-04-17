@@ -329,13 +329,16 @@ footer {
     }
 
     footer h3 {
-        color:#fff;
-        font-weight:400;
+        color: #fff;
+        font-weight: 400;
         text-transform: capitalize;
-        font-size: 1.3em!important;
-        margin:0;
-        padding:0;
-}
+        font-size: 1.3em !important;
+        margin: 0;
+        padding: 0;
+    }
+    footer a {
+        color:#ddd;
+    }
 
 .slides-wrapper{
     min-height: 500px!important;

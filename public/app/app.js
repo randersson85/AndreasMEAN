@@ -32,6 +32,9 @@ angular.module('app').config(function($routeProvider){
         .when('/about',{
             templateUrl:'/partials/about',
         })
+        .when('/terms',{
+            templateUrl:'/partials/terms',
+        })
         .when('/shoppingcart',{
             templateUrl:'/partials/shoppingcart',
             controller: 'shoppingcartController'
