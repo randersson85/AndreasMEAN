@@ -1,8 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="604197af-511a-4f36-9c38-fd59a70e9b68" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/config/mongoose.js" afterPath="$PROJECT_DIR$/server/config/mongoose.js" />
+    <list default="true" id="604197af-511a-4f36-9c38-fd59a70e9b68" name="Default" comment="images">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_0040.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_0562.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_0953.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_1832.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_1875.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_2386.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_2521.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_4078.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_4617.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_5061.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_5347.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_7368.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_7825.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_7853.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_8028.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_8066.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_9095.b.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_9505.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_9829.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/DSC_0023 as Smart Object-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/DSC_0033 as Smart Object-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/DSC_0049 as Smart Object-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/DSC_0073.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/DSC_0145 as Smart Object-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/Dreamlike.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/Peaceful3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/Untitled_HDR3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC0504.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC0513.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC0534.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC0566.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC0570-Återställd.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC6475.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC9545.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC9924.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/balarna.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/no83ww.andreas-karlsson.net.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/romme skogen.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/siljan-björka.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/the line.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/tällberg.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AndreasMEAN.iws" />
@@ -25,60 +65,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="321" column="0" selection-start-line="321" selection-start-column="0" selection-end-line="321" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/includes/header.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-              <folding>
-                <marker date="1433323426000" expanded="true" signature="6:2171" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="75:325" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="152:325" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="174:282" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="242:282" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="333:1522" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="372:1522" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="387:482" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="405:482" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="497:613" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="515:613" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="628:729" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="646:729" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="744:882" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="762:882" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="897:997" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="915:997" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="1012:1249" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="1123:1249" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="1264:1383" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="1294:1383" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="1398:1522" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="1428:1522" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="1549:1619" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="1598:1619" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="1767:1944" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="1789:1944" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="1857:1897" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="1954:2171" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="1977:2171" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="2082:2171" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="2178:2586" placeholder="..." />
-                <marker date="1433323426000" expanded="true" signature="2593:2730" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/config/auth.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -109,13 +95,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mongoose.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mongoose.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/config/mongoose.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9040512">
-              <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_DSC0504.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/img/printImg/_DSC0504.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AND_0953.jpg" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/img/printImg/AND_0953.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -452,6 +452,7 @@
       <recent name="C:\Users\Robert\PhpstormProjects\AndreasMEAN\server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/img/printImg" />
       <recent name="C:\Users\Robert\PhpstormProjects\AndreasMEAN\server\views\partials" />
       <recent name="C:\Users\Robert\PhpstormProjects\AndreasMEAN\server\views\partials\admin" />
       <recent name="C:\Users\Robert\PhpstormProjects\AndreasMEAN\public\app" />
@@ -463,6 +464,182 @@
       <RunnerSettings RunnerId="debuggableProgram" />
       <ConfigurationWrapper RunnerId="Basic" />
       <ConfigurationWrapper RunnerId="debuggableProgram" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <module name="" />
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="depsClasspath" value="false" />
+      <setting name="passParentEnv" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
@@ -485,12 +662,106 @@
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
       <tasks />
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+    <configuration default="true" type="uTestRunConfiguration" factoryName="utest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
       <envs />
       <method />
     </configuration>
@@ -524,7 +795,7 @@
       <workItem from="1427967301503" duration="1411000" />
       <workItem from="1427984384063" duration="88000" />
       <workItem from="1429008795789" duration="6894000" />
-      <workItem from="1433323440109" duration="1423000" />
+      <workItem from="1433323440109" duration="3709000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;">
       <created>1425987762777</created>
@@ -634,11 +905,17 @@
       <option name="project" value="LOCAL" />
       <updated>1433324669878</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="changes">
+      <created>1433324918254</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1433324918254</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12405000" />
+    <option name="totallyTimeSpent" value="14691000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -672,11 +949,12 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983378" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28489208" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28489208" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32312652" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3266187" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -689,7 +967,6 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3247963" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -715,7 +992,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;" />
     <MESSAGE value="more accessable&#10;" />
     <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+    <MESSAGE value="images" />
+    <option name="LAST_COMMIT_MESSAGE" value="images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -731,20 +1009,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769">
-          <caret line="8" column="17" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/promise.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/mongoose/node_modules/mpromise/lib/promise.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1053,39 +1317,39 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
           <folding>
-            <marker date="1433323426000" expanded="true" signature="6:2171" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="75:325" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="152:325" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="174:282" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="242:282" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="333:1522" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="372:1522" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="387:482" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="405:482" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="497:613" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="515:613" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="628:729" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="646:729" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="744:882" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="762:882" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="897:997" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="915:997" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="1012:1249" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="1123:1249" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="1264:1383" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="1294:1383" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="1398:1522" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="1428:1522" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="1549:1619" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="1598:1619" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="1767:1944" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="1789:1944" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="1857:1897" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="1954:2171" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="1977:2171" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="2082:2171" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="2178:2586" placeholder="..." />
-            <marker date="1433323426000" expanded="true" signature="2593:2730" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433323426000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1148,10 +1412,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/config/mongoose.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9040512">
-          <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/printImg/_DSC0504.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/printImg/AND_0953.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>
