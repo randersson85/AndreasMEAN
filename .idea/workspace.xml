@@ -112,8 +112,8 @@
       <file leaf-file-name="mongoose.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/config/mongoose.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42430705">
-              <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.9040512">
+              <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -524,7 +524,7 @@
       <workItem from="1427967301503" duration="1411000" />
       <workItem from="1427984384063" duration="88000" />
       <workItem from="1429008795789" duration="6894000" />
-      <workItem from="1433323440109" duration="1198000" />
+      <workItem from="1433323440109" duration="1423000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;">
       <created>1425987762777</created>
@@ -628,11 +628,17 @@
       <option name="project" value="LOCAL" />
       <updated>1433324537812</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="changes">
+      <created>1433324669878</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1433324669878</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12180000" />
+    <option name="totallyTimeSpent" value="12405000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1142,8 +1148,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/config/mongoose.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42430705">
-          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.9040512">
+          <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
           <folding />
         </state>
       </provider>

@@ -24,11 +24,10 @@ module.exports = function (config) {
 
     var User = mongoose.model('User', userSchema);
     User.find({}).exec(function (err, collection) {     //Hämtar samtliga lagrade användare i databasen
-        if (collection.length < 100) {                  //Finns inga användare i databasen, skapas två användare
+        if (collection.length === 0) {                  //Finns inga användare i databasen, skapas två användare
             var salt, hash;
             salt = createSalt();
-        //    hash = hashPwd(salt, 'X&My+q%KysZ2LSEbvLY36@3bY!3%rSAKc6QjnW$hs%p+zNFX7=cU@x+qazc*ejZDzge6dC?hTRYkbC&gPqqQWLdFNBMJ?qMXcsKscA#mZ_s$%KK*t#9$G2dTYJAMQM@f?@UU9S-#mz28_yX!tNgq%d=R5Q5K?*wjhY$7pUKXp=$9fPG5JsxP2A?wQczMz_qNebeqgavnLRkut^F!_*MZyDHX*AG-H#cT?kNg*AmV%8@Y?ZgE+dQmf@GDn!n!T3@!');
-            hash = hashPwd(salt, 'andreas');
+            hash = hashPwd(salt, 'X&My+q%KysZ2LSEbvLY36@3bY!3%rSAKc6QjnW$hs%p+zNFX7=cU@x+qazc*ejZDzge6dC?hTRYkbC&gPqqQWLdFNBMJ?qMXcsKscA#mZ_s$%KK*t#9$G2dTYJAMQM@f?@UU9S-#mz28_yX!tNgq%d=R5Q5K?*wjhY$7pUKXp=$9fPG5JsxP2A?wQczMz_qNebeqgavnLRkut^F!_*MZyDHX*AG-H#cT?kNg*AmV%8@Y?ZgE+dQmf@GDn!n!T3@!');
             User.create({firstName: 'Andreas',
                 lastName: 'Karlsson',
                 userName: 'Megakarlsson',
