@@ -1,48 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="604197af-511a-4f36-9c38-fd59a70e9b68" name="Default" comment="images">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_0040.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_0562.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_0953.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_1832.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_1875.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_2386.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_2521.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_4078.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_4617.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_5061.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_5347.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_7368.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_7825.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_7853.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_8028.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_8066.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_9095.b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_9505.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/AND_9829.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/DSC_0023 as Smart Object-1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/DSC_0033 as Smart Object-1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/DSC_0049 as Smart Object-1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/DSC_0073.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/DSC_0145 as Smart Object-1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/Dreamlike.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/Peaceful3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/Untitled_HDR3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC0504.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC0513.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC0534.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC0566.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC0570-Återställd.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC6475.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC9545.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/_DSC9924.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/balarna.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/no83ww.andreas-karlsson.net.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/romme skogen.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/siljan-björka.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/the line.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/printImg/tällberg.jpg" />
+    <list default="true" id="604197af-511a-4f36-9c38-fd59a70e9b68" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/printController.js" afterPath="$PROJECT_DIR$/public/app/printController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AndreasMEAN.iws" />
@@ -65,26 +25,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/config/auth.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/config/routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="33" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="passport.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/config/passport.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -112,10 +52,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AND_0953.jpg" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AND_0953.jpg" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/img/printImg/AND_0953.jpg">
           <provider selected="true" editor-type-id="images">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Product.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/Product.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="printController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/printController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.17991005">
+              <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PriceListModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/PriceListModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="65" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="65" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -144,16 +114,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="10" column="17" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="print.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/config/print.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="60" selection-start-line="3" selection-start-column="4" selection-end-line="8" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -203,7 +163,6 @@
         <option value="$PROJECT_DIR$/public/app/common/adminController.js" />
         <option value="$PROJECT_DIR$/public/app/PrintsModel.js" />
         <option value="$PROJECT_DIR$/server/views/partials/admin.jade" />
-        <option value="$PROJECT_DIR$/public/app/printController.js" />
         <option value="$PROJECT_DIR$/server/views/partials/adminAdd.jade" />
         <option value="$PROJECT_DIR$/server/views/partials/adminUpdate.jade" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -235,6 +194,7 @@
         <option value="$PROJECT_DIR$/server/includes/header.jade" />
         <option value="$PROJECT_DIR$/server/config/config.js" />
         <option value="$PROJECT_DIR$/server/config/mongoose.js" />
+        <option value="$PROJECT_DIR$/public/app/printController.js" />
       </list>
     </option>
   </component>
@@ -424,6 +384,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="printImg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AndreasMEAN" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AndreasMEAN" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -795,7 +773,7 @@
       <workItem from="1427967301503" duration="1411000" />
       <workItem from="1427984384063" duration="88000" />
       <workItem from="1429008795789" duration="6894000" />
-      <workItem from="1433323440109" duration="3709000" />
+      <workItem from="1433323440109" duration="3902000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;">
       <created>1425987762777</created>
@@ -911,11 +889,17 @@
       <option name="project" value="LOCAL" />
       <updated>1433324918254</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="images">
+      <created>1433329024991</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1433329024991</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14691000" />
+    <option name="totallyTimeSpent" value="14884000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1107,13 +1091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/printController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/adminController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1164,14 +1141,6 @@
       </provider>
       <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/Product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/views/partials/adminUpdate.jade">
@@ -1253,13 +1222,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/PriceListModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1426,6 +1388,30 @@
     <entry file="file://$PROJECT_DIR$/public/img/printImg/AND_0953.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/PriceListModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="65" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/Product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/printController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17991005">
+          <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
