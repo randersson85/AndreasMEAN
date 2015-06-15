@@ -26,10 +26,6 @@ header#topHeader(ng-controller="headerController")
                 a(href='http://www.andreas-karlsson.net')
                     i.fa.fa-external-link.fa-fw
                     | Portfolio
-            li
-                a(href='')
-                    i.fa.fa-comments.fa-fw
-                    | Contact
             li(ng-controller="loginController", ng-show="identity.isAuthenticated()", ng-click="signout()")
                 a(href='')
                     | Sign out
