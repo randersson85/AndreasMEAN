@@ -164,6 +164,10 @@ a:focus div {
     text-align: left!important;
 }
 
+.aboutInfo img {
+    width:500px;
+}
+
 #logo{
     position: relative;
     left:-50%;
