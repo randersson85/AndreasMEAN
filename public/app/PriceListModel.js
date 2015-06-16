@@ -24,8 +24,8 @@ angular.module("app")
             {"type": "Plexi glass","size": "34x60", "price": 2500},
             {"type": "Plexi glass","size": "45x80","price": 2700},
             {"type": "Plexi glass","size": "56x100","price": 3800},
-            {"type": "Plexi glass","size": "68x120","price": 6500},
-            {"type": "Plexi glass","size": "40x120","price": 6500},
+            {"type": "Plexi glass","size": "68x120","price": 6700},
+            {"type": "Plexi glass","size": "40x120","price": 6400},
             {"type": "Plexi glass","size": "50x150","price": 10800},
             {"type": "Plexi glass","size": "60x180","price": 11600},
             {"type": "Plexi glass","size": "70x210","price": 14900}
