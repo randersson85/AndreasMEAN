@@ -148,7 +148,7 @@ angular.module("app")
             }
 
             // build form
-            var form = $('<form></form>');
+            var form = $('<form target="_blank"></form>');
             form.attr("action", "https://www.paypal.com/cgi-bin/webscr");
             form.attr("method", "POST");
             form.attr("style", "display:none;");
